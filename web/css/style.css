@@ -1,0 +1,17 @@
+body
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.sidebar
+{
+    background-color: teal;
+    width: 96%;
+    top: 0;
+    left: 0;
+    padding: 2%;
+    position:absolute;
+}
+a{
+    color: white;
+    font-size:large;
+}

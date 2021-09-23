@@ -1,0 +1,86 @@
+{#<DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Accueil{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{asset("/css/style.css")}}">
+        {% endblock %}   
+    </head>
+    <body>
+        {% block body %}
+            {% block sidebar %}
+                <div class="sidebar">
+                    <a href="/">Accueil</a>
+                <div>
+            {% endblock %}
+            <center><div class="bienvenue">
+                <h1> Bienvenue sur notre plateforme ! </h1>
+            </div></center>
+            <div class="compte">
+            <a href="/physique">Ouvrir un compte</a>
+            </div>
+        {% endblock %}
+    </body>
+</html>#}
+{% extends 'base.html.twig' %}
+
+{% block content %} 
+    <style>
+        body
+            {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+        .sidebar
+            {
+                background-color: teal;
+                width: 100%;
+                top: 0;
+                left: 0;
+                padding: 2%;
+                position:absolute;
+            }
+        a
+            {
+                color: white;
+                font-size:2rem;
+                text-decoration: none;
+            }
+        a:hover
+        {
+            color:white;
+            text-decoration:none;
+        }
+                h1
+            {
+                color: teal;
+                margin-top:12%;
+                font-size:300%;
+            }
+        .compte 
+        {
+            color: black;
+            border: solid teal 1px;
+            margin-top:9%;
+            margin-left:37%;
+            background-color: teal;
+            border-radius:15px;
+            padding-left:3%;
+            padding-top:1%;
+            padding-right:2%;
+            padding-bottom:1%;
+            width:25%;
+            
+
+        }
+    </style>
+    
+{% block sidebar %}
+    <div class="sidebar">
+        <a href="{{path('path_home')}}">Accueil</a>
+    </div>
+{% endblock %}
+            <center><h1> Bienvenue sur notre plateforme ! </h1></center>
+        <div class="compte">
+            <a href="{{ path('path_choix')}}">Ouvrir un compte</a>
+        </div>
+{% endblock %}

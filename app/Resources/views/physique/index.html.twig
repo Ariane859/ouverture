@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Physiques list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Datnais</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Pays</th>
+                <th>Ville</th>
+                <th>Tuteur</th>
+                <th>Prenomtuteur</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for physique in physiques %}
+            <tr>
+                <td><a href="{{ path('physique_show', { 'id': physique.id }) }}">{{ physique.id }}</a></td>
+                <td>{{ physique.nom }}</td>
+                <td>{{ physique.prenom }}</td>
+                <td>{% if physique.datnais %}{{ physique.datnais|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ physique.telephone }}</td>
+                <td>{{ physique.email }}</td>
+                <td>{{ physique.pays }}</td>
+                <td>{{ physique.ville }}</td>
+                <td>{{ physique.tuteur }}</td>
+                <td>{{ physique.prenomTuteur }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('physique_show', { 'id': physique.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('physique_edit', { 'id': physique.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('physique_new') }}">Create a new physique</a>
+        </li>
+    </ul>
+{% endblock %}

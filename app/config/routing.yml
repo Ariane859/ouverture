@@ -1,0 +1,27 @@
+morale_morale:
+    resource: "@MoraleBundle/Controller/MoraleController.php"
+    type:     annotation
+
+physique_physique:
+    resource: "@PhysiqueBundle/Controller/PhysiqueController.php"
+    type:     annotation
+
+morale:
+    resource: "@MoraleBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+home:
+    resource: "@HomeBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+physique:
+    resource: "@PhysiqueBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+site:
+    resource: "@SiteBundle/Controller/"
+    type:     annotation
+    prefix:   /
