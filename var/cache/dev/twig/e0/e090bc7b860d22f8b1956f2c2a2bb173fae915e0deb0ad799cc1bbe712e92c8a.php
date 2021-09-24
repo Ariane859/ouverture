@@ -58,13 +58,13 @@ class __TwigTemplate_75a83f2f8a8612d3ad730920de6699aa44008e0346961080988a94843b3
                 width: 100%;
                 top: 0;
                 left: 0;
-                padding: 2%;
+                padding: 1%;
                 position:absolute;
             }
         a
             {
                 color: white;
-                font-size:2rem;
+                font-size:1.7rem;
                 text-decoration: none;
             }
         a:hover
@@ -204,13 +204,13 @@ class __TwigTemplate_75a83f2f8a8612d3ad730920de6699aa44008e0346961080988a94843b3
                 width: 100%;
                 top: 0;
                 left: 0;
-                padding: 2%;
+                padding: 1%;
                 position:absolute;
             }
         a
             {
                 color: white;
-                font-size:2rem;
+                font-size:1.7rem;
                 text-decoration: none;
             }
         a:hover

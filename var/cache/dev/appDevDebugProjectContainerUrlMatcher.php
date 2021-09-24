@@ -205,16 +205,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             // physique_index
-            if ('/physique' === $trimmedPathinfo) {
+            if ('/physique/index' === $pathinfo) {
                 $ret = array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::indexAction',  '_route' => 'physique_index',);
-                if ('/' === substr($pathinfo, -1)) {
-                    // no-op
-                } elseif ('GET' !== $canonicalMethod) {
-                    goto not_physique_index;
-                } else {
-                    return array_replace($ret, $this->redirect($rawPathinfo.'/', 'physique_index'));
-                }
-
                 if (!in_array($canonicalMethod, array('GET'))) {
                     $allow = array_merge($allow, array('GET'));
                     goto not_physique_index;

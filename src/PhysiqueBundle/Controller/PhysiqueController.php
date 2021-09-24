@@ -18,7 +18,7 @@ class PhysiqueController extends Controller
     /**
      * Lists all physique entities.
      *
-     * @Route("/", name="physique_index")
+     * @Route("/index", name="physique_index")
      * @Method("GET")
      */
     public function indexAction()

@@ -13,7 +13,7 @@
                 width: 100%;
                 top: 0;
                 left: 0;
-                padding: 2%;
+                padding: 1%;
                 position:absolute;
             }
         .accueil
@@ -74,9 +74,7 @@
 {% endblock %}
     <center><h2>Choisir le type de compte que vous voulez créer</h2></center>
     <div class="type">
-        <a href="{{path('physique_new')}}"><i class="fa fa-user" style="font-size:385px"></i></a>
-         <a href="{{path('morale_new')}}"><i class="fa fa-building-o" style="font-size:385px;margin-left: 18%"></i></a>
-
-    </div>
-           
+        <a href="{{ path('physique_new') }}"><i class="fa fa-user" style="font-size:385px"></i></a>
+        <a href="{{ path('morale_new') }}"><i class="fa fa-building-o" style="font-size:385px;margin-left: 18%"></i></a>
+    </div>       
 {% endblock %}

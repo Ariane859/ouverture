@@ -58,7 +58,7 @@ class __TwigTemplate_95bed7d08c65ac8eb70877cd7e60400fc89ca13c2484c93e8b7e2c49108
                 width: 100%;
                 top: 0;
                 left: 0;
-                padding: 2%;
+                padding: 1%;
                 position:absolute;
             }
         .accueil
@@ -120,15 +120,13 @@ class __TwigTemplate_95bed7d08c65ac8eb70877cd7e60400fc89ca13c2484c93e8b7e2c49108
     <div class=\"type\">
         <a href=\"";
         // line 77
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_compte_physique");
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_new");
         echo "\"><i class=\"fa fa-user\" style=\"font-size:385px\"></i></a>
-         <a href=\"";
+        <a href=\"";
         // line 78
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_home");
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("morale_new");
         echo "\"><i class=\"fa fa-building-o\" style=\"font-size:385px;margin-left: 18%\"></i></a>
-
-    </div>
-           
+    </div>       
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -175,7 +173,7 @@ class __TwigTemplate_95bed7d08c65ac8eb70877cd7e60400fc89ca13c2484c93e8b7e2c49108
 
     public function getDebugInfo()
     {
-        return array (  154 => 72,  151 => 71,  142 => 70,  127 => 78,  123 => 77,  119 => 75,  117 => 70,  50 => 5,  41 => 4,  11 => 2,);
+        return array (  152 => 72,  149 => 71,  140 => 70,  127 => 78,  123 => 77,  119 => 75,  117 => 70,  50 => 5,  41 => 4,  11 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -203,7 +201,7 @@ class __TwigTemplate_95bed7d08c65ac8eb70877cd7e60400fc89ca13c2484c93e8b7e2c49108
                 width: 100%;
                 top: 0;
                 left: 0;
-                padding: 2%;
+                padding: 1%;
                 position:absolute;
             }
         .accueil
@@ -264,11 +262,9 @@ class __TwigTemplate_95bed7d08c65ac8eb70877cd7e60400fc89ca13c2484c93e8b7e2c49108
 {% endblock %}
     <center><h2>Choisir le type de compte que vous voulez créer</h2></center>
     <div class=\"type\">
-        <a href=\"{{path('path_compte_physique')}}\"><i class=\"fa fa-user\" style=\"font-size:385px\"></i></a>
-         <a href=\"{{path('path_home')}}\"><i class=\"fa fa-building-o\" style=\"font-size:385px;margin-left: 18%\"></i></a>
-
-    </div>
-           
+        <a href=\"{{ path('physique_new') }}\"><i class=\"fa fa-user\" style=\"font-size:385px\"></i></a>
+        <a href=\"{{ path('morale_new') }}\"><i class=\"fa fa-building-o\" style=\"font-size:385px;margin-left: 18%\"></i></a>
+    </div>       
 {% endblock %}
 ", "SiteBundle:Default:index.html.twig", "C:\\laragon\\www\\ouverture\\src\\SiteBundle/Resources/views/Default/index.html.twig");
     }
