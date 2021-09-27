@@ -64,7 +64,7 @@ class __TwigTemplate_95bed7d08c65ac8eb70877cd7e60400fc89ca13c2484c93e8b7e2c49108
         .accueil
         {
             color:white;
-            font-size:2rem;
+            font-size:1.7rem;
         }
         .accueil:hover
         {
@@ -120,11 +120,11 @@ class __TwigTemplate_95bed7d08c65ac8eb70877cd7e60400fc89ca13c2484c93e8b7e2c49108
     <div class=\"type\">
         <a href=\"";
         // line 77
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_new");
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_new", array("type" => 1));
         echo "\"><i class=\"fa fa-user\" style=\"font-size:385px\"></i></a>
         <a href=\"";
         // line 78
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("morale_new");
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_new", array("type" => 2));
         echo "\"><i class=\"fa fa-building-o\" style=\"font-size:385px;margin-left: 18%\"></i></a>
     </div>       
 ";
@@ -207,7 +207,7 @@ class __TwigTemplate_95bed7d08c65ac8eb70877cd7e60400fc89ca13c2484c93e8b7e2c49108
         .accueil
         {
             color:white;
-            font-size:2rem;
+            font-size:1.7rem;
         }
         .accueil:hover
         {
@@ -262,8 +262,8 @@ class __TwigTemplate_95bed7d08c65ac8eb70877cd7e60400fc89ca13c2484c93e8b7e2c49108
 {% endblock %}
     <center><h2>Choisir le type de compte que vous voulez créer</h2></center>
     <div class=\"type\">
-        <a href=\"{{ path('physique_new') }}\"><i class=\"fa fa-user\" style=\"font-size:385px\"></i></a>
-        <a href=\"{{ path('morale_new') }}\"><i class=\"fa fa-building-o\" style=\"font-size:385px;margin-left: 18%\"></i></a>
+        <a href=\"{{ path('physique_new', {'type':1}) }}\"><i class=\"fa fa-user\" style=\"font-size:385px\"></i></a>
+        <a href=\"{{ path('physique_new',{'type':2}) }}\"><i class=\"fa fa-building-o\" style=\"font-size:385px;margin-left: 18%\"></i></a>
     </div>       
 {% endblock %}
 ", "SiteBundle:Default:index.html.twig", "C:\\laragon\\www\\ouverture\\src\\SiteBundle/Resources/views/Default/index.html.twig");

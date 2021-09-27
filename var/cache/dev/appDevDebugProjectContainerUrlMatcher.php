@@ -217,8 +217,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             not_physique_index:
 
             // physique_new
-            if ('/physique/new' === $pathinfo) {
-                $ret = array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::newAction',  '_route' => 'physique_new',);
+            if (0 === strpos($pathinfo, '/physique/new') && preg_match('#^/physique/new/(?P<type>[^/]++)$#sD', $pathinfo, $matches)) {
+                $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'physique_new')), array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::newAction',));
                 if (!in_array($canonicalMethod, array('GET', 'POST'))) {
                     $allow = array_merge($allow, array('GET', 'POST'));
                     goto not_physique_new;

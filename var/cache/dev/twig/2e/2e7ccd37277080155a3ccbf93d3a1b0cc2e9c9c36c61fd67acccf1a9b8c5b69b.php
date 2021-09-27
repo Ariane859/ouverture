@@ -72,7 +72,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         <li>
             ";
         // line 16
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_start');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_start', array("attr" => array("onSubmit" => "return confirm('Voulez vous vraiment supprimer?');")));
         echo "
                 <input type=\"submit\" value=\"Delete\">
             ";
@@ -130,7 +130,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
             <a href=\"{{ path('physique_index') }}\">Back to the list</a>
         </li>
         <li>
-            {{ form_start(delete_form) }}
+            {{ form_start(delete_form,{'attr':{'onSubmit':\"return confirm('Voulez vous vraiment supprimer?');\"}}) }}
                 <input type=\"submit\" value=\"Delete\">
             {{ form_end(delete_form) }}
         </li>

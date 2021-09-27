@@ -86,7 +86,7 @@ class __TwigTemplate_75a83f2f8a8612d3ad730920de6699aa44008e0346961080988a94843b3
             margin-left:37%;
             background-color: teal;
             border-radius:15px;
-            padding-left:3%;
+            padding-left:5%;
             padding-top:1%;
             padding-right:2%;
             padding-bottom:1%;
@@ -232,7 +232,7 @@ class __TwigTemplate_75a83f2f8a8612d3ad730920de6699aa44008e0346961080988a94843b3
             margin-left:37%;
             background-color: teal;
             border-radius:15px;
-            padding-left:3%;
+            padding-left:5%;
             padding-top:1%;
             padding-right:2%;
             padding-bottom:1%;

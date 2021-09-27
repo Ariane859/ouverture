@@ -35,13 +35,13 @@ class PhysiqueController extends Controller
     /**
      * Creates a new physique entity.
      *
-     * @Route("/new", name="physique_new")
+     * @Route("/new/{type}", name="physique_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $type)
     {
         $physique = new Physique();
-        $form = $this->createForm('PhysiqueBundle\Form\PhysiqueType', $physique);
+        $form = $this->createForm('PhysiqueBundle\Form\PhysiqueType', $physique, array('type' => $type));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -49,7 +49,7 @@ class PhysiqueController extends Controller
             $em->persist($physique);
             $em->flush();
 
-            return $this->redirectToRoute('physique_show', array('id' => $physique->getId()));
+            return $this->redirectToRoute('physique_index');
         }
 
         return $this->render('physique/new.html.twig', array(
@@ -114,9 +114,10 @@ class PhysiqueController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($physique);
             $em->flush();
+            return $this->redirectToRoute('physique_index');
         }
 
-        return $this->redirectToRoute('physique_index');
+        
     }
 
     /**

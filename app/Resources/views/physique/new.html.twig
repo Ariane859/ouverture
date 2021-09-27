@@ -33,18 +33,23 @@
         .formulaire 
         {
             color: black;
-            margin-top:11%;
-            margin-left:37%;
-            padding-left:3%;
-            padding-top:1%;
-            padding-right:2%;
-            padding-bottom:1%;
-            width:25%;
+            margin-top:8%;
+            margin-left:11%;
+            width:80%;
+            border:solid white 1px;
         }
-        .ouvrir
+        #ouvrir
         {
-            margin-left:77%;
-            font-size:1rem;
+            margin-left:80%;
+            font-size:1.2rem;
+        }
+        #index
+        {
+            color: white;
+            margin-left:94%;
+        }
+        .index:hover{
+            color:black;
         }
 </style>
     
@@ -53,19 +58,72 @@
 {% block sidebar %}
     <div class="sidebar">
         <a href="{{path('path_home')}}" class="accueil">Accueil</a>
-        <a href="{{ path('path_choix')}}" class="ouvrir">Ouvrir un compte</a>
+        <a href="{{ path('path_choix')}}" id="ouvrir">Ouvrir un compte</a>
     </div>
 {% endblock %}
 <div class="formulaire">
+    <a href="{{ path('physique_index') }}"class="btn btn-primary" id="index">Liste</a>
     {{ form_start(form) }}
-        {{form(form)}}
-        <input type="submit" value="Enregistrer" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('physique_index') }}">Index</a>
-        </li>
-    </ul>
+    {% if form.typeCompte is defined %}
+        {{form_row(form.typeCompte)}}
+        {% endif %}
+       <div class="form-row">
+        <div class="form-group col-md-6">
+        {% if form.nom is defined %}
+        {{form_row(form.nom)}}
+        {% endif %}
+        </div>
+        <div class="form-group col-md-6">
+        {% if form.prenom is defined %}
+        {{form_row(form.prenom)}}
+        {% endif %}
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+        {% if form.sigle is defined %}
+        {{form_row(form.sigle)}}
+        {% endif %}
+        </div>
+        <div class="form-group col-md-6">
+         {% if form.raisonSociale is defined %}
+        {{form_row(form.raisonSociale)}}
+        {% endif %}
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+        {{ form_row(form.datnais)}}
+        </div>
+        <div class="form-group col-md-6">
+        {{ form_row(form.telephone)}}
+        </div>
+        </div>
+        <div class="form-group">
+        {{ form_row(form.email)}}
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+        {{ form_row(form.pays)}}
+        </div>
+        <div class="form-group col-md-6">
+        {{ form_row(form.ville)}}
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+         {% if form.tuteur is defined %}
+        {{form_row(form.tuteur)}}
+        {% endif %}
+        </div>
+        <div class="form-group col-md-6">
+        {% if form.prenomTuteur is defined %}
+        {{form_row(form.prenomTuteur)}}
+        {% endif %}
+        </div>
+        </div>
+         
+        <input type="submit" class="btn btn-primary" value="Enregistrer"/>
+        {{ form_end(form) }}
     </div>
 {% endblock %}
