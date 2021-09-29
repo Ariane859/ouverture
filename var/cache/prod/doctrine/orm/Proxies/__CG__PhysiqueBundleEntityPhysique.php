@@ -64,10 +64,10 @@ class Physique extends \PhysiqueBundle\Entity\Physique implements \Doctrine\ORM\
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'id', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'nom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'datnais', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'telephone', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'email', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'pays', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'ville', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'tuteur', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenomTuteur'];
+            return ['__isInitialized__', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'id', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'typeCompte', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'nom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'sigle', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'raisonSociale', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'datnais', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'telephone', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'email', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'pays', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'ville', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'tuteur', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenomTuteur'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'id', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'nom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'datnais', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'telephone', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'email', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'pays', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'ville', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'tuteur', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenomTuteur'];
+        return ['__isInitialized__', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'id', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'typeCompte', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'nom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'sigle', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'raisonSociale', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'datnais', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'telephone', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'email', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'pays', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'ville', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'tuteur', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenomTuteur'];
     }
 
     /**
@@ -384,6 +384,72 @@ class Physique extends \PhysiqueBundle\Entity\Physique implements \Doctrine\ORM\
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrenomTuteur', []);
 
         return parent::getPrenomTuteur();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setTypeCompte($typeCompte)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTypeCompte', [$typeCompte]);
+
+        return parent::setTypeCompte($typeCompte);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTypeCompte()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTypeCompte', []);
+
+        return parent::getTypeCompte();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setSigle($sigle)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSigle', [$sigle]);
+
+        return parent::setSigle($sigle);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSigle()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSigle', []);
+
+        return parent::getSigle();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setRaisonSociale($raisonSociale)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRaisonSociale', [$raisonSociale]);
+
+        return parent::setRaisonSociale($raisonSociale);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRaisonSociale()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRaisonSociale', []);
+
+        return parent::getRaisonSociale();
     }
 
 }

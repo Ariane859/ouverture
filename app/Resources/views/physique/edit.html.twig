@@ -1,21 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Physique edit</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input type="submit" value="Valider" />
     {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('physique_index') }}">Back to the list</a>
-        </li>
-        <li>
+        <a href="{{ path('physique_index') }}" class="btn btn-primary">Retourner à la liste</a>
             {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Delete" class="btn btn-danger">
             {{ form_end(delete_form) }}
-        </li>
     </ul>
 {% endblock %}
+
+
+

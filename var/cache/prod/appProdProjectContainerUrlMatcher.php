@@ -126,16 +126,8 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
             }
 
             // physique_index
-            if ('/physique' === $trimmedPathinfo) {
+            if ('/physique/index' === $pathinfo) {
                 $ret = array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::indexAction',  '_route' => 'physique_index',);
-                if ('/' === substr($pathinfo, -1)) {
-                    // no-op
-                } elseif ('GET' !== $canonicalMethod) {
-                    goto not_physique_index;
-                } else {
-                    return array_replace($ret, $this->redirect($rawPathinfo.'/', 'physique_index'));
-                }
-
                 if (!in_array($canonicalMethod, array('GET'))) {
                     $allow = array_merge($allow, array('GET'));
                     goto not_physique_index;
@@ -146,8 +138,8 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
             not_physique_index:
 
             // physique_new
-            if ('/physique/new' === $pathinfo) {
-                $ret = array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::newAction',  '_route' => 'physique_new',);
+            if (0 === strpos($pathinfo, '/physique/new') && preg_match('#^/physique/new/(?P<type>[^/]++)$#sD', $pathinfo, $matches)) {
+                $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'physique_new')), array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::newAction',));
                 if (!in_array($canonicalMethod, array('GET', 'POST'))) {
                     $allow = array_merge($allow, array('GET', 'POST'));
                     goto not_physique_new;
@@ -170,8 +162,16 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
             not_physique_show:
 
             // physique_edit
-            if (preg_match('#^/physique/(?P<id>[^/]++)/edit$#sD', $pathinfo, $matches)) {
+            if (preg_match('#^/physique/(?P<id>[^/]++)/edit/?$#sD', $pathinfo, $matches)) {
                 $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'physique_edit')), array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::editAction',));
+                if ('/' === substr($pathinfo, -1)) {
+                    // no-op
+                } elseif ('GET' !== $canonicalMethod) {
+                    goto not_physique_edit;
+                } else {
+                    return array_replace($ret, $this->redirect($rawPathinfo.'/', 'physique_edit'));
+                }
+
                 if (!in_array($canonicalMethod, array('GET', 'POST'))) {
                     $allow = array_merge($allow, array('GET', 'POST'));
                     goto not_physique_edit;

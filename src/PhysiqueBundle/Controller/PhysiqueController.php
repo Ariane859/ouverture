@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\HttpFoundation\Response;
 /**
  * Physique controller.
@@ -77,7 +79,7 @@ class PhysiqueController extends Controller
     /**
      * Displays a form to edit an existing physique entity.
      *
-     * @Route("/{id}/edit", name="physique_edit")
+     * @Route("/{id}/edit/", name="physique_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Physique $physique)
@@ -134,5 +136,80 @@ class PhysiqueController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+     * Search entities.
+     *
+     * @Route("/search", name="physique_search_form")
+     * @Method("GET")
+     */
+   /*public function RechercherAction(Request $request)
+    {
+        dump(1);die();
+        $physique = new Physique();
+        $form = $this->createFormBuilder($physique)
+        ->add('id', IntegerType::class)
+        ->add('Rechercher', SubmitType::class)
+        ->getForm();
+        
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $data = $form->getData();
+        $em = $this->getDoctrine()->getManager()->getRepository('PhysiqueBundle:Physique');
+        $physiques = $em->find($data);
+        return $this->render('physique/recherche.html.twig', array(
+        'physiques' => $physiques
+     ) );
+    }
+
+    return $this->render('physique/formsearch.html.twig', array(
+        'physique' => $physique,
+        'form' => $form->createView(),
+    ));
+
+    }*/
+
+    /**
+     * Displays a form to edit an existing physique entity.
+     *
+     * @Route("/physique/search/", name="physique_search")
+     * @Method({"GET","POST"})
+     */
+        public function physiquesearchAction(Request $request){ 
+        // dump(1);die();
+        $search=NULL;
+        //$physique = new Physique();
+        $form = $this->createFormBuilder()
+        ->add('search', SearchType::class, array('attr' => array('placeholder' => 'Rechercher') ))
+        ->add('send', SubmitType::class, array('label' => 'Envoyer'))
+        ->getForm();
+        
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $search = $form['search']->getData();
+            $form = $request->query->get('form');
+            $em = $this->getDoctrine()->getManager();
+            $physiques = $em->getRepository('PhysiqueBundle:Physique')->findByExampleField($search);
+        
+    //         /*$em = $this->getDoctrine()->getManager()->getRepository('PhysiqueBundle:Physique');
+    //         $physiques = $em->find($data);*/
+            return $this->render('physique/recherche.html.twig',[ 
+    //         //'search' => $search,
+           'physiques' => $physiques
+             ] );
+         }
+
+    //    // return $this->render('physique/formsearch.html.twig', array(
+    //         //'physique' => $physique,
+    //         //'form' => $form->createView(),
+    //    // ));
+            return $this->render('physique/formsearch.html.twig',[ 
+        //         'physique' => $physique,
+            'form' => $form->createView()
+        ]);
+       
     }
 }

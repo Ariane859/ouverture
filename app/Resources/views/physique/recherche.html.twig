@@ -1,0 +1,46 @@
+{# {% extends 'base.html.twig' %}
+{% block content %}
+<table class="table table-bordered table-striped">
+<tr>
+<th> id </th>
+<th> Nom </th>
+<th> Prenom </th>
+<th> Email </th>
+<th> Raison sociale </th>
+<th> Sigle </th>
+<th> Telephone </th>
+<th> Pays </th>
+<th> Ville </th>
+<th> Tuteur </th>
+<th> Prénom du tuteur</th>
+</tr>
+<tr class="active"> 
+    <td> {{ physiques.nom }} </td> 
+    <td> {{ physiques.prenom }} </td>
+    <td> {{ physiques.email }} </td> 
+    <td> {{ physiques.raisonSociale }} </td> 
+    <td> {{ physiques.sigle }} </td> 
+    <td> {{ physiques.telephone }} </td>
+    <td> {{ physiques.pays }} </td>
+    <td> {{ physiques.ville }} </td>
+    <td> {{ physiques.tuteur }} </td>
+    <td>{{ physiques.prenomTuteur }}</td>
+    <td> <a href="{{ path('physique_edit') }}" class="btn btn-primary">Modifier</a> 
+    </td> <td> <a href="{{ path('physique_delete',{'id': physique.id}) }}" class="btn btn-danger">Supprimer</a> 
+    </td>  
+</tr>
+</table>
+ 
+{% endblock %} #}
+{% if physiques | length == 0 %}
+            <h4>Aucun résulat pour votre recherche.</h4>
+           {% else %}
+               <h3 class="mt-3">Vos résulats de recherche :</h3>
+               {% for physique in physiques %}
+                   <div class="mt-3 p-3 bg-light border rounded">
+                       <a href="{{ path('physique_show', {'id': physique.id}) }}">
+                              <h6 class="text-dark"><i class="bi bi-arrow-down-right-square-fill text-primary"></i> {{ physique.nom }}</h6>
+                       </a>
+                   </div>
+              {% endfor %}
+          {% endif %}

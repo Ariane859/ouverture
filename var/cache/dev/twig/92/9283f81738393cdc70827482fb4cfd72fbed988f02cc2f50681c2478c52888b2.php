@@ -12,6 +12,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
         $this->blocks = array(
             'content' => array($this, 'block_content'),
             'sidebar' => array($this, 'block_sidebar'),
+            'javascripts' => array($this, 'block_javascripts'),
         );
     }
 
@@ -59,11 +60,14 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
                 top: 0;
                 left: 0;
                 padding:1%;
-                position:absolute;
             }
+        #formulaire
+        {
+            margin-left:65%;
+        }
         h1
         {
-            margin-top:6%;
+            margin-top:1%;
             margin-left:1%;
             font-weight:bold;
             font-size:2rem;
@@ -74,7 +78,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
 
         a
             {
-                color: black;
+                color:black;
                 text-decoration: none;
             }
         a:hover
@@ -94,7 +98,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
         #ouvrir
         {
             /*border:solid white 1px;*/
-            margin-left:80%;
+            margin-left:30%;
             font-size:1.2rem;
             color:white;
             padding:1%;
@@ -122,17 +126,23 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
             margin-left:93.5%;
         }
 </style>
+
     ";
-        // line 79
+        // line 83
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 86
+        // line 103
+        echo "
+
+";
+        // line 106
         echo "    <h1>Listes</h1>
     <a href=\"";
-        // line 87
+        // line 107
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_new", array("type" => 1));
         echo "\" class=\"btn btn-primary\" id=\"ajouter\">Ajouter</a>";
-        // line 88
-        echo "    <table class=\"table table-striped table-hover table-bordered\">
+        // line 108
+        echo "    
+    <table class=\"table table-striped table-hover table-bordered\">
         <thead>
             <tr>
                 <th scope=\"col\">Id</th>
@@ -147,78 +157,77 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
                 <th scope=\"col\">Ville</th>
                 <th scope=\"col\">Tuteur</th>
                 <th scope=\"col\">Prénom du tuteur</th>
-                <th scope=\"col\">Actions</th>
             </tr>
         </thead>
         <tbody>
         ";
-        // line 107
+        // line 127
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["physiques"] ?? $this->getContext($context, "physiques")));
         foreach ($context['_seq'] as $context["_key"] => $context["physique"]) {
-            // line 108
+            // line 128
             echo "            <tr>
                 <th scope=\"row\"><a href=\"";
-            // line 109
+            // line 129
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_show", array("id" => $this->getAttribute($context["physique"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "id", array()), "html", null, true);
             echo "</a></th>
                 <td>";
-            // line 110
+            // line 130
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "nom", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 111
+            // line 131
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "prenom", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 112
+            // line 132
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "sigle", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 113
+            // line 133
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "raisonSociale", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 114
+            // line 134
             if ($this->getAttribute($context["physique"], "datnais", array())) {
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["physique"], "datnais", array()), "Y-m-d"), "html", null, true);
             }
             echo "</td>
                 <td>";
-            // line 115
+            // line 135
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "telephone", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 116
+            // line 136
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "email", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 117
+            // line 137
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "pays", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 118
+            // line 138
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "ville", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 119
+            // line 139
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "tuteur", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 120
+            // line 140
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "prenomTuteur", array()), "html", null, true);
             echo "</td>
                 <td>
                             <a href=\"";
-            // line 122
+            // line 142
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_show", array("id" => $this->getAttribute($context["physique"], "id", array()))), "html", null, true);
-            echo "\">show</a>
+            echo "\"><i class=\"fa fa-eye\" style=\"font-size:23px;color:blue\"></i></a>
                             <a href=\"";
-            // line 123
+            // line 143
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute($context["physique"], "id", array()))), "html", null, true);
-            echo "\">edit</a>
+            echo "\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
                 </td>
             </tr>
         ";
@@ -226,7 +235,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['physique'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 127
+        // line 147
         echo "        </tbody>
     </table>
 ";
@@ -238,7 +247,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
 
     }
 
-    // line 79
+    // line 83
     public function block_sidebar($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -247,17 +256,72 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
 
-        // line 80
+        // line 84
         echo "    <div class=\"sidebar\">
-        <a href=\"";
-        // line 81
+        <div class=\"form-row\">
+            <div class=\"col-md-2\">
+                <a href=\"";
+        // line 87
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_home");
         echo "\" class=\"accueil\">Accueil</a>
-        <a href=\"";
-        // line 82
+            </div>
+            <div class=\"col-md-8\">
+                <form class=\"form-inline my-2 my-lg-0\" id=\"formulaire\">
+                    <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" id=\"search\">
+                    <button class=\"btn btn-outline-success my-6 my-sm-6\" id=\"bouton_search\">Rechercher</button>
+                </form>
+            </div>
+            <div class=\"col-md-2\">
+                <a href=\"";
+        // line 96
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_choix");
         echo "\" id=\"ouvrir\">Ouvrir un compte</a>
+            </div>
+        </div>
     </div>
+
+
+    ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 150
+    public function block_javascripts($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        echo " 
+";
+        // line 151
+        $this->displayParentBlock("javascripts", $context, $blocks);
+        echo "
+<script> 
+        ";
+        // line 154
+        echo "  ";
+        // line 155
+        echo "    ";
+        // line 158
+        echo "\$(document).ready(function(){
+    \$(\"#bouton_search\").click(function(ev){
+        ev.preventDefault();
+        alert(2);
+
+    });
+})
+
+    ";
+        // line 184
+        echo "</script>   
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -279,7 +343,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
 
     public function getDebugInfo()
     {
-        return array (  258 => 82,  254 => 81,  251 => 80,  242 => 79,  230 => 127,  220 => 123,  216 => 122,  211 => 120,  207 => 119,  203 => 118,  199 => 117,  195 => 116,  191 => 115,  185 => 114,  181 => 113,  177 => 112,  173 => 111,  169 => 110,  163 => 109,  160 => 108,  156 => 107,  135 => 88,  132 => 87,  129 => 86,  127 => 79,  50 => 4,  41 => 3,  11 => 1,);
+        return array (  324 => 184,  314 => 158,  312 => 155,  310 => 154,  305 => 151,  294 => 150,  277 => 96,  265 => 87,  260 => 84,  251 => 83,  239 => 147,  229 => 143,  225 => 142,  220 => 140,  216 => 139,  212 => 138,  208 => 137,  204 => 136,  200 => 135,  194 => 134,  190 => 133,  186 => 132,  182 => 131,  178 => 130,  172 => 129,  169 => 128,  165 => 127,  144 => 108,  141 => 107,  138 => 106,  134 => 103,  132 => 83,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -307,11 +371,14 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
                 top: 0;
                 left: 0;
                 padding:1%;
-                position:absolute;
             }
+        #formulaire
+        {
+            margin-left:65%;
+        }
         h1
         {
-            margin-top:6%;
+            margin-top:1%;
             margin-left:1%;
             font-weight:bold;
             font-size:2rem;
@@ -322,7 +389,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
 
         a
             {
-                color: black;
+                color:black;
                 text-decoration: none;
             }
         a:hover
@@ -342,7 +409,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
         #ouvrir
         {
             /*border:solid white 1px;*/
-            margin-left:80%;
+            margin-left:30%;
             font-size:1.2rem;
             color:white;
             padding:1%;
@@ -370,15 +437,33 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
             margin-left:93.5%;
         }
 </style>
+
     {% block sidebar %}
     <div class=\"sidebar\">
-        <a href=\"{{path('path_home')}}\" class=\"accueil\">Accueil</a>
-        <a href=\"{{ path('path_choix')}}\" id=\"ouvrir\">Ouvrir un compte</a>
+        <div class=\"form-row\">
+            <div class=\"col-md-2\">
+                <a href=\"{{path('path_home')}}\" class=\"accueil\">Accueil</a>
+            </div>
+            <div class=\"col-md-8\">
+                <form class=\"form-inline my-2 my-lg-0\" id=\"formulaire\">
+                    <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" id=\"search\">
+                    <button class=\"btn btn-outline-success my-6 my-sm-6\" id=\"bouton_search\">Rechercher</button>
+                </form>
+            </div>
+            <div class=\"col-md-2\">
+                <a href=\"{{ path('path_choix')}}\" id=\"ouvrir\">Ouvrir un compte</a>
+            </div>
+        </div>
     </div>
-{% endblock %}
+
+
+    {% endblock %}
+
+
 {#<div class=\"form-row\">#}
     <h1>Listes</h1>
     <a href=\"{{ path('physique_new', {'type':1}) }}\" class=\"btn btn-primary\" id=\"ajouter\">Ajouter</a>{#</div>#}
+    
     <table class=\"table table-striped table-hover table-bordered\">
         <thead>
             <tr>
@@ -394,7 +479,6 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
                 <th scope=\"col\">Ville</th>
                 <th scope=\"col\">Tuteur</th>
                 <th scope=\"col\">Prénom du tuteur</th>
-                <th scope=\"col\">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -413,14 +497,49 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
                 <td>{{ physique.tuteur }}</td>
                 <td>{{ physique.prenomTuteur }}</td>
                 <td>
-                            <a href=\"{{ path('physique_show', { 'id': physique.id }) }}\">show</a>
-                            <a href=\"{{ path('physique_edit', { 'id': physique.id }) }}\">edit</a>
+                            <a href=\"{{ path('physique_show', { 'id': physique.id }) }}\"><i class=\"fa fa-eye\" style=\"font-size:23px;color:blue\"></i></a>
+                            <a href=\"{{ path('physique_edit', { 'id': physique.id }) }}\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 {% endblock %}
-", "physique/index.html.twig", "C:\\laragon\\www\\ouverture\\app\\Resources\\views\\physique\\index.html.twig");
+{% block javascripts %} 
+{{parent() }}
+<script> 
+        {# let rechercher= \$(\"#se)arch\").val; #}
+  {# alert(5) #}
+    {# function myFonction(){
+    var x = document.getElementById(\"bouton_search\");
+    x.disabled=true; #}
+\$(document).ready(function(){
+    \$(\"#bouton_search\").click(function(ev){
+        ev.preventDefault();
+        alert(2);
+
+    });
+})
+
+    {# let rechercher= \$(\"#search\").val;
+    console.log(rechercher); 
+    const data = { username: 'example' };
+
+    fetch('https://example.com/profile', {
+    method: 'POST', // or 'PUT'
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+    console.log('Success:', data);
+    })
+    .catch((error) => {
+    console.error('Error:', error);
+    }); #}
+</script>   
+{% endblock %}", "physique/index.html.twig", "C:\\laragon\\www\\ouverture\\app\\Resources\\views\\physique\\index.html.twig");
     }
 }

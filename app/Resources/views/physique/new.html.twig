@@ -93,7 +93,8 @@
         </div>
         <div class="form-row">
         <div class="form-group col-md-6">
-        {{ form_row(form.datnais)}}
+        {{ form_row(form.datnais,{'attr':{'id':"datnaissance"}} )}}
+        <p id="reponse"></p>
         </div>
         <div class="form-group col-md-6">
         {{ form_row(form.telephone)}}

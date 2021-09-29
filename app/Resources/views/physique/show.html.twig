@@ -7,8 +7,7 @@
                 font-family: Georgia, 'Times New Roman', Times, serif;
             }
             table{
-                margin-top:10%;
-                margin-left:14%;
+                margin-top:2%;
             }
         .sidebar
             {
@@ -49,10 +48,19 @@
             color:black;
         }
         #liste{
-            color:black;
+            color:white;
+            margin-left:88%;
+            margin-top:1%;
+           
+        }
+        #supprimer
+        {
+            margin-left:92%;
         }
         #modifier{
-            color:black;
+            margin-top:6%;
+            color:white;
+            margin-left:92%;
         }
 </style>
     {% block sidebar %}
@@ -61,7 +69,8 @@
         <a href="{{ path('path_choix')}}" id="ouvrir">Ouvrir un compte</a>
     </div>
 {% endblock %}
-    <table border=1>
+<a href="{{ path('physique_edit', { 'id': physique.id }) }}" id="modifier" class="btn btn-primary">Modifier</a>
+    <table class="table table-hover table-sm">
         <tbody>
             <tr>
                 <th>Id:</th>
@@ -117,9 +126,9 @@
             </tr>
         </tbody>
     </table>
-            <a href="{{ path('physique_index') }}" id="liste">Liste</a>
-            <a href="{{ path('physique_edit', { 'id': physique.id }) }}" id="modifier">Modifier</a>
-            {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
-                <input type="submit" class="btn btn-danger" value="Supprimer">
-            {{ form_end(delete_form) }}
+         {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
+                <input type="submit" class="btn btn-danger" id="supprimer" value="Supprimer">
+    {{ form_end(delete_form) }}
+        <a href="{{ path('physique_index') }}" class="btn btn-primary" id="liste">Retourner à la liste</a>
+         <a href="{{ path('physique_search') }}" class="btn btn-primary">Rechercher</a> 
 {% endblock %}

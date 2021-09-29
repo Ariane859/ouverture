@@ -241,8 +241,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             not_physique_show:
 
             // physique_edit
-            if (preg_match('#^/physique/(?P<id>[^/]++)/edit$#sD', $pathinfo, $matches)) {
+            if (preg_match('#^/physique/(?P<id>[^/]++)/edit/?$#sD', $pathinfo, $matches)) {
                 $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'physique_edit')), array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::editAction',));
+                if ('/' === substr($pathinfo, -1)) {
+                    // no-op
+                } elseif ('GET' !== $canonicalMethod) {
+                    goto not_physique_edit;
+                } else {
+                    return array_replace($ret, $this->redirect($rawPathinfo.'/', 'physique_edit'));
+                }
+
                 if (!in_array($canonicalMethod, array('GET', 'POST'))) {
                     $allow = array_merge($allow, array('GET', 'POST'));
                     goto not_physique_edit;
@@ -263,6 +271,26 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $ret;
             }
             not_physique_delete:
+
+            // physique_search
+            if ('/physique/physique/search' === $trimmedPathinfo) {
+                $ret = array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::physiquesearchAction',  '_route' => 'physique_search',);
+                if ('/' === substr($pathinfo, -1)) {
+                    // no-op
+                } elseif ('GET' !== $canonicalMethod) {
+                    goto not_physique_search;
+                } else {
+                    return array_replace($ret, $this->redirect($rawPathinfo.'/', 'physique_search'));
+                }
+
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_physique_search;
+                }
+
+                return $ret;
+            }
+            not_physique_search:
 
         }
 

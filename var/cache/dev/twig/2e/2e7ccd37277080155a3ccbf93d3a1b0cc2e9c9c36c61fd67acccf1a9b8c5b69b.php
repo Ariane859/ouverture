@@ -46,40 +46,33 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
         // line 4
-        echo "    <h1>Physique edit</h1>
-
+        echo "
     ";
-        // line 6
+        // line 5
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["edit_form"] ?? $this->getContext($context, "edit_form")), 'form_start');
         echo "
         ";
-        // line 7
+        // line 6
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(($context["edit_form"] ?? $this->getContext($context, "edit_form")), 'widget');
         echo "
-        <input type=\"submit\" value=\"Edit\" />
+        <input type=\"submit\" value=\"Valider\" />
     ";
-        // line 9
+        // line 8
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["edit_form"] ?? $this->getContext($context, "edit_form")), 'form_end');
         echo "
-
-    <ul>
-        <li>
-            <a href=\"";
-        // line 13
+        <a href=\"";
+        // line 9
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_index");
-        echo "\">Back to the list</a>
-        </li>
-        <li>
+        echo "\" class=\"btn btn-primary\">Retourner à la liste</a>
             ";
-        // line 16
+        // line 10
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_start', array("attr" => array("onSubmit" => "return confirm('Voulez vous vraiment supprimer?');")));
         echo "
-                <input type=\"submit\" value=\"Delete\">
+                <input type=\"submit\" value=\"Delete\" class=\"btn btn-danger\">
             ";
-        // line 18
+        // line 12
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_end');
         echo "
-        </li>
     </ul>
 ";
         
@@ -102,7 +95,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 
     public function getDebugInfo()
     {
-        return array (  80 => 18,  75 => 16,  69 => 13,  62 => 9,  57 => 7,  53 => 6,  49 => 4,  40 => 3,  11 => 1,);
+        return array (  74 => 12,  69 => 10,  65 => 9,  61 => 8,  56 => 6,  52 => 5,  49 => 4,  40 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -118,24 +111,20 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         return new Twig_Source("{% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Physique edit</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type=\"submit\" value=\"Edit\" />
+        <input type=\"submit\" value=\"Valider\" />
     {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href=\"{{ path('physique_index') }}\">Back to the list</a>
-        </li>
-        <li>
+        <a href=\"{{ path('physique_index') }}\" class=\"btn btn-primary\">Retourner à la liste</a>
             {{ form_start(delete_form,{'attr':{'onSubmit':\"return confirm('Voulez vous vraiment supprimer?');\"}}) }}
-                <input type=\"submit\" value=\"Delete\">
+                <input type=\"submit\" value=\"Delete\" class=\"btn btn-danger\">
             {{ form_end(delete_form) }}
-        </li>
     </ul>
 {% endblock %}
+
+
+
 ", "physique/edit.html.twig", "C:\\laragon\\www\\ouverture\\app\\Resources\\views\\physique\\edit.html.twig");
     }
 }

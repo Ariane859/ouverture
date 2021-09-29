@@ -263,7 +263,7 @@ class __TwigTemplate_95bed7d08c65ac8eb70877cd7e60400fc89ca13c2484c93e8b7e2c49108
     <center><h2>Choisir le type de compte que vous voulez créer</h2></center>
     <div class=\"type\">
         <a href=\"{{ path('physique_new', {'type':1}) }}\"><i class=\"fa fa-user\" style=\"font-size:385px\"></i></a>
-        <a href=\"{{ path('physique_new',{'type':2}) }}\"><i class=\"fa fa-building-o\" style=\"font-size:385px;margin-left: 18%\"></i></a>
+        <a href=\"{{ path('physique_new',{'type':2})  }}\"><i class=\"fa fa-building-o\" style=\"font-size:385px;margin-left: 18%\"></i></a>
     </div>       
 {% endblock %}
 ", "SiteBundle:Default:index.html.twig", "C:\\laragon\\www\\ouverture\\src\\SiteBundle/Resources/views/Default/index.html.twig");
