@@ -84,7 +84,7 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
         $this->displayBlock('footer', $context, $blocks);
         // line 38
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 44
+        // line 46
         echo "</body>
 </html>
 ";
@@ -219,6 +219,14 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
     <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>
     <script src=\"";
         // line 42
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("bundles/fosjsrouting/js/router.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 43
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_js_routing_js", array("callback" => "fos.Router.setData"));
+        echo "\"></script>
+    <script src=\"";
+        // line 44
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/age.js"), "html", null, true);
         echo "\"></script>
 ";
@@ -242,7 +250,7 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
 
     public function getDebugInfo()
     {
-        return array (  222 => 42,  217 => 39,  208 => 38,  191 => 37,  174 => 36,  157 => 35,  140 => 34,  127 => 26,  118 => 25,  100 => 12,  88 => 44,  86 => 38,  84 => 37,  82 => 36,  80 => 35,  78 => 34,  72 => 30,  70 => 25,  62 => 20,  56 => 17,  51 => 15,  45 => 12,  32 => 1,);
+        return array (  230 => 44,  226 => 43,  222 => 42,  217 => 39,  208 => 38,  191 => 37,  174 => 36,  157 => 35,  140 => 34,  127 => 26,  118 => 25,  100 => 12,  88 => 46,  86 => 38,  84 => 37,  82 => 36,  80 => 35,  78 => 34,  72 => 30,  70 => 25,  62 => 20,  56 => 17,  51 => 15,  45 => 12,  32 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -296,6 +304,8 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
     <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js\" integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\" crossorigin=\"anonymous\"></script>
     <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>
+    <script src=\"{{ asset('bundles/fosjsrouting/js/router.js') }}\"></script>
+    <script src=\"{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}\"></script>
     <script src=\"{{ asset('js/age.js')}}\"></script>
 {% endblock %}
 </body>

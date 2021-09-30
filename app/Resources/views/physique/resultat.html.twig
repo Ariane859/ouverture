@@ -1,0 +1,26 @@
+
+      <div class="modal-body">
+        {% for physique in physiques %}
+            <tr>
+                <th scope="row"><a href="{{ path('physique_show', { 'id': physique.id }) }}">{{ physique.id }}</a></th>
+                <td>{{ physique.nom }}</td>
+                <td>{{ physique.prenom }}</td>
+                <td>{{ physique.sigle }}</td>
+                <td>{{ physique.raisonSociale }}</td>
+                <td>{% if physique.datnais %}{{ physique.datnais|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ physique.telephone }}</td>
+                <td>{{ physique.email }}</td>
+                <td>{{ physique.pays }}</td>
+                <td>{{ physique.ville }}</td>
+                <td>{{ physique.tuteur }}</td>
+                <td>{{ physique.prenomTuteur }}</td>
+                <td>
+                            <a href="{{ path('physique_show', { 'id': physique.id }) }}"><i class="fa fa-eye" style="font-size:23px;color:blue"></i></a>
+                            <a href="{{ path('physique_edit', { 'id': physique.id }) }}"><i class="fa fa-edit" style="font-size:24px;color:blue"></i></a>
+                </td>
+            </tr>
+ {% endfor %}
+ </div>
+ </div>
+</div>
+</div>

@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new PhysiqueBundle\PhysiqueBundle(),
             new HomeBundle\HomeBundle(),
             new MoraleBundle\MoraleBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

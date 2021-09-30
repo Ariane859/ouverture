@@ -21,6 +21,7 @@
       <parameter key="PhysiqueBundle">PhysiqueBundle\PhysiqueBundle</parameter>
       <parameter key="HomeBundle">HomeBundle\HomeBundle</parameter>
       <parameter key="MoraleBundle">MoraleBundle\MoraleBundle</parameter>
+      <parameter key="FOSJsRoutingBundle">FOS\JsRoutingBundle\FOSJsRoutingBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -87,6 +88,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">C:\laragon\www\ouverture\src\MoraleBundle</parameter>
         <parameter key="namespace">MoraleBundle</parameter>
+      </parameter>
+      <parameter key="FOSJsRoutingBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\laragon\www\ouverture\vendor\friendsofsymfony\jsrouting-bundle</parameter>
+        <parameter key="namespace">FOS\JsRoutingBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -374,6 +380,15 @@
       </parameter>
     </parameter>
     <parameter key="vich_uploader.file_injector.class">Vich\UploaderBundle\Injector\FileInjector</parameter>
+    <parameter key="fos_js_routing.extractor.class">FOS\JsRoutingBundle\Extractor\ExposedRoutesExtractor</parameter>
+    <parameter key="fos_js_routing.controller.class">FOS\JsRoutingBundle\Controller\Controller</parameter>
+    <parameter key="fos_js_routing.normalizer.route_collection.class">FOS\JsRoutingBundle\Serializer\Normalizer\RouteCollectionNormalizer</parameter>
+    <parameter key="fos_js_routing.normalizer.routes_response.class">FOS\JsRoutingBundle\Serializer\Normalizer\RoutesResponseNormalizer</parameter>
+    <parameter key="fos_js_routing.denormalizer.route_collection.class">FOS\JsRoutingBundle\Serializer\Denormalizer\RouteCollectionDenormalizer</parameter>
+    <parameter key="fos_js_routing.request_context_base_url">null</parameter>
+    <parameter key="fos_js_routing.cache_control" type="collection">
+      <parameter key="enabled">false</parameter>
+    </parameter>
     <parameter key="web_profiler.debug_toolbar.position">bottom</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
@@ -491,6 +506,8 @@
       <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_runsqldoctrinecommand">doctrine.query_sql_command</parameter>
       <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_updateschemadoctrinecommand">doctrine.schema_update_command</parameter>
       <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_validateschemacommand">doctrine.schema_validate_command</parameter>
+      <parameter key="console.command.fos_jsroutingbundle_command_dumpcommand">fos_js_routing.dump_command</parameter>
+      <parameter key="console.command.fos_jsroutingbundle_command_routerdebugexposedcommand">fos_js_routing.router_debug_exposed_command</parameter>
       <parameter key="console.command.sensiolabs_security_command_securitycheckercommand">sensio_distribution.security_checker.command</parameter>
       <parameter key="console.command.symfony_bundle_webserverbundle_command_serverruncommand">web_server.command.server_run</parameter>
       <parameter key="console.command.symfony_bundle_webserverbundle_command_serverstartcommand">web_server.command.server_start</parameter>
@@ -538,6 +555,8 @@
       <parameter key="doctrine.query_sql_command">true</parameter>
       <parameter key="doctrine.schema_update_command">true</parameter>
       <parameter key="doctrine.schema_validate_command">true</parameter>
+      <parameter key="fos_js_routing.dump_command">true</parameter>
+      <parameter key="fos_js_routing.router_debug_exposed_command">true</parameter>
       <parameter key="sensio_distribution.security_checker.command">true</parameter>
       <parameter key="web_server.command.server_run">true</parameter>
       <parameter key="web_server.command.server_start">true</parameter>
@@ -3889,6 +3908,50 @@
       <argument type="service" id="vich_uploader.metadata_reader"/>
       <argument type="service" id="vich_uploader.upload_handler"/>
     </service>
+    <service id="fos_js_routing.extractor" class="FOS\JsRoutingBundle\Extractor\ExposedRoutesExtractor" public="true">
+      <argument type="service" id="router.default"/>
+      <argument type="collection"/>
+      <argument>C:\laragon\www\ouverture\var\cache\dev</argument>
+      <argument>%kernel.bundles%</argument>
+    </service>
+    <service id="fos_js_routing.dump_command" class="FOS\JsRoutingBundle\Command\DumpCommand">
+      <tag name="console.command"/>
+      <argument type="service" id="fos_js_routing.extractor"/>
+      <argument type="service" id="fos_js_routing.serializer"/>
+      <argument>C:\laragon\www\ouverture\app</argument>
+      <argument>null</argument>
+      <call method="setName">
+        <argument>fos:js-routing:dump</argument>
+      </call>
+    </service>
+    <service id="fos_js_routing.router_debug_exposed_command" class="FOS\JsRoutingBundle\Command\RouterDebugExposedCommand">
+      <tag name="console.command"/>
+      <argument type="service" id="fos_js_routing.extractor"/>
+      <argument type="service" id="router.default"/>
+      <call method="setName">
+        <argument>fos:js-routing:debug</argument>
+      </call>
+    </service>
+    <service id="fos_js_routing.controller" class="FOS\JsRoutingBundle\Controller\Controller" public="true">
+      <argument type="service" id="fos_js_routing.serializer"/>
+      <argument type="service" id="fos_js_routing.extractor"/>
+      <argument>%fos_js_routing.cache_control%</argument>
+      <argument>true</argument>
+    </service>
+    <service id="fos_js_routing.serializer" class="Symfony\Component\Serializer\Serializer" public="true">
+      <argument type="collection">
+        <argument type="service" id="fos_js_routing.normalizer.route_collection"/>
+        <argument type="service" id="fos_js_routing.normalizer.routes_response"/>
+        <argument type="service" id="fos_js_routing.denormalizer.route_collection"/>
+      </argument>
+      <argument type="collection">
+        <argument key="json" type="service" id="fos_js_routing.encoder"/>
+      </argument>
+    </service>
+    <service id="fos_js_routing.normalizer.route_collection" class="FOS\JsRoutingBundle\Serializer\Normalizer\RouteCollectionNormalizer" public="false"/>
+    <service id="fos_js_routing.normalizer.routes_response" class="FOS\JsRoutingBundle\Serializer\Normalizer\RoutesResponseNormalizer" public="false"/>
+    <service id="fos_js_routing.denormalizer.route_collection" class="FOS\JsRoutingBundle\Serializer\Denormalizer\RouteCollectionDenormalizer" public="false"/>
+    <service id="fos_js_routing.encoder" class="Symfony\Component\Serializer\Encoder\JsonEncoder" public="false"/>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="var_dumper.cloner"/>
@@ -4040,7 +4103,7 @@
       <argument type="collection"/>
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id="service_locator.iv.jde6"/>
+      <argument type="service" id="service_locator.krysjl7"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -4081,6 +4144,8 @@
         <argument key="doctrine:query:sql">doctrine.query_sql_command</argument>
         <argument key="doctrine:schema:update">doctrine.schema_update_command</argument>
         <argument key="doctrine:schema:validate">doctrine.schema_validate_command</argument>
+        <argument key="fos:js-routing:dump">fos_js_routing.dump_command</argument>
+        <argument key="fos:js-routing:debug">fos_js_routing.router_debug_exposed_command</argument>
         <argument key="security:check">sensio_distribution.security_checker.command</argument>
         <argument key="server:run">web_server.command.server_run</argument>
         <argument key="server:start">web_server.command.server_start</argument>
@@ -4089,7 +4154,7 @@
         <argument key="server:log">web_server.command.server_log</argument>
       </argument>
     </service>
-    <service id="service_locator.iv.jde6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.krysjl7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service" id="console.command.about"/>
@@ -4128,6 +4193,8 @@
         <argument key="doctrine.schema_drop_command" type="service" id="doctrine.schema_drop_command"/>
         <argument key="doctrine.schema_update_command" type="service" id="doctrine.schema_update_command"/>
         <argument key="doctrine.schema_validate_command" type="service" id="doctrine.schema_validate_command"/>
+        <argument key="fos_js_routing.dump_command" type="service" id="fos_js_routing.dump_command"/>
+        <argument key="fos_js_routing.router_debug_exposed_command" type="service" id="fos_js_routing.router_debug_exposed_command"/>
         <argument key="security.command.user_password_encoder" type="service" id="security.command.user_password_encoder"/>
         <argument key="sensio_distribution.security_checker.command" type="service" id="sensio_distribution.security_checker.command"/>
         <argument key="twig.command.debug" type="service" id="twig.command.debug"/>
@@ -4501,6 +4568,7 @@
     <service id="vich_uploader.storage" alias="vich_uploader.storage.file_system"/>
     <service id="vich_uploader.metadata_driver" alias="vich_uploader.metadata_driver.chain" public="false"/>
     <service id="vich_uploader.metadata.cache" alias="vich_uploader.metadata.cache.file_cache" public="false"/>
+    <service id="fos_js_routing.router" alias="router.default" public="false"/>
     <service id="Symfony\Component\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
     <service id="Symfony\Bundle\FrameworkBundle\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
     <service id="console.command.doctrine_bundle_doctrinecachebundle_command_containscommand" alias="doctrine_cache.contains_command" public="true"/>

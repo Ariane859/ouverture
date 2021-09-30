@@ -13,8 +13,8 @@ class PhysiqueRepository extends \Doctrine\ORM\EntityRepository
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.prenom = :val')
-            ->setParameter('val', $value)
+            ->Where('a.prenom LIKE :val')
+            ->setParameter('val', $value.'%')
             ->orderBy('a.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()

@@ -130,19 +130,19 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
     ";
         // line 83
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 103
+        // line 123
         echo "
 
 ";
-        // line 106
+        // line 126
         echo "    <h1>Listes</h1>
     <a href=\"";
-        // line 107
+        // line 127
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_new", array("type" => 1));
         echo "\" class=\"btn btn-primary\" id=\"ajouter\">Ajouter</a>";
-        // line 108
+        // line 128
         echo "    
-    <table class=\"table table-striped table-hover table-bordered\">
+    <table class=\"table table-striped table-hover table-bordered\" id=\"tableau\">
         <thead>
             <tr>
                 <th scope=\"col\">Id</th>
@@ -159,73 +159,73 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
                 <th scope=\"col\">Prénom du tuteur</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id=\"body\">
         ";
-        // line 127
+        // line 147
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["physiques"] ?? $this->getContext($context, "physiques")));
         foreach ($context['_seq'] as $context["_key"] => $context["physique"]) {
-            // line 128
+            // line 148
             echo "            <tr>
                 <th scope=\"row\"><a href=\"";
-            // line 129
+            // line 149
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_show", array("id" => $this->getAttribute($context["physique"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "id", array()), "html", null, true);
             echo "</a></th>
                 <td>";
-            // line 130
+            // line 150
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "nom", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 131
+            // line 151
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "prenom", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 132
+            // line 152
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "sigle", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 133
+            // line 153
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "raisonSociale", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 134
+            // line 154
             if ($this->getAttribute($context["physique"], "datnais", array())) {
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["physique"], "datnais", array()), "Y-m-d"), "html", null, true);
             }
             echo "</td>
                 <td>";
-            // line 135
+            // line 155
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "telephone", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 136
+            // line 156
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "email", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 137
+            // line 157
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "pays", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 138
+            // line 158
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "ville", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 139
+            // line 159
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "tuteur", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 140
+            // line 160
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "prenomTuteur", array()), "html", null, true);
             echo "</td>
                 <td>
                             <a href=\"";
-            // line 142
+            // line 162
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_show", array("id" => $this->getAttribute($context["physique"], "id", array()))), "html", null, true);
             echo "\"><i class=\"fa fa-eye\" style=\"font-size:23px;color:blue\"></i></a>
                             <a href=\"";
-            // line 143
+            // line 163
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute($context["physique"], "id", array()))), "html", null, true);
             echo "\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
                 </td>
@@ -235,7 +235,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['physique'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 147
+        // line 167
         echo "        </tbody>
     </table>
 ";
@@ -267,8 +267,8 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
             </div>
             <div class=\"col-md-8\">
                 <form class=\"form-inline my-2 my-lg-0\" id=\"formulaire\">
-                    <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" id=\"search\">
-                    <button class=\"btn btn-outline-success my-6 my-sm-6\" id=\"bouton_search\">Rechercher</button>
+                    <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\" id=\"search\">
+                    <button class=\"btn btn-outline-success my-6 my-sm-6\" id=\"bouton_search\" data-toggle=\"modal\">Rechercher</button>
                 </form>
             </div>
             <div class=\"col-md-2\">
@@ -280,7 +280,28 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
         </div>
     </div>
 
-
+    ";
+        // line 102
+        echo "    <div class=\"modal fade\" id=\"modalResult\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+        <div class=\"modal-dialog modal-lg\" role=\"document\">
+            <div class=\"modal-content\">
+            <div class=\"modal-header\">
+                <h5 class=\"modal-title\" id=\"exampleModalLabel\">Résultats de recherche</h5>
+                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+                </button>
+            </div>
+            <div class=\"modal-body\" id=\"modal_body\">
+                ...
+            </div>
+            <div class=\"modal-footer\">
+                <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
+            
+            </div>
+            </div>
+        </div>
+    </div>
+    
     ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -290,7 +311,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
 
     }
 
-    // line 150
+    // line 170
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -301,27 +322,51 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
 
         echo " 
 ";
-        // line 151
+        // line 171
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
 <script> 
         ";
-        // line 154
+        // line 174
         echo "  ";
-        // line 155
+        // line 175
         echo "    ";
-        // line 158
+        // line 178
         echo "\$(document).ready(function(){
     \$(\"#bouton_search\").click(function(ev){
         ev.preventDefault();
-        alert(2);
+        let rechercher= \$(\"#search\").val();
+        const data = { 
+            search: rechercher 
+        };
+        const url = Routing.generate('physique_search');
+        \$('#modal_body').html(\"\")
+        fetch(url, {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.text())
+        .then(data => {
+            //\$('#body').html(data)
+            \$('#modal_body').html(data)
+            \$('#modalResult').modal('show')
+            console.log('Success:', data);
+        //document.getElementById(\"demo\").innerHTML=data
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        }); 
+
+        //console.log(data); 
+        //alert(2);
 
     });
 })
 
-    ";
-        // line 184
-        echo "</script>   
+</script>   
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -343,7 +388,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
 
     public function getDebugInfo()
     {
-        return array (  324 => 184,  314 => 158,  312 => 155,  310 => 154,  305 => 151,  294 => 150,  277 => 96,  265 => 87,  260 => 84,  251 => 83,  239 => 147,  229 => 143,  225 => 142,  220 => 140,  216 => 139,  212 => 138,  208 => 137,  204 => 136,  200 => 135,  194 => 134,  190 => 133,  186 => 132,  182 => 131,  178 => 130,  172 => 129,  169 => 128,  165 => 127,  144 => 108,  141 => 107,  138 => 106,  134 => 103,  132 => 83,  51 => 4,  42 => 3,  11 => 1,);
+        return array (  335 => 178,  333 => 175,  331 => 174,  326 => 171,  315 => 170,  285 => 102,  277 => 96,  265 => 87,  260 => 84,  251 => 83,  239 => 167,  229 => 163,  225 => 162,  220 => 160,  216 => 159,  212 => 158,  208 => 157,  204 => 156,  200 => 155,  194 => 154,  190 => 153,  186 => 152,  182 => 151,  178 => 150,  172 => 149,  169 => 148,  165 => 147,  144 => 128,  141 => 127,  138 => 126,  134 => 123,  132 => 83,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -446,8 +491,8 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
             </div>
             <div class=\"col-md-8\">
                 <form class=\"form-inline my-2 my-lg-0\" id=\"formulaire\">
-                    <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" id=\"search\">
-                    <button class=\"btn btn-outline-success my-6 my-sm-6\" id=\"bouton_search\">Rechercher</button>
+                    <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\" id=\"search\">
+                    <button class=\"btn btn-outline-success my-6 my-sm-6\" id=\"bouton_search\" data-toggle=\"modal\">Rechercher</button>
                 </form>
             </div>
             <div class=\"col-md-2\">
@@ -456,7 +501,27 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
         </div>
     </div>
 
-
+    {# modal #}
+    <div class=\"modal fade\" id=\"modalResult\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+        <div class=\"modal-dialog modal-lg\" role=\"document\">
+            <div class=\"modal-content\">
+            <div class=\"modal-header\">
+                <h5 class=\"modal-title\" id=\"exampleModalLabel\">Résultats de recherche</h5>
+                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+                </button>
+            </div>
+            <div class=\"modal-body\" id=\"modal_body\">
+                ...
+            </div>
+            <div class=\"modal-footer\">
+                <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
+            
+            </div>
+            </div>
+        </div>
+    </div>
+    
     {% endblock %}
 
 
@@ -464,7 +529,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
     <h1>Listes</h1>
     <a href=\"{{ path('physique_new', {'type':1}) }}\" class=\"btn btn-primary\" id=\"ajouter\">Ajouter</a>{#</div>#}
     
-    <table class=\"table table-striped table-hover table-bordered\">
+    <table class=\"table table-striped table-hover table-bordered\" id=\"tableau\">
         <thead>
             <tr>
                 <th scope=\"col\">Id</th>
@@ -481,7 +546,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
                 <th scope=\"col\">Prénom du tuteur</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id=\"body\">
         {% for physique in physiques %}
             <tr>
                 <th scope=\"row\"><a href=\"{{ path('physique_show', { 'id': physique.id }) }}\">{{ physique.id }}</a></th>
@@ -516,29 +581,37 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
 \$(document).ready(function(){
     \$(\"#bouton_search\").click(function(ev){
         ev.preventDefault();
-        alert(2);
+        let rechercher= \$(\"#search\").val();
+        const data = { 
+            search: rechercher 
+        };
+        const url = Routing.generate('physique_search');
+        \$('#modal_body').html(\"\")
+        fetch(url, {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.text())
+        .then(data => {
+            //\$('#body').html(data)
+            \$('#modal_body').html(data)
+            \$('#modalResult').modal('show')
+            console.log('Success:', data);
+        //document.getElementById(\"demo\").innerHTML=data
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        }); 
+
+        //console.log(data); 
+        //alert(2);
 
     });
 })
 
-    {# let rechercher= \$(\"#search\").val;
-    console.log(rechercher); 
-    const data = { username: 'example' };
-
-    fetch('https://example.com/profile', {
-    method: 'POST', // or 'PUT'
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-    })
-    .then(response => response.json())
-    .then(data => {
-    console.log('Success:', data);
-    })
-    .catch((error) => {
-    console.error('Error:', error);
-    }); #}
 </script>   
 {% endblock %}", "physique/index.html.twig", "C:\\laragon\\www\\ouverture\\app\\Resources\\views\\physique\\index.html.twig");
     }

@@ -44,6 +44,10 @@ class __TwigTemplate_ea0ac169dfacdf535560c27c7a95cc0c73a48835036b128517248ece61b
                 // line 42
                 echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "nom", array()), "html", null, true);
                 echo "</h6>
+                              <h6 class=\"text-dark\"><i class=\"bi bi-arrow-down-right-square-fill text-primary\"></i> ";
+                // line 43
+                echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "sigle", array()), "html", null, true);
+                echo "</h6>
                        </a>
                    </div>
               ";
@@ -51,7 +55,7 @@ class __TwigTemplate_ea0ac169dfacdf535560c27c7a95cc0c73a48835036b128517248ece61b
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['physique'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 46
+            // line 47
             echo "          ";
         }
         
@@ -74,7 +78,7 @@ class __TwigTemplate_ea0ac169dfacdf535560c27c7a95cc0c73a48835036b128517248ece61b
 
     public function getDebugInfo()
     {
-        return array (  55 => 46,  45 => 42,  41 => 41,  38 => 40,  34 => 39,  31 => 38,  27 => 36,  25 => 35,);
+        return array (  59 => 47,  49 => 43,  45 => 42,  41 => 41,  38 => 40,  34 => 39,  31 => 38,  27 => 36,  25 => 35,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -129,6 +133,7 @@ class __TwigTemplate_ea0ac169dfacdf535560c27c7a95cc0c73a48835036b128517248ece61b
                    <div class=\"mt-3 p-3 bg-light border rounded\">
                        <a href=\"{{ path('physique_show', {'id': physique.id}) }}\">
                               <h6 class=\"text-dark\"><i class=\"bi bi-arrow-down-right-square-fill text-primary\"></i> {{ physique.nom }}</h6>
+                              <h6 class=\"text-dark\"><i class=\"bi bi-arrow-down-right-square-fill text-primary\"></i> {{ physique.sigle }}</h6>
                        </a>
                    </div>
               {% endfor %}

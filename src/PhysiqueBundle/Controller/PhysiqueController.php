@@ -174,42 +174,55 @@ class PhysiqueController extends Controller
     /**
      * Displays a form to edit an existing physique entity.
      *
-     * @Route("/physique/search/", name="physique_search")
+     * @Route("/physique/search/", name="physique_search",options= {"expose" = true})
      * @Method({"GET","POST"})
      */
         public function physiquesearchAction(Request $request){ 
-        // dump(1);die();
-        $search=NULL;
+        $text=json_decode($request->getContent());
+        $seach =$text->search;
+        $em = $this->getDoctrine()->getManager();
+        //dump($seach);die();
+        // $em = $this->getDoctrine()->getManager()->getRepository('PhysiqueBundle:Physique');
+        $physiques = $em->getRepository('PhysiqueBundle:Physique')->findByExampleField($seach);
+    
+//         /*$em = $this->getDoctrine()->getManager()->getRepository('PhysiqueBundle:Physique');
+//         $physiques = $em->find($data);*/
+        return $this->render('physique/result.html.twig',[ 
+//         //'search' => $search,
+       'physiques' => $physiques
+         ] );
+        //dump($text);die();
+        //$search=NULL;
         //$physique = new Physique();
-        $form = $this->createFormBuilder()
-        ->add('search', SearchType::class, array('attr' => array('placeholder' => 'Rechercher') ))
-        ->add('send', SubmitType::class, array('label' => 'Envoyer'))
-        ->getForm();
+        // $form = $this->createFormBuilder()
+        // ->add('search', SearchType::class, array('attr' => array('placeholder' => 'Rechercher') ))
+        // ->add('send', SubmitType::class, array('label' => 'Envoyer'))
+        // ->getForm();
         
-        $form->handleRequest($request);
+        // $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $search = $form['search']->getData();
-            $form = $request->query->get('form');
-            $em = $this->getDoctrine()->getManager();
-            $physiques = $em->getRepository('PhysiqueBundle:Physique')->findByExampleField($search);
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $search = $form['search']->getData();
+    //         $form = $request->query->get('form');
+    //         $em = $this->getDoctrine()->getManager();
+    //         $physiques = $em->getRepository('PhysiqueBundle:Physique')->findByExampleField($search);
         
-    //         /*$em = $this->getDoctrine()->getManager()->getRepository('PhysiqueBundle:Physique');
-    //         $physiques = $em->find($data);*/
-            return $this->render('physique/recherche.html.twig',[ 
-    //         //'search' => $search,
-           'physiques' => $physiques
-             ] );
-         }
+    // //         /*$em = $this->getDoctrine()->getManager()->getRepository('PhysiqueBundle:Physique');
+    // //         $physiques = $em->find($data);*/
+    //         return $this->render('physique/recherche.html.twig',[ 
+    // //         //'search' => $search,
+    //        'physiques' => $physiques
+    //          ] );
+    //      }
 
     //    // return $this->render('physique/formsearch.html.twig', array(
     //         //'physique' => $physique,
     //         //'form' => $form->createView(),
     //    // ));
-            return $this->render('physique/formsearch.html.twig',[ 
-        //         'physique' => $physique,
-            'form' => $form->createView()
-        ]);
+        //     return $this->render('physique/formsearch.html.twig',[ 
+        // //         'physique' => $physique,
+        //     'form' => $form->createView()
+        // ]);
        
     }
 }
