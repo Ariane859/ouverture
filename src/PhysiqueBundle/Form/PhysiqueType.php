@@ -24,6 +24,7 @@ class PhysiqueType extends AbstractType
         ->add('datnais', DateType::class, ['label' => 'Date de naissance',
         'attr' => [
             'class' => 'form-control'],
+            'widget' => 'single_text',
         
         ])
         ->add('telephone', TextType::class,array('attr' => [

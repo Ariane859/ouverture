@@ -63,7 +63,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
             }
         #formulaire
         {
-            margin-left:65%;
+            margin-left:55%;
         }
         h1
         {
@@ -98,7 +98,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
         #ouvrir
         {
             /*border:solid white 1px;*/
-            margin-left:30%;
+            margin-left:20%;
             font-size:1.2rem;
             color:white;
             padding:1%;
@@ -419,7 +419,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
             }
         #formulaire
         {
-            margin-left:65%;
+            margin-left:55%;
         }
         h1
         {
@@ -454,7 +454,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
         #ouvrir
         {
             /*border:solid white 1px;*/
-            margin-left:30%;
+            margin-left:20%;
             font-size:1.2rem;
             color:white;
             padding:1%;
