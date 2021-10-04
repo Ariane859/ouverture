@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
@@ -35,7 +36,7 @@ class PhysiqueType extends AbstractType
             'class' => 'form-control'
         ]
         ] )
-        ->add('pays', TextType::class,['attr' => [
+        ->add('pays', CountryType::class,['attr' => [
             'class' => 'form-control'
         ]
         ])

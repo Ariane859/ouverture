@@ -3,6 +3,10 @@
 namespace PhysiqueBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
+ 
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -10,6 +14,12 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @ORM\Table(name="physique")
  * @ORM\Entity(repositoryClass="PhysiqueBundle\Repository\PhysiqueRepository")
+ * @UniqueEntity(fields={"nom"}, message="Ce nom est déjà utilisé !")
+ * @UniqueEntity(fields={"prenom"}, message="Ce prénom est déjà utilisé !")
+ * @UniqueEntity(fields={"email"}, message="Ce email est déjà utilisé !")
+ * @UniqueEntity(fields={"telephone"}, message="Ce numéro de télephone est déjà utilisé !")
+ * @UniqueEntity(fields={"sigle"}, message="Ce sigle est déjà utilisé !")
+ * @UniqueEntity(fields={"raisonSociale"}, message="elle est déjà utilisé !")
  */
 class Physique
 {

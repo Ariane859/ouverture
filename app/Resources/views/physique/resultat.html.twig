@@ -1,5 +1,5 @@
 
-      <div class="modal-body">
+      <div id="modal-body">
         {% for physique in physiques %}
             <tr>
                 <th scope="row"><a href="{{ path('physique_show', { 'id': physique.id }) }}">{{ physique.id }}</a></th>

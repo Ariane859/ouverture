@@ -241,7 +241,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             not_physique_show:
 
             // physique_edit
-            if (preg_match('#^/physique/(?P<id>[^/]++)/edit/?$#sD', $pathinfo, $matches)) {
+            if (preg_match('#^/physique/(?P<type>[^/]++)/(?P<id>[^/]++)/edit/?$#sD', $pathinfo, $matches)) {
                 $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'physique_edit')), array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::editAction',));
                 if ('/' === substr($pathinfo, -1)) {
                     // no-op
@@ -263,8 +263,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // physique_delete
             if (preg_match('#^/physique/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
                 $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'physique_delete')), array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::deleteAction',));
-                if (!in_array($requestMethod, array('DELETE'))) {
-                    $allow = array_merge($allow, array('DELETE'));
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
                     goto not_physique_delete;
                 }
 

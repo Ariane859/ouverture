@@ -24,89 +24,73 @@ class __TwigTemplate_c7898aee22b5f2665449fccf3388bbcfeba3f68ae8cd21b0742d2a58918
         // line 1
         echo "<div class=\"table-responsive\">
     <table class=\"table table-striped table-hover table-bordered\" id=\"tableau\">
-        <thead>
-            <tr>
-                <th scope=\"col\">Id</th>
-                <th scope=\"col\">Nom</th>
-                <th scope=\"col\">Prénom</th>
-                <th scope=\"col\">Sigle</th>
-                <th scope=\"col\">Raison sociale</th>
-                <th scope=\"col\">Date de naissance</th>
-                <th scope=\"col\">Telephone</th>
-                <th scope=\"col\">Email</th>
-                <th scope=\"col\">Pays</th>
-                <th scope=\"col\">Ville</th>
-                <th scope=\"col\">Tuteur</th>
-                <th scope=\"col\">Prénom du tuteur</th>
-            </tr>
-        </thead>
         <tbody id=\"body\">
         ";
-        // line 20
+        // line 4
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["physiques"] ?? $this->getContext($context, "physiques")));
         foreach ($context['_seq'] as $context["_key"] => $context["physique"]) {
-            // line 21
+            // line 5
             echo "            <tr>
                 <th scope=\"row\"><a href=\"";
-            // line 22
+            // line 6
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_show", array("id" => $this->getAttribute($context["physique"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "id", array()), "html", null, true);
             echo "</a></th>
                 <td>";
-            // line 23
+            // line 7
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "nom", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 24
+            // line 8
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "prenom", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 25
+            // line 9
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "sigle", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 26
+            // line 10
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "raisonSociale", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 27
+            // line 11
             if ($this->getAttribute($context["physique"], "datnais", array())) {
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["physique"], "datnais", array()), "Y-m-d"), "html", null, true);
             }
             echo "</td>
                 <td>";
-            // line 28
+            // line 12
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "telephone", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 29
+            // line 13
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "email", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 30
+            // line 14
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "pays", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 31
+            // line 15
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "ville", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 32
+            // line 16
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "tuteur", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 33
+            // line 17
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "prenomTuteur", array()), "html", null, true);
             echo "</td>
                 <td>
                             <a href=\"";
-            // line 35
+            // line 19
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_show", array("id" => $this->getAttribute($context["physique"], "id", array()))), "html", null, true);
             echo "\"><i class=\"fa fa-eye\" style=\"font-size:23px;color:blue\"></i></a>
                             <a href=\"";
-            // line 36
+            // line 20
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute($context["physique"], "id", array()))), "html", null, true);
             echo "\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
                 </td>
@@ -116,7 +100,7 @@ class __TwigTemplate_c7898aee22b5f2665449fccf3388bbcfeba3f68ae8cd21b0742d2a58918
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['physique'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 40
+        // line 24
         echo "        </tbody>
     </table>
 </div>";
@@ -140,7 +124,7 @@ class __TwigTemplate_c7898aee22b5f2665449fccf3388bbcfeba3f68ae8cd21b0742d2a58918
 
     public function getDebugInfo()
     {
-        return array (  120 => 40,  110 => 36,  106 => 35,  101 => 33,  97 => 32,  93 => 31,  89 => 30,  85 => 29,  81 => 28,  75 => 27,  71 => 26,  67 => 25,  63 => 24,  59 => 23,  53 => 22,  50 => 21,  46 => 20,  25 => 1,);
+        return array (  104 => 24,  94 => 20,  90 => 19,  85 => 17,  81 => 16,  77 => 15,  73 => 14,  69 => 13,  65 => 12,  59 => 11,  55 => 10,  51 => 9,  47 => 8,  43 => 7,  37 => 6,  34 => 5,  30 => 4,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -155,22 +139,6 @@ class __TwigTemplate_c7898aee22b5f2665449fccf3388bbcfeba3f68ae8cd21b0742d2a58918
     {
         return new Twig_Source("<div class=\"table-responsive\">
     <table class=\"table table-striped table-hover table-bordered\" id=\"tableau\">
-        <thead>
-            <tr>
-                <th scope=\"col\">Id</th>
-                <th scope=\"col\">Nom</th>
-                <th scope=\"col\">Prénom</th>
-                <th scope=\"col\">Sigle</th>
-                <th scope=\"col\">Raison sociale</th>
-                <th scope=\"col\">Date de naissance</th>
-                <th scope=\"col\">Telephone</th>
-                <th scope=\"col\">Email</th>
-                <th scope=\"col\">Pays</th>
-                <th scope=\"col\">Ville</th>
-                <th scope=\"col\">Tuteur</th>
-                <th scope=\"col\">Prénom du tuteur</th>
-            </tr>
-        </thead>
         <tbody id=\"body\">
         {% for physique in physiques %}
             <tr>
