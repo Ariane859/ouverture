@@ -99,7 +99,11 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         }
         ";
         // line 62
-        echo "        #tuteur {
+        echo "        #mineur
+        {
+            display:none;
+        }
+        #tuteur {
             display:none;
         }
         #prenom_tuteur {
@@ -110,111 +114,115 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
 <h1></h1>
         
 ";
-        // line 72
+        // line 76
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 78
+        // line 82
         echo "<div class=\"formulaire\">
     <a href=\"";
-        // line 79
+        // line 83
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_index");
         echo "\"class=\"btn btn-primary\" id=\"index\">Liste</a>
     ";
-        // line 80
+        // line 84
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_start');
         echo "
-    ";
-        // line 81
-        if ($this->getAttribute(($context["form"] ?? null), "typeCompte", array(), "any", true, true)) {
-            // line 82
-            echo "        ";
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "typeCompte", array()), 'row');
-            echo "
-        ";
-        }
-        // line 84
-        echo "       <div class=\"form-row\">
-        <div class=\"form-group col-md-6\">
+
         ";
         // line 86
         if ($this->getAttribute(($context["form"] ?? null), "nom", array(), "any", true, true)) {
             // line 87
+            echo "        <div id=\"mineur\">
+        ";
+            // line 88
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "mineur", array()), 'row');
+            echo "
+        </div>
+        ";
+        }
+        // line 91
+        echo "       <div class=\"form-row\">
+        <div class=\"form-group col-md-6\">
+        ";
+        // line 93
+        if ($this->getAttribute(($context["form"] ?? null), "nom", array(), "any", true, true)) {
+            // line 94
             echo "        ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "nom", array()), 'row');
             echo "
         ";
         }
-        // line 89
+        // line 96
         echo "        </div>
         <div class=\"form-group col-md-6\">
         ";
-        // line 91
+        // line 98
         if ($this->getAttribute(($context["form"] ?? null), "prenom", array(), "any", true, true)) {
-            // line 92
+            // line 99
             echo "        ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "prenom", array()), 'row');
             echo "
         ";
         }
-        // line 94
+        // line 101
         echo "        </div>
         </div>
         <div class=\"form-row\">
         <div class=\"form-group col-md-6\">
         ";
-        // line 98
+        // line 105
         if ($this->getAttribute(($context["form"] ?? null), "sigle", array(), "any", true, true)) {
-            // line 99
+            // line 106
             echo "        ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "sigle", array()), 'row');
             echo "
         ";
         }
-        // line 101
+        // line 108
         echo "        </div>
         <div class=\"form-group col-md-6\">
          ";
-        // line 103
+        // line 110
         if ($this->getAttribute(($context["form"] ?? null), "raisonSociale", array(), "any", true, true)) {
-            // line 104
+            // line 111
             echo "        ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "raisonSociale", array()), 'row');
             echo "
         ";
         }
-        // line 106
+        // line 113
         echo "        </div>
         </div>
         <div class=\"form-row\">
         <div class=\"form-group col-md-6\">
         ";
-        // line 110
+        // line 117
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "datnais", array()), 'row');
         echo "
         <p id=\"reponse\"></p>
         </div>
         <div class=\"form-group col-md-6\">
         ";
-        // line 114
+        // line 121
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "telephone", array()), 'row');
         echo "
         </div>
         </div>
         <div class=\"form-group\">
         ";
-        // line 118
+        // line 125
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "email", array()), 'row');
         echo "
         </div>
         <div class=\"form-row\">
         <div class=\"form-group col-md-6\">
         ";
-        // line 122
+        // line 129
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "pays", array()), 'row');
         echo "
         </div>
         <div class=\"form-group col-md-6\">
         ";
-        // line 125
+        // line 132
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "ville", array()), 'row');
         echo "
         </div>
@@ -223,36 +231,36 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         <div class=\"form-group col-md-6\">
         <div id=\"tuteur\">
          ";
-        // line 131
-        if ($this->getAttribute(($context["form"] ?? null), "tuteur", array(), "any", true, true)) {
-            // line 132
-            echo "        ";
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "tuteur", array()), 'row');
-            echo "
-        ";
-        }
-        // line 134
-        echo "        </div>
-        </div>
-        <div class=\"form-group col-md-6\">
-        <div id=\"prenom_tuteur\">
-        ";
         // line 138
-        if ($this->getAttribute(($context["form"] ?? null), "prenomTuteur", array(), "any", true, true)) {
+        if ($this->getAttribute(($context["form"] ?? null), "tuteur", array(), "any", true, true)) {
             // line 139
             echo "        ";
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "prenomTuteur", array()), 'row');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "tuteur", array()), 'row');
             echo "
         ";
         }
         // line 141
         echo "        </div>
         </div>
+        <div class=\"form-group col-md-6\">
+        <div id=\"prenom_tuteur\">
+        ";
+        // line 145
+        if ($this->getAttribute(($context["form"] ?? null), "prenomTuteur", array(), "any", true, true)) {
+            // line 146
+            echo "        ";
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "prenomTuteur", array()), 'row');
+            echo "
+        ";
+        }
+        // line 148
+        echo "        </div>
+        </div>
         </div>
          
-        <input type=\"submit\" class=\"btn btn-primary\" value=\"Enregistrer\"/>
+        <input type=\"submit\" class=\"btn btn-primary\" id=\"enregistrer\" value=\"Enregistrer\"/>
         ";
-        // line 146
+        // line 153
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
         echo "
     </div>
@@ -265,7 +273,7 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
 
     }
 
-    // line 72
+    // line 76
     public function block_sidebar($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -274,14 +282,14 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
 
-        // line 73
+        // line 77
         echo "    <div class=\"sidebar\">
         <a href=\"";
-        // line 74
+        // line 78
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_home");
         echo "\" class=\"accueil\">Accueil</a>
         <a href=\"";
-        // line 75
+        // line 79
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_choix");
         echo "\" id=\"ouvrir\">Ouvrir un compte</a>
     </div>
@@ -306,7 +314,7 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
 
     public function getDebugInfo()
     {
-        return array (  285 => 75,  281 => 74,  278 => 73,  269 => 72,  256 => 146,  249 => 141,  243 => 139,  241 => 138,  235 => 134,  229 => 132,  227 => 131,  218 => 125,  212 => 122,  205 => 118,  198 => 114,  191 => 110,  185 => 106,  179 => 104,  177 => 103,  173 => 101,  167 => 99,  165 => 98,  159 => 94,  153 => 92,  151 => 91,  147 => 89,  141 => 87,  139 => 86,  135 => 84,  129 => 82,  127 => 81,  123 => 80,  119 => 79,  116 => 78,  114 => 72,  102 => 62,  50 => 4,  41 => 3,  11 => 1,);
+        return array (  293 => 79,  289 => 78,  286 => 77,  277 => 76,  264 => 153,  257 => 148,  251 => 146,  249 => 145,  243 => 141,  237 => 139,  235 => 138,  226 => 132,  220 => 129,  213 => 125,  206 => 121,  199 => 117,  193 => 113,  187 => 111,  185 => 110,  181 => 108,  175 => 106,  173 => 105,  167 => 101,  161 => 99,  159 => 98,  155 => 96,  149 => 94,  147 => 93,  143 => 91,  137 => 88,  134 => 87,  132 => 86,  127 => 84,  123 => 83,  120 => 82,  118 => 76,  102 => 62,  50 => 4,  41 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -380,6 +388,10 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         {
             cursor: no-drop;
         } #}
+        #mineur
+        {
+            display:none;
+        }
         #tuteur {
             display:none;
         }
@@ -399,8 +411,11 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
 <div class=\"formulaire\">
     <a href=\"{{ path('physique_index') }}\"class=\"btn btn-primary\" id=\"index\">Liste</a>
     {{ form_start(form) }}
-    {% if form.typeCompte is defined %}
-        {{form_row(form.typeCompte)}}
+
+        {% if form.nom is defined %}
+        <div id=\"mineur\">
+        {{ form_row(form.mineur)}}
+        </div>
         {% endif %}
        <div class=\"form-row\">
         <div class=\"form-group col-md-6\">
@@ -463,7 +478,7 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         </div>
         </div>
          
-        <input type=\"submit\" class=\"btn btn-primary\" value=\"Enregistrer\"/>
+        <input type=\"submit\" class=\"btn btn-primary\" id=\"enregistrer\" value=\"Enregistrer\"/>
         {{ form_end(form) }}
     </div>
 {% endblock %}

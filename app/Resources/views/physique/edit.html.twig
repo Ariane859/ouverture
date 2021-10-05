@@ -74,7 +74,17 @@
 <a href="{{ path('physique_index') }}"class="btn btn-primary" id="index">Liste</a>
 <div class="formulaire">
     {{ form_start(edit_form) }}
-        {{form_row(edit_form.typeCompte)}}
+
+        {% if edit_form.nom is defined %}
+        <div id="editform_mineur">
+        {{ form_row(edit_form.mineur)}}
+        </div>
+        {% endif %}
+       {# <div class="form-group col-md-6">
+       <div id="editform_mineur">
+        {{ form_row(edit_form.mineur)}}
+        </div>
+        </div> #}
         <div class="form-row">
         <div class="form-group col-md-6">
         {% if edit_form.nom is defined %}

@@ -16,8 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
  * @ORM\Entity(repositoryClass="PhysiqueBundle\Repository\PhysiqueRepository")
  * @UniqueEntity(fields={"nom"}, message="Ce nom est déjà utilisé !")
  * @UniqueEntity(fields={"prenom"}, message="Ce prénom est déjà utilisé !")
- * @UniqueEntity(fields={"email"}, message="Ce email est déjà utilisé !")
- * @UniqueEntity(fields={"telephone"}, message="Ce numéro de télephone est déjà utilisé !")
  * @UniqueEntity(fields={"sigle"}, message="Ce sigle est déjà utilisé !")
  * @UniqueEntity(fields={"raisonSociale"}, message="elle est déjà utilisé !")
  */
@@ -115,6 +113,8 @@ class Physique
      * @ORM\Column(name="prenom_tuteur", type="string", length=100, nullable=true)
      */
     private $prenomTuteur;
+
+    private $mineur;
 
 
     /**
@@ -413,5 +413,17 @@ class Physique
     public function getRaisonSociale()
     {
         return $this->raisonSociale;
+    }
+
+    public function setmineur($mineur)
+    {
+        $this->mineur=$mineur;
+        
+        return $this;
+    }
+    
+    public function getmineur()
+    {
+       return $this->mineur;
     }
 }

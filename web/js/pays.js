@@ -26,3 +26,13 @@
 //     })
 // })
 
+$(document).ready(function() {
+    $("#physiquebundle_physique_telephone").on("change",function(e){
+        e.preventDefault();
+        console.log($(this).val());  
+        })
+    $("#physiquebundle_physique_email").on("change",function(e){
+        e.preventDefault();
+        console.log($(this).val());  
+        })
+})

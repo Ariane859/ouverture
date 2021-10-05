@@ -84,15 +84,15 @@ class PhysiqueController extends Controller
      */
     public function editAction(Request $request, Physique $physique, $type)
     {
-        $deleteForm = $this->createDeleteForm($physique);
+        $deleteForm = $this->createDeleteForm($physique, array('type' => $type));
         $editForm = $this->createForm('PhysiqueBundle\Form\PhysiqueType', $physique, array('type' => $type));
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            //return $this->redirectToRoute('physique_edit', array('id' => $physique->getId()));
-            return $this->redirectToRoute('physique_index');
+            return $this->redirectToRoute('physique_edit', array('id' => $physique->getId()));
+            //return $this->redirectToRoute('physique_index');
         }
 
         return $this->render('physique/edit.html.twig', array(
@@ -106,7 +106,7 @@ class PhysiqueController extends Controller
      * Deletes a physique entity.
      *
      * @Route("/{id}", name="physique_delete")
-     * @Method({"GET", "POST"})
+     * @Method({"GET", "POST","DELETE"})
      */
     public function deleteAction(Request $request, Physique $physique)
     {

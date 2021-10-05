@@ -59,6 +59,10 @@
         {
             cursor: no-drop;
         } #}
+        #mineur
+        {
+            display:none;
+        }
         #tuteur {
             display:none;
         }
@@ -78,8 +82,11 @@
 <div class="formulaire">
     <a href="{{ path('physique_index') }}"class="btn btn-primary" id="index">Liste</a>
     {{ form_start(form) }}
-    {% if form.typeCompte is defined %}
-        {{form_row(form.typeCompte)}}
+
+        {% if form.nom is defined %}
+        <div id="mineur">
+        {{ form_row(form.mineur)}}
+        </div>
         {% endif %}
        <div class="form-row">
         <div class="form-group col-md-6">
@@ -142,7 +149,7 @@
         </div>
         </div>
          
-        <input type="submit" class="btn btn-primary" value="Enregistrer"/>
+        <input type="submit" class="btn btn-primary" id="enregistrer" value="Enregistrer"/>
         {{ form_end(form) }}
     </div>
 {% endblock %}

@@ -4,6 +4,7 @@ namespace PhysiqueBundle\Form;
 
 use PhysiqueBundle\Entity\Physique;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -44,6 +45,7 @@ class PhysiqueType extends AbstractType
             'class' => 'form-control'
         ]
         ]);
+
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use($options){
 
             $physique = $event->getData();
@@ -68,7 +70,8 @@ class PhysiqueType extends AbstractType
             ]))
                 ->add('prenomTuteur', null,array('label' => 'Prénom du tuteur : ','attr' => [
                     'class' => 'form-control'
-                ]));
+                ]))
+                ->add('mineur', CheckboxType::class);
             }
             else {
                 $form

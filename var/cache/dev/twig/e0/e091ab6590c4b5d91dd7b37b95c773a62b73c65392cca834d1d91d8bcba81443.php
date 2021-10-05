@@ -89,18 +89,30 @@ class __TwigTemplate_c7898aee22b5f2665449fccf3388bbcfeba3f68ae8cd21b0742d2a58918
             // line 19
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_show", array("id" => $this->getAttribute($context["physique"], "id", array()))), "html", null, true);
             echo "\"><i class=\"fa fa-eye\" style=\"font-size:23px;color:blue\"></i></a>
-                            <a href=\"";
+                            ";
             // line 20
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute($context["physique"], "id", array()))), "html", null, true);
-            echo "\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
-                </td>
+            if ((null === $this->getAttribute($context["physique"], "nom", array()))) {
+                // line 21
+                echo "                            <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute($context["physique"], "id", array()), "type" => 2)), "html", null, true);
+                echo "\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
+                            ";
+            } else {
+                // line 23
+                echo "                            <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute($context["physique"], "id", array()), "type" => 1)), "html", null, true);
+                echo "\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
+                            ";
+            }
+            // line 25
+            echo "                </td>
             </tr>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['physique'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 24
+        // line 28
         echo "        </tbody>
     </table>
 </div>";
@@ -124,7 +136,7 @@ class __TwigTemplate_c7898aee22b5f2665449fccf3388bbcfeba3f68ae8cd21b0742d2a58918
 
     public function getDebugInfo()
     {
-        return array (  104 => 24,  94 => 20,  90 => 19,  85 => 17,  81 => 16,  77 => 15,  73 => 14,  69 => 13,  65 => 12,  59 => 11,  55 => 10,  51 => 9,  47 => 8,  43 => 7,  37 => 6,  34 => 5,  30 => 4,  25 => 1,);
+        return array (  116 => 28,  108 => 25,  102 => 23,  96 => 21,  94 => 20,  90 => 19,  85 => 17,  81 => 16,  77 => 15,  73 => 14,  69 => 13,  65 => 12,  59 => 11,  55 => 10,  51 => 9,  47 => 8,  43 => 7,  37 => 6,  34 => 5,  30 => 4,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -156,7 +168,11 @@ class __TwigTemplate_c7898aee22b5f2665449fccf3388bbcfeba3f68ae8cd21b0742d2a58918
                 <td>{{ physique.prenomTuteur }}</td>
                 <td>
                             <a href=\"{{ path('physique_show', { 'id': physique.id }) }}\"><i class=\"fa fa-eye\" style=\"font-size:23px;color:blue\"></i></a>
-                            <a href=\"{{ path('physique_edit', { 'id': physique.id }) }}\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
+                            {% if physique.nom is null %}
+                            <a href=\"{{ path('physique_edit', { 'id': physique.id, 'type':2 }) }}\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
+                            {% else %}
+                            <a href=\"{{ path('physique_edit', { 'id': physique.id, 'type':1 }) }}\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
+                            {% endif %}
                 </td>
             </tr>
         {% endfor %}

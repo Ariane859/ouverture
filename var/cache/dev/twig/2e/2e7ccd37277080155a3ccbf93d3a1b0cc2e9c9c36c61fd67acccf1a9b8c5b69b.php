@@ -113,92 +113,104 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         // line 76
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["edit_form"] ?? $this->getContext($context, "edit_form")), 'form_start');
         echo "
+
         ";
-        // line 77
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "typeCompte", array()), 'row');
-        echo "
-        <div class=\"form-row\">
+        // line 78
+        if ($this->getAttribute(($context["edit_form"] ?? null), "nom", array(), "any", true, true)) {
+            // line 79
+            echo "        <div id=\"editform_mineur\">
+        ";
+            // line 80
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "mineur", array()), 'row');
+            echo "
+        </div>
+        ";
+        }
+        // line 83
+        echo "       ";
+        // line 88
+        echo "        <div class=\"form-row\">
         <div class=\"form-group col-md-6\">
         ";
-        // line 80
+        // line 90
         if ($this->getAttribute(($context["edit_form"] ?? null), "nom", array(), "any", true, true)) {
-            // line 81
+            // line 91
             echo "        ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "nom", array()), 'row');
             echo "
         ";
         }
-        // line 83
+        // line 93
         echo "        </div>
         <div class=\"form-group col-md-6\">
         ";
-        // line 85
+        // line 95
         if ($this->getAttribute(($context["edit_form"] ?? null), "prenom", array(), "any", true, true)) {
-            // line 86
+            // line 96
             echo "        ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "prenom", array()), 'row');
             echo "
         ";
         }
-        // line 88
+        // line 98
         echo "        </div>
         </div>
         <div class=\"form-row\">
         <div class=\"form-group col-md-6\">
         ";
-        // line 92
+        // line 102
         if ($this->getAttribute(($context["edit_form"] ?? null), "sigle", array(), "any", true, true)) {
-            // line 93
+            // line 103
             echo "        ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "sigle", array()), 'row');
             echo "
         ";
         }
-        // line 95
+        // line 105
         echo "        </div>
         <div class=\"form-group col-md-6\">
         ";
-        // line 97
+        // line 107
         if ($this->getAttribute(($context["edit_form"] ?? null), "raisonSociale", array(), "any", true, true)) {
-            // line 98
+            // line 108
             echo "        ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "raisonSociale", array()), 'row');
             echo "
         ";
         }
-        // line 100
+        // line 110
         echo "        </div>
         </div>
         <div class=\"form-row\">
         <div class=\"form-group col-md-6\">
         ";
-        // line 104
+        // line 114
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "datnais", array()), 'row');
         echo "
         </div>
         <div class=\"form-group col-md-6\">
         ";
-        // line 107
+        // line 117
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "telephone", array()), 'row');
         echo "
         </div>
         </div>
         <div class=\"form-group\">
         ";
-        // line 111
+        // line 121
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "email", array()), 'row');
         echo "
         </div>
         <div class=\"form-row\">
         <div class=\"form-group col-md-6\">
         ";
-        // line 115
+        // line 125
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "pays", array()), 'row');
         echo "
         </div>
         <div class=\"form-group col-md-6\">
         ";
-        // line 118
+        // line 128
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "ville", array()), 'row');
         echo "
         </div>
@@ -207,46 +219,48 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         <div class=\"form-group col-md-6\">
         <div id=\"tuteur\">
         ";
-        // line 124
+        // line 134
         if ($this->getAttribute(($context["edit_form"] ?? null), "tuteur", array(), "any", true, true)) {
-            // line 125
+            // line 135
             echo "        ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "tuteur", array()), 'row');
             echo "
         ";
         }
-        // line 127
+        // line 137
         echo "        </div>
         </div>
         <div class=\"form-group col-md-6\">
         <div id=\"prenom_tuteur\">
         ";
-        // line 131
+        // line 141
         if ($this->getAttribute(($context["edit_form"] ?? null), "prenomTuteur", array(), "any", true, true)) {
-            // line 132
+            // line 142
             echo "        ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "prenomTuteur", array()), 'row');
             echo "
         ";
         }
-        // line 134
+        // line 144
         echo "        </div>
         </div>
         </div>
+        <div class=\"footer\">
         <input type=\"submit\" class=\"btn btn-primary\" value=\"Valider\" />
         ";
-        // line 138
+        // line 149
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_start', array("attr" => array("onSubmit" => "return confirm('Voulez vous vraiment supprimer?');")));
         echo "
                 <input type=\"submit\" value=\"Delete\" class=\"btn btn-danger\">
         ";
-        // line 140
+        // line 151
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_end');
         echo "
     ";
-        // line 141
+        // line 152
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["edit_form"] ?? $this->getContext($context, "edit_form")), 'form_end');
         echo "
+    </div>
     </div>
 ";
         
@@ -298,7 +312,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 
     public function getDebugInfo()
     {
-        return array (  277 => 71,  273 => 70,  270 => 69,  261 => 68,  248 => 141,  244 => 140,  239 => 138,  233 => 134,  227 => 132,  225 => 131,  219 => 127,  213 => 125,  211 => 124,  202 => 118,  196 => 115,  189 => 111,  182 => 107,  176 => 104,  170 => 100,  164 => 98,  162 => 97,  158 => 95,  152 => 93,  150 => 92,  144 => 88,  138 => 86,  136 => 85,  132 => 83,  126 => 81,  124 => 80,  118 => 77,  114 => 76,  108 => 74,  106 => 68,  103 => 67,  101 => 61,  50 => 4,  41 => 3,  11 => 1,);
+        return array (  291 => 71,  287 => 70,  284 => 69,  275 => 68,  261 => 152,  257 => 151,  252 => 149,  245 => 144,  239 => 142,  237 => 141,  231 => 137,  225 => 135,  223 => 134,  214 => 128,  208 => 125,  201 => 121,  194 => 117,  188 => 114,  182 => 110,  176 => 108,  174 => 107,  170 => 105,  164 => 103,  162 => 102,  156 => 98,  150 => 96,  148 => 95,  144 => 93,  138 => 91,  136 => 90,  132 => 88,  130 => 83,  124 => 80,  121 => 79,  119 => 78,  114 => 76,  108 => 74,  106 => 68,  103 => 67,  101 => 61,  50 => 4,  41 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -387,7 +401,17 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 <a href=\"{{ path('physique_index') }}\"class=\"btn btn-primary\" id=\"index\">Liste</a>
 <div class=\"formulaire\">
     {{ form_start(edit_form) }}
-        {{form_row(edit_form.typeCompte)}}
+
+        {% if edit_form.nom is defined %}
+        <div id=\"editform_mineur\">
+        {{ form_row(edit_form.mineur)}}
+        </div>
+        {% endif %}
+       {# <div class=\"form-group col-md-6\">
+       <div id=\"editform_mineur\">
+        {{ form_row(edit_form.mineur)}}
+        </div>
+        </div> #}
         <div class=\"form-row\">
         <div class=\"form-group col-md-6\">
         {% if edit_form.nom is defined %}
@@ -447,11 +471,13 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         </div>
         </div>
         </div>
+        <div class=\"footer\">
         <input type=\"submit\" class=\"btn btn-primary\" value=\"Valider\" />
         {{ form_start(delete_form,{'attr':{'onSubmit':\"return confirm('Voulez vous vraiment supprimer?');\"}}) }}
                 <input type=\"submit\" value=\"Delete\" class=\"btn btn-danger\">
         {{ form_end(delete_form) }}
     {{ form_end(edit_form) }}
+    </div>
     </div>
 {% endblock %}
 

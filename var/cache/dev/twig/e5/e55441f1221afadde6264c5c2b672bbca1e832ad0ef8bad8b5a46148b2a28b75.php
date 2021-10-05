@@ -128,31 +128,23 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
             echo "</td>
             </tr>
              <tr>
-                <th>Type de Compte:</th>
-                <td>";
-            // line 82
-            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "typeCompte", array()), "html", null, true);
-            echo "</td>
-            </tr>
-           
-             <tr>
                 <th>Sigle:</th>
                 <td>";
-            // line 87
+            // line 82
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "sigle", array()), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <th>Raison sociale:</th>
                 <td>";
-            // line 91
+            // line 86
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "raisonSociale", array()), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <th>Date de naissance:</th>
                 <td>";
-            // line 95
+            // line 90
             if ($this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "datnais", array())) {
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "datnais", array()), "Y-m-d"), "html", null, true);
             }
@@ -161,28 +153,28 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
             <tr>
                 <th>Telephone:</th>
                 <td>";
-            // line 99
+            // line 94
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "telephone", array()), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <th>Email:</th>
                 <td>";
-            // line 103
+            // line 98
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "email", array()), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <th>Pays:</th>
                 <td>";
-            // line 107
+            // line 102
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "pays", array()), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <th>Ville:</th>
                 <td>";
-            // line 111
+            // line 106
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "ville", array()), "html", null, true);
             echo "</td>
             </tr>
@@ -190,7 +182,7 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
     </table>
         ";
         } else {
-            // line 116
+            // line 111
             echo "        <a href=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "id", array()), "type" => 1)), "html", null, true);
             echo "\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
@@ -199,35 +191,28 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
              <tr>
                 <th>Id:</th>
                 <td>";
-            // line 121
+            // line 116
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "id", array()), "html", null, true);
-            echo "</td>
-            </tr>
-             <tr>
-                <th>Type de Compte:</th>
-                <td>";
-            // line 125
-            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "typeCompte", array()), "html", null, true);
             echo "</td>
             </tr>
              <tr>
                 <th>Nom:</th>
                 <td>";
-            // line 129
+            // line 120
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "nom", array()), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <th>Prénom:</th>
                 <td>";
-            // line 133
+            // line 124
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "prenom", array()), "html", null, true);
             echo "</td>
             </tr>
              <tr>
                 <th>Date de naissance:</th>
                 <td>";
-            // line 137
+            // line 128
             if ($this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "datnais", array())) {
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "datnais", array()), "Y-m-d"), "html", null, true);
             }
@@ -236,67 +221,63 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
             <tr>
                 <th>Telephone:</th>
                 <td>";
-            // line 141
+            // line 132
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "telephone", array()), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <th>Email:</th>
                 <td>";
-            // line 145
+            // line 136
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "email", array()), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <th>Pays:</th>
                 <td>";
-            // line 149
+            // line 140
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "pays", array()), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <th>Ville:</th>
                 <td>";
-            // line 153
+            // line 144
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "ville", array()), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <th>Tuteur:</th>
                 <td>";
-            // line 157
+            // line 148
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "tuteur", array()), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <th>Prénom du tuteur</th>
                 <td>";
-            // line 161
+            // line 152
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "prenomTuteur", array()), "html", null, true);
             echo "</td>
             </tr>
         ";
         }
-        // line 164
+        // line 155
         echo "        </tbody>
     </table>
          ";
-        // line 166
+        // line 157
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_start', array("attr" => array("onSubmit" => "return confirm('Voulez vous vraiment supprimer?');")));
         echo "
                 <input type=\"submit\" class=\"btn btn-danger\" id=\"supprimer\" value=\"Supprimer\">
     ";
-        // line 168
+        // line 159
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_end');
         echo "
         <a href=\"";
-        // line 169
+        // line 160
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_index");
         echo "\" class=\"btn btn-primary\" id=\"liste\">Retourner à la liste</a>
-         <a href=\"";
-        // line 170
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_search");
-        echo "\" class=\"btn btn-primary\">Rechercher</a> 
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -347,7 +328,7 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
 
     public function getDebugInfo()
     {
-        return array (  326 => 69,  322 => 68,  319 => 67,  310 => 66,  298 => 170,  294 => 169,  290 => 168,  285 => 166,  281 => 164,  275 => 161,  268 => 157,  261 => 153,  254 => 149,  247 => 145,  240 => 141,  231 => 137,  224 => 133,  217 => 129,  210 => 125,  203 => 121,  194 => 116,  186 => 111,  179 => 107,  172 => 103,  165 => 99,  156 => 95,  149 => 91,  142 => 87,  134 => 82,  127 => 78,  118 => 73,  116 => 72,  114 => 66,  50 => 4,  41 => 3,  11 => 1,);
+        return array (  307 => 69,  303 => 68,  300 => 67,  291 => 66,  279 => 160,  275 => 159,  270 => 157,  266 => 155,  260 => 152,  253 => 148,  246 => 144,  239 => 140,  232 => 136,  225 => 132,  216 => 128,  209 => 124,  202 => 120,  195 => 116,  186 => 111,  178 => 106,  171 => 102,  164 => 98,  157 => 94,  148 => 90,  141 => 86,  134 => 82,  127 => 78,  118 => 73,  116 => 72,  114 => 66,  50 => 4,  41 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -440,11 +421,6 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
                 <td>{{ physique.id }}</td>
             </tr>
              <tr>
-                <th>Type de Compte:</th>
-                <td>{{ physique.typeCompte }}</td>
-            </tr>
-           
-             <tr>
                 <th>Sigle:</th>
                 <td>{{ physique.sigle }}</td>
             </tr>
@@ -481,10 +457,6 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
              <tr>
                 <th>Id:</th>
                 <td>{{ physique.id }}</td>
-            </tr>
-             <tr>
-                <th>Type de Compte:</th>
-                <td>{{ physique.typeCompte }}</td>
             </tr>
              <tr>
                 <th>Nom:</th>
@@ -529,7 +501,6 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
                 <input type=\"submit\" class=\"btn btn-danger\" id=\"supprimer\" value=\"Supprimer\">
     {{ form_end(delete_form) }}
         <a href=\"{{ path('physique_index') }}\" class=\"btn btn-primary\" id=\"liste\">Retourner à la liste</a>
-         <a href=\"{{ path('physique_search') }}\" class=\"btn btn-primary\">Rechercher</a> 
 {% endblock %}
 ", "physique/show.html.twig", "C:\\laragon\\www\\ouverture\\app\\Resources\\views\\physique\\show.html.twig");
     }

@@ -78,11 +78,6 @@
                 <td>{{ physique.id }}</td>
             </tr>
              <tr>
-                <th>Type de Compte:</th>
-                <td>{{ physique.typeCompte }}</td>
-            </tr>
-           
-             <tr>
                 <th>Sigle:</th>
                 <td>{{ physique.sigle }}</td>
             </tr>
@@ -119,10 +114,6 @@
              <tr>
                 <th>Id:</th>
                 <td>{{ physique.id }}</td>
-            </tr>
-             <tr>
-                <th>Type de Compte:</th>
-                <td>{{ physique.typeCompte }}</td>
             </tr>
              <tr>
                 <th>Nom:</th>
@@ -167,5 +158,4 @@
                 <input type="submit" class="btn btn-danger" id="supprimer" value="Supprimer">
     {{ form_end(delete_form) }}
         <a href="{{ path('physique_index') }}" class="btn btn-primary" id="liste">Retourner à la liste</a>
-         <a href="{{ path('physique_search') }}" class="btn btn-primary">Rechercher</a> 
 {% endblock %}
