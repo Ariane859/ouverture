@@ -258,7 +258,7 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         </div>
         </div>
          
-        <input type=\"submit\" class=\"btn btn-primary\" id=\"enregistrer\" value=\"Enregistrer\"/>
+        <button type=\"submit\" class=\"btn  btn-outline-success\" id=\"enregistrer\">Enregistrer</button>
         ";
         // line 153
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
@@ -478,7 +478,7 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         </div>
         </div>
          
-        <input type=\"submit\" class=\"btn btn-primary\" id=\"enregistrer\" value=\"Enregistrer\"/>
+        <button type=\"submit\" class=\"btn  btn-outline-success\" id=\"enregistrer\">Enregistrer</button>
         {{ form_end(form) }}
     </div>
 {% endblock %}

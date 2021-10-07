@@ -70,7 +70,7 @@
     </div>
 {% endblock %}
 {% if physique.nom is null %}
-<a href="{{ path('physique_edit', { 'id': physique.id ,'type':2})}}" id="modifier" class="btn btn-primary">Modifier</a>
+<a href="{{ path('physique_edit', { 'id': physique.id ,'slug':2})}}" id="modifier" class="btn btn-primary">Modifier</a>
     <table class="table table-hover table-sm">
         <tbody>
              <tr>
@@ -108,7 +108,7 @@
             </tbody>
     </table>
         {% else %}
-        <a href="{{ path('physique_edit', { 'id': physique.id ,'type':1})}}" id="modifier" class="btn btn-primary">Modifier</a>
+        <a href="{{ path('physique_edit', { 'id': physique.id ,'slug':1})}}" id="modifier" class="btn btn-primary">Modifier</a>
     <table class="table table-hover table-sm">
         <tbody>
              <tr>
@@ -154,8 +154,8 @@
         {% endif %}
         </tbody>
     </table>
-         {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
+        {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
                 <input type="submit" class="btn btn-danger" id="supprimer" value="Supprimer">
-    {{ form_end(delete_form) }}
+        {{ form_end(delete_form) }}
         <a href="{{ path('physique_index') }}" class="btn btn-primary" id="liste">Retourner à la liste</a>
 {% endblock %}

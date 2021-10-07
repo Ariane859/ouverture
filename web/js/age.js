@@ -47,7 +47,6 @@
     }
     
     $(document).ready(function(){
-
         $("#physiquebundle_physique_datnais").on("change",function(e){
             e.preventDefault();
             console.log(calcul_age($(this).val()));
@@ -60,10 +59,19 @@
             // document.getElementById('physiquebundle_physique_prenomTuteur').style.cursor="auto";
             document.getElementById('physiquebundle_physique_mineur').disabled=true;
             document.getElementById('physiquebundle_physique_mineur').checked=true;
-            document.getElementById('physiquebundle_physique_mineur').style.color = "red";
             document.getElementById('physiquebundle_physique_mineur').style.cursor="no-drop";
             document.getElementById('tuteur').style.display= "block";
             document.getElementById('prenom_tuteur').style.display= "block";
+            $('#enregistrer').on('click',function(e) {
+                if(calcul_age($(this).val())<18)
+            {
+                if(document.getElementById('physiquebundle_physique_tuteur').value=="" && document.getElementById('physiquebundle_physique_prenomTuteur').value=="")
+                {
+                    e.preventDefault()
+                    alert('Veuillez entrez le nom de votre tuteur!!!')
+                }
+            }
+            })
            
         }
         else
@@ -86,16 +94,6 @@
         // var email=document.getElementById("physiquebundle_physique_email").value;
         // console.log(telephone);
         // console.log(email);
-        })
-        $('#enregistrer').on('click',function(e) {
-            if(calcul_age($(this).val())<18)
-        {
-            if(document.getElementById('physiquebundle_physique_tuteur').value=="")
-            {
-                e.preventDefault()
-                alert('Veuillez entrez le nom de votre tuteur!!!')
-            }
-        }
         })
        
     });

@@ -247,18 +247,18 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         </div>
         <div class=\"footer\">
         <input type=\"submit\" class=\"btn btn-primary\" value=\"Valider\" />
-        ";
+    ";
         // line 149
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["edit_form"] ?? $this->getContext($context, "edit_form")), 'form_end');
+        echo "
+    ";
+        // line 150
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_start', array("attr" => array("onSubmit" => "return confirm('Voulez vous vraiment supprimer?');")));
         echo "
                 <input type=\"submit\" value=\"Delete\" class=\"btn btn-danger\">
         ";
-        // line 151
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_end');
-        echo "
-    ";
         // line 152
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["edit_form"] ?? $this->getContext($context, "edit_form")), 'form_end');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_end');
         echo "
     </div>
     </div>
@@ -312,7 +312,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 
     public function getDebugInfo()
     {
-        return array (  291 => 71,  287 => 70,  284 => 69,  275 => 68,  261 => 152,  257 => 151,  252 => 149,  245 => 144,  239 => 142,  237 => 141,  231 => 137,  225 => 135,  223 => 134,  214 => 128,  208 => 125,  201 => 121,  194 => 117,  188 => 114,  182 => 110,  176 => 108,  174 => 107,  170 => 105,  164 => 103,  162 => 102,  156 => 98,  150 => 96,  148 => 95,  144 => 93,  138 => 91,  136 => 90,  132 => 88,  130 => 83,  124 => 80,  121 => 79,  119 => 78,  114 => 76,  108 => 74,  106 => 68,  103 => 67,  101 => 61,  50 => 4,  41 => 3,  11 => 1,);
+        return array (  291 => 71,  287 => 70,  284 => 69,  275 => 68,  261 => 152,  256 => 150,  252 => 149,  245 => 144,  239 => 142,  237 => 141,  231 => 137,  225 => 135,  223 => 134,  214 => 128,  208 => 125,  201 => 121,  194 => 117,  188 => 114,  182 => 110,  176 => 108,  174 => 107,  170 => 105,  164 => 103,  162 => 102,  156 => 98,  150 => 96,  148 => 95,  144 => 93,  138 => 91,  136 => 90,  132 => 88,  130 => 83,  124 => 80,  121 => 79,  119 => 78,  114 => 76,  108 => 74,  106 => 68,  103 => 67,  101 => 61,  50 => 4,  41 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -473,10 +473,10 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         </div>
         <div class=\"footer\">
         <input type=\"submit\" class=\"btn btn-primary\" value=\"Valider\" />
-        {{ form_start(delete_form,{'attr':{'onSubmit':\"return confirm('Voulez vous vraiment supprimer?');\"}}) }}
+    {{ form_end(edit_form) }}
+    {{ form_start(delete_form,{'attr':{'onSubmit':\"return confirm('Voulez vous vraiment supprimer?');\"}}) }}
                 <input type=\"submit\" value=\"Delete\" class=\"btn btn-danger\">
         {{ form_end(delete_form) }}
-    {{ form_end(edit_form) }}
     </div>
     </div>
 {% endblock %}

@@ -116,7 +116,7 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
         if ((null === $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "nom", array()))) {
             // line 73
             echo "<a href=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "id", array()), "type" => 2)), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "id", array()), "slug" => 2)), "html", null, true);
             echo "\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
     <table class=\"table table-hover table-sm\">
         <tbody>
@@ -184,7 +184,7 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
         } else {
             // line 111
             echo "        <a href=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "id", array()), "type" => 1)), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "id", array()), "slug" => 1)), "html", null, true);
             echo "\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
     <table class=\"table table-hover table-sm\">
         <tbody>
@@ -265,12 +265,12 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
         // line 155
         echo "        </tbody>
     </table>
-         ";
+        ";
         // line 157
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_start', array("attr" => array("onSubmit" => "return confirm('Voulez vous vraiment supprimer?');")));
         echo "
                 <input type=\"submit\" class=\"btn btn-danger\" id=\"supprimer\" value=\"Supprimer\">
-    ";
+        ";
         // line 159
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_end');
         echo "
@@ -413,7 +413,7 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
     </div>
 {% endblock %}
 {% if physique.nom is null %}
-<a href=\"{{ path('physique_edit', { 'id': physique.id ,'type':2})}}\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
+<a href=\"{{ path('physique_edit', { 'id': physique.id ,'slug':2})}}\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
     <table class=\"table table-hover table-sm\">
         <tbody>
              <tr>
@@ -451,7 +451,7 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
             </tbody>
     </table>
         {% else %}
-        <a href=\"{{ path('physique_edit', { 'id': physique.id ,'type':1})}}\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
+        <a href=\"{{ path('physique_edit', { 'id': physique.id ,'slug':1})}}\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
     <table class=\"table table-hover table-sm\">
         <tbody>
              <tr>
@@ -497,9 +497,9 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
         {% endif %}
         </tbody>
     </table>
-         {{ form_start(delete_form,{'attr':{'onSubmit':\"return confirm('Voulez vous vraiment supprimer?');\"}}) }}
+        {{ form_start(delete_form,{'attr':{'onSubmit':\"return confirm('Voulez vous vraiment supprimer?');\"}}) }}
                 <input type=\"submit\" class=\"btn btn-danger\" id=\"supprimer\" value=\"Supprimer\">
-    {{ form_end(delete_form) }}
+        {{ form_end(delete_form) }}
         <a href=\"{{ path('physique_index') }}\" class=\"btn btn-primary\" id=\"liste\">Retourner à la liste</a>
 {% endblock %}
 ", "physique/show.html.twig", "C:\\laragon\\www\\ouverture\\app\\Resources\\views\\physique\\show.html.twig");

@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+//use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
@@ -38,12 +39,12 @@ class PhysiqueType extends AbstractType
         ]
         ] )
         ->add('pays', CountryType::class,['attr' => [
-            'class' => 'form-control'
-        ]
+            'class' => 'form-control',
+        ],
         ])
         ->add('ville', TextType::class,['attr' => [
-            'class' => 'form-control'
-        ]
+            'class' => 'form-control',
+        ],
         ]);
 
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use($options){
@@ -52,7 +53,7 @@ class PhysiqueType extends AbstractType
 
             $form = $event->getForm();
 
-         if ($options['type']==1) {
+         if ($options['slug']==1) {
             $form
                ->add('typeCompte', HiddenType::class, [
                 'data' => 'abcdef',
@@ -96,7 +97,7 @@ class PhysiqueType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'PhysiqueBundle\Entity\Physique',
-            'type' => null
+            'slug' => null
         ));
     }
 

@@ -18,9 +18,9 @@
                 <td>
                             <a href="{{ path('physique_show', { 'id': physique.id }) }}"><i class="fa fa-eye" style="font-size:23px;color:blue"></i></a>
                             {% if physique.nom is null %}
-                            <a href="{{ path('physique_edit', { 'id': physique.id, 'type':2 }) }}"><i class="fa fa-edit" style="font-size:24px;color:blue"></i></a>
+                            <a href="{{ path('physique_edit', { 'id': physique.id, 'slug':2 }) }}"><i class="fa fa-edit" style="font-size:24px;color:blue"></i></a>
                             {% else %}
-                            <a href="{{ path('physique_edit', { 'id': physique.id, 'type':1 }) }}"><i class="fa fa-edit" style="font-size:24px;color:blue"></i></a>
+                            <a href="{{ path('physique_edit', { 'id': physique.id, 'slug':1 }) }}"><i class="fa fa-edit" style="font-size:24px;color:blue"></i></a>
                             {% endif %}
                 </td>
             </tr>

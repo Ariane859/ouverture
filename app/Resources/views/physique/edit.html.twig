@@ -146,10 +146,10 @@
         </div>
         <div class="footer">
         <input type="submit" class="btn btn-primary" value="Valider" />
-        {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
+    {{ form_end(edit_form) }}
+    {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
                 <input type="submit" value="Delete" class="btn btn-danger">
         {{ form_end(delete_form) }}
-    {{ form_end(edit_form) }}
     </div>
     </div>
 {% endblock %}

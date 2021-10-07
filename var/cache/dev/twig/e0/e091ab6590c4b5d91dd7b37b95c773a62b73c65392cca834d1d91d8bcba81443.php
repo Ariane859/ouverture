@@ -94,13 +94,13 @@ class __TwigTemplate_c7898aee22b5f2665449fccf3388bbcfeba3f68ae8cd21b0742d2a58918
             if ((null === $this->getAttribute($context["physique"], "nom", array()))) {
                 // line 21
                 echo "                            <a href=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute($context["physique"], "id", array()), "type" => 2)), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute($context["physique"], "id", array()), "slug" => 2)), "html", null, true);
                 echo "\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
                             ";
             } else {
                 // line 23
                 echo "                            <a href=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute($context["physique"], "id", array()), "type" => 1)), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute($context["physique"], "id", array()), "slug" => 1)), "html", null, true);
                 echo "\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
                             ";
             }
@@ -169,9 +169,9 @@ class __TwigTemplate_c7898aee22b5f2665449fccf3388bbcfeba3f68ae8cd21b0742d2a58918
                 <td>
                             <a href=\"{{ path('physique_show', { 'id': physique.id }) }}\"><i class=\"fa fa-eye\" style=\"font-size:23px;color:blue\"></i></a>
                             {% if physique.nom is null %}
-                            <a href=\"{{ path('physique_edit', { 'id': physique.id, 'type':2 }) }}\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
+                            <a href=\"{{ path('physique_edit', { 'id': physique.id, 'slug':2 }) }}\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
                             {% else %}
-                            <a href=\"{{ path('physique_edit', { 'id': physique.id, 'type':1 }) }}\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
+                            <a href=\"{{ path('physique_edit', { 'id': physique.id, 'slug':1 }) }}\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
                             {% endif %}
                 </td>
             </tr>
