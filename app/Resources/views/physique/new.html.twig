@@ -5,6 +5,7 @@
         body
             {
                 font-family: Georgia, 'Times New Roman', Times, serif;
+                /*margin-top:30px;*/
             }
         .sidebar
             {
@@ -33,7 +34,7 @@
         .formulaire 
         {
             color: black;
-            margin-top:8%;
+            margin-top:5%;
             margin-left:11%;
             width:80%;
             border:solid white 1px;
@@ -69,6 +70,58 @@
         #prenom_tuteur {
             display:none;
         }
+        {# #contain
+        {
+            margin-top:8%;
+        } #}
+        {# .stepwizard-step p {
+            margin-top: 0px;
+            color:#666;
+        }
+        .stepwizard-row {
+            display: table-row;
+        }
+        .stepwizard {
+            display: table;
+            width: 100%;
+            position: relative;
+        }
+        .stepwizard-step button[disabled] {
+            /*opacity: 1 !important;
+            filter: alpha(opacity=100) !important;*/
+        }
+        .stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
+            opacity:1 !important;
+            color:#bbb;
+        }
+        .stepwizard-row:before {
+            top: 14px;
+            bottom: 0;
+            position: absolute;
+            content:" ";
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            z-index: 0;
+        }
+        .stepwizard-step {
+            display: table-cell;
+            text-align: center;
+            position: relative;
+        }
+        .btn-circle {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            padding: 6px 0;
+            font-size: 12px;
+            line-height: 1.428571429;
+            border-radius: 15px;
+        }
+        #step-2
+        {
+            margin-top:8%;
+        } #}
 </style>
     
 <h1></h1>
@@ -79,77 +132,173 @@
         <a href="{{ path('path_choix')}}" id="ouvrir">Ouvrir un compte</a>
     </div>
 {% endblock %}
-<div class="formulaire">
-    <a href="{{ path('physique_index') }}"class="btn btn-primary" id="index">Liste</a>
-    {{ form_start(form) }}
+    {# <div class="container" id="contain">
+        <div class="stepwizard">
+            <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step col-xs-3"> 
+                    <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
+                </div>
+                <div class="stepwizard-step col-xs-3"> 
+                    <a href="#step-2" type="button" class="btn btn-success btn-circle" disabled="disabled">2</a>
+                </div>
+            </div>
+        </div> #}
 
-        {% if form.nom is defined %}
-        <div id="mineur">
-        {{ form_row(form.mineur)}}
+        <div class="formulaire">
+            {# <a href="{{ path('physique_index') }}"class="btn btn-primary" id="index">Liste</a> #}
+            {# {{ form_start(form,{'attr':{'role':"form"}}) }} #}
+             {{ form_start(form) }}
+            {# <div class="panel panel-primary setup-content" id="step-1">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Informations personnelles</h3>
+                </div>
+                <div class="panel-body"> #}
+                    {% if form.nom is defined %}
+                        <div id="mineur">
+                            {{ form_row(form.mineur)}}
+                        </div>
+                    {% endif %}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {% if form.nom is defined %}
+                                {{form_row(form.nom)}}
+                            {% endif %}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {% if form.prenom is defined %}
+                                {{form_row(form.prenom)}}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {% if form.sigle is defined %}
+                                {{form_row(form.sigle)}}
+                            {% endif %}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {% if form.raisonSociale is defined %}
+                                {{form_row(form.raisonSociale)}}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form_row(form.datnais)}}
+                            <p id="reponse"></p>
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_row(form.telephone)}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.email)}}
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form_row(form.pays)}}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_row(form.ville)}}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div id="tuteur">
+                                {% if form.tuteur is defined %}
+                                    {{form_row(form.tuteur)}}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div id="prenom_tuteur">
+                                {% if form.prenomTuteur is defined %}
+                                    {{form_row(form.prenomTuteur)}}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div> 
+                    {# <button class="btn btn-primary nextBtn pull-right" type="button">Suivant</button> #}
+                {# </div> #}
+            {# </div> #}
+
+            {# <div class="panel panel-primary setup-content" id="step-2">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Pièces à joindre</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                {{form_row(form.typePiece)}}
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{form_row(form.refPiece)}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.datexpiration)}}
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                {{ form_row(form.paysEmission)}}
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{ form_row(form.emetteur)}}
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success pull-right" id="enregistrer">Enregistrer</button>
+                    </div>
+            </div> #}
+            <button type="submit" class="btn btn-success" id="enregistrer">Enregistrer</button>
+            {{ form_end(form) }}
         </div>
-        {% endif %}
-       <div class="form-row">
-        <div class="form-group col-md-6">
-        {% if form.nom is defined %}
-        {{form_row(form.nom)}}
-        {% endif %}
-        </div>
-        <div class="form-group col-md-6">
-        {% if form.prenom is defined %}
-        {{form_row(form.prenom)}}
-        {% endif %}
-        </div>
-        </div>
-        <div class="form-row">
-        <div class="form-group col-md-6">
-        {% if form.sigle is defined %}
-        {{form_row(form.sigle)}}
-        {% endif %}
-        </div>
-        <div class="form-group col-md-6">
-         {% if form.raisonSociale is defined %}
-        {{form_row(form.raisonSociale)}}
-        {% endif %}
-        </div>
-        </div>
-        <div class="form-row">
-        <div class="form-group col-md-6">
-        {{ form_row(form.datnais)}}
-        <p id="reponse"></p>
-        </div>
-        <div class="form-group col-md-6">
-        {{ form_row(form.telephone)}}
-        </div>
-        </div>
-        <div class="form-group">
-        {{ form_row(form.email)}}
-        </div>
-        <div class="form-row">
-        <div class="form-group col-md-6">
-        {{ form_row(form.pays)}}
-        </div>
-        <div class="form-group col-md-6">
-        {{ form_row(form.ville)}}
-        </div>
-        </div>
-        <div class="form-row">
-        <div class="form-group col-md-6">
-        <div id="tuteur">
-         {% if form.tuteur is defined %}
-        {{form_row(form.tuteur)}}
-        {% endif %}
-        </div>
-        </div>
-        <div class="form-group col-md-6">
-        <div id="prenom_tuteur">
-        {% if form.prenomTuteur is defined %}
-        {{form_row(form.prenomTuteur)}}
-        {% endif %}
-        </div>
-        </div>
-        </div>
-         
-        <button type="submit" class="btn  btn-outline-success" id="enregistrer">Enregistrer</button>
-        {{ form_end(form) }}
-    </div>
 {% endblock %}
+
+{# {% block javascripts %}
+    
+    <script>
+        {# $(document).ready(function()
+        {
+            var navListItems = $('div.setup-panel div a'),
+            allWells = $('.setup-content'),
+            allNextBtn = $('.nextBtn');
+
+            allWells.hide();
+
+            navListItems.click(function (e) {
+                e.preventDefault();
+                var $target = $($(this).attr('href')),
+                    $item = $(this);
+
+                if (!$item.hasClass('disabled')) {
+                    navListItems.removeClass('btn-success').addClass('btn-default');
+                    $item.addClass('btn-success');
+                    allWells.hide();
+                    $target.show();
+                    $target.find('input:eq(0)').focus();
+                }
+            });
+
+            allNextBtn.click(function () {
+                var curStep = $(this).closest(".setup-content"),
+                    curStepBtn = curStep.attr("id"),
+                    nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                    curInputs = curStep.find("input[type='text'],input[type='url']"),
+                    isValid = true;
+
+                $(".form-group").removeClass("has-error");
+                for (var i = 0; i < curInputs.length; i++) {
+                    if (!curInputs[i].validity.valid) {
+                        isValid = false;
+                        $(curInputs[i]).closest(".form-group").addClass("has-error");
+                    }
+                }
+
+                if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
+            });
+
+            $('div.setup-panel div a.btn-success').trigger('click');});
+        }
+        ) 
+    </script>
+{% endblock %} #}

@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
-//use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
@@ -45,7 +45,28 @@ class PhysiqueType extends AbstractType
         ->add('ville', TextType::class,['attr' => [
             'class' => 'form-control',
         ],
-        ]);
+        ])
+        // ->add('typePiece', ChoiceType::class,['attr' => ['class' => 'form-control',] ,'choices'=>array(
+        //     'Pièce d\'identité'=>'Pièce d\'identité',
+        //     'Relevé d\'identité'=>'Relevé d\'identité',
+        //     'Attestation de résidence'=>'Attestation de résidence',
+        //     'Photo d\'identité'=>'Photo d\'identité',
+
+        // ),'label'=>'Type de pièce'
+        // ])
+        // ->add('refPiece', TextType::class,['attr' => [
+        //     'class' => 'form-control',
+        // ],'label'=>'Référence Pièce'
+        // ])
+        // ->add('datexpiration', DateType::class,['attr' => ['class' => 'form-control'] , 'widget' => 'single_text','label'=>'Date d\'expiration']     
+        // )
+        // ->add('paysEmission', CountryType::class,['attr' => [
+        //     'class' => 'form-control',
+        // ],'label'=>'Pays d\'émission'])
+        // ->add('emetteur', TextType::class,['attr' => [
+        //     'class' => 'form-control',
+        // ],'label'=>'Lieu de délivrance'])
+        ;
 
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use($options){
 

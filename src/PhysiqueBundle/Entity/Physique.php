@@ -114,6 +114,41 @@ class Physique
      */
     private $prenomTuteur;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="typePiece", type="integer")
+     */
+    private $typePiece;
+
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="refPiece", type="string", length=50, nullable=true)
+     */
+    private $refPiece;
+
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="paysEmission", type="string", length=50, nullable=true)
+     */
+    private $paysEmission;
+
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="emetteur", type="string", length=50, nullable=true)
+     */
+    private $emetteur;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datexpiration", type="date")
+     */
+    private $datexpiration;
+
     private $mineur;
 
 
@@ -425,5 +460,125 @@ class Physique
     public function getmineur()
     {
        return $this->mineur;
+    }
+
+    /**
+     * Set typePiece
+     *
+     * @param integer $typePiece
+     *
+     * @return Physique
+     */
+    public function setTypePiece($typePiece)
+    {
+        $this->typePiece = $typePiece;
+
+        return $this;
+    }
+
+    /**
+     * Get typePiece
+     *
+     * @return integer
+     */
+    public function getTypePiece()
+    {
+        return $this->typePiece;
+    }
+
+    /**
+     * Set refPiece
+     *
+     * @param string $refPiece
+     *
+     * @return Physique
+     */
+    public function setRefPiece($refPiece)
+    {
+        $this->refPiece = $refPiece;
+
+        return $this;
+    }
+
+    /**
+     * Get refPiece
+     *
+     * @return string
+     */
+    public function getRefPiece()
+    {
+        return $this->refPiece;
+    }
+
+    /**
+     * Set paysEmission
+     *
+     * @param string $paysEmission
+     *
+     * @return Physique
+     */
+    public function setPaysEmission($paysEmission)
+    {
+        $this->paysEmission = $paysEmission;
+
+        return $this;
+    }
+
+    /**
+     * Get paysEmission
+     *
+     * @return string
+     */
+    public function getPaysEmission()
+    {
+        return $this->paysEmission;
+    }
+
+    /**
+     * Set emetteur
+     *
+     * @param string $emetteur
+     *
+     * @return Physique
+     */
+    public function setEmetteur($emetteur)
+    {
+        $this->emetteur = $emetteur;
+
+        return $this;
+    }
+
+    /**
+     * Get emetteur
+     *
+     * @return string
+     */
+    public function getEmetteur()
+    {
+        return $this->emetteur;
+    }
+
+    /**
+     * Set datexpiration
+     *
+     * @param \DateTime $datexpiration
+     *
+     * @return Physique
+     */
+    public function setDatexpiration($datexpiration)
+    {
+        $this->datexpiration = $datexpiration;
+
+        return $this;
+    }
+
+    /**
+     * Get datexpiration
+     *
+     * @return \DateTime
+     */
+    public function getDatexpiration()
+    {
+        return $this->datexpiration;
     }
 }
