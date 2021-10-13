@@ -185,8 +185,8 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_new", array("slug" => 1));
         echo "\" class=\"btn btn-primary\" id=\"ajouter\">Ajouter</a>";
         // line 151
-        echo "    <div class=\"tab\">
-    <table class=\"table table-striped table-hover table-bordered\">
+        echo "    <div>
+    <table class=\"table table-striped table-hover table-bordered\" id=\"tab\">
         <thead>
             <tr>
                 <th>Id</th>
@@ -201,91 +201,92 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
                 <th>Ville</th>
                 <th>Tuteur</th>
                 <th>Prénom du tuteur</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody id=\"body\">
         ";
-        // line 170
+        // line 171
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["physiques"] ?? $this->getContext($context, "physiques")));
         foreach ($context['_seq'] as $context["_key"] => $context["physique"]) {
-            // line 171
+            // line 172
             echo "            <tr>
                 <th><a href=\"";
-            // line 172
+            // line 173
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_show", array("id" => $this->getAttribute($context["physique"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "id", array()), "html", null, true);
             echo "</a></th>
                 <td>";
-            // line 173
+            // line 174
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "nom", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 174
+            // line 175
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "prenom", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 175
+            // line 176
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "sigle", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 176
+            // line 177
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "raisonSociale", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 177
+            // line 178
             if ($this->getAttribute($context["physique"], "datnais", array())) {
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["physique"], "datnais", array()), "Y-m-d"), "html", null, true);
             }
             echo "</td>
                 <td>";
-            // line 178
+            // line 179
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "telephone", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 179
+            // line 180
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "email", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 180
+            // line 181
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "pays", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 181
+            // line 182
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "ville", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 182
+            // line 183
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "tuteur", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 183
+            // line 184
             echo twig_escape_filter($this->env, $this->getAttribute($context["physique"], "prenomTuteur", array()), "html", null, true);
             echo "</td>
                 <td>
                             <a href=\"";
-            // line 185
+            // line 186
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_show", array("id" => $this->getAttribute($context["physique"], "id", array()))), "html", null, true);
             echo "\"><i class=\"fa fa-eye\" style=\"font-size:23px;color:blue\"></i></a>
                             ";
-            // line 186
+            // line 187
             if ((null === $this->getAttribute($context["physique"], "nom", array()))) {
-                // line 187
+                // line 188
                 echo "                            <a href=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute($context["physique"], "id", array()), "slug" => 2)), "html", null, true);
                 echo "\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
                             ";
             } else {
-                // line 189
+                // line 190
                 echo "                            <a href=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute($context["physique"], "id", array()), "slug" => 1)), "html", null, true);
                 echo "\"><i class=\"fa fa-edit\" style=\"font-size:24px;color:blue\"></i></a>
                             ";
             }
-            // line 191
+            // line 192
             echo "                             ";
-            // line 194
+            // line 195
             echo "                </td>
             </tr>
         ";
@@ -293,7 +294,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['physique'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 197
+        // line 198
         echo "        </tbody>
     </table>
     </div>
@@ -345,7 +346,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
 
     }
 
-    // line 202
+    // line 203
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -356,14 +357,14 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
 
         echo " 
 ";
-        // line 203
+        // line 204
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
 
 <script> 
      
 \$(document).ready(function(){
-
+    \$('#tab').DataTable({searching:false});
     \$(\"#bouton_search\").click(function(ev){
         ev.preventDefault();
         \$('#search').val(\"\")
@@ -420,7 +421,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
 
     public function getDebugInfo()
     {
-        return array (  360 => 203,  349 => 202,  333 => 112,  324 => 106,  319 => 103,  310 => 102,  297 => 197,  289 => 194,  287 => 191,  281 => 189,  275 => 187,  273 => 186,  269 => 185,  264 => 183,  260 => 182,  256 => 181,  252 => 180,  248 => 179,  244 => 178,  238 => 177,  234 => 176,  230 => 175,  226 => 174,  222 => 173,  216 => 172,  213 => 171,  209 => 170,  188 => 151,  184 => 150,  180 => 143,  156 => 120,  153 => 118,  151 => 102,  51 => 4,  42 => 3,  11 => 1,);
+        return array (  361 => 204,  350 => 203,  334 => 112,  325 => 106,  320 => 103,  311 => 102,  298 => 198,  290 => 195,  288 => 192,  282 => 190,  276 => 188,  274 => 187,  270 => 186,  265 => 184,  261 => 183,  257 => 182,  253 => 181,  249 => 180,  245 => 179,  239 => 178,  235 => 177,  231 => 176,  227 => 175,  223 => 174,  217 => 173,  214 => 172,  210 => 171,  188 => 151,  184 => 150,  180 => 143,  156 => 120,  153 => 118,  151 => 102,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -583,8 +584,8 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
             </div>
         {% endfor %} #}
     <a href=\"{{ path('physique_new', {'slug':1}) }}\" class=\"btn btn-primary\" id=\"ajouter\">Ajouter</a>{#</div>#}
-    <div class=\"tab\">
-    <table class=\"table table-striped table-hover table-bordered\">
+    <div>
+    <table class=\"table table-striped table-hover table-bordered\" id=\"tab\">
         <thead>
             <tr>
                 <th>Id</th>
@@ -599,6 +600,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
                 <th>Ville</th>
                 <th>Tuteur</th>
                 <th>Prénom du tuteur</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody id=\"body\">
@@ -640,7 +642,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
 <script> 
      
 \$(document).ready(function(){
-
+    \$('#tab').DataTable({searching:false});
     \$(\"#bouton_search\").click(function(ev){
         ev.preventDefault();
         \$('#search').val(\"\")

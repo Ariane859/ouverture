@@ -46,14 +46,45 @@ class PhysiqueController extends Controller
         $form = $this->createForm('PhysiqueBundle\Form\PhysiqueType', $physique, array('slug' => $slug));
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        // if ($form->isSubmitted() && $form->isValid()) {
+         if ($request->isXmlHttpRequest()) {
+            
+            $physiquebundle_physique_nom = $request->get("physiquebundle_physique_nom");
+            $physiquebundle_physique_prenom = $request->get("physiquebundle_physique_prenom");
+            $physiquebundle_physique_datnais = $request->get("physiquebundle_physique_datnais");
+            $physiquebundle_physique_telephone = $request->get("physiquebundle_physique_telephone");
+            $physiquebundle_physique_email = $request->get("physiquebundle_physique_email");
+            $physiquebundle_physique_pays = $request->get("physiquebundle_physique_pays");
+            $physiquebundle_physique_ville = $request->get("physiquebundle_physique_ville");
+          // dump($data);die();
             $em = $this->getDoctrine()->getManager();
-            $em->persist($physique);
-            $em->flush();
-
-            return $this->redirectToRoute('physique_new',array('slug'=>$slug));
+            $physiques = $em->getRepository('PhysiqueBundle:Physique')->findOneBy(array('nom'=>$physiquebundle_physique_nom,'prenom'=>$physiquebundle_physique_prenom ));
+            if($physiquebundle_physique_nom="" && $physiquebundle_physique_prenom="")
+            {
+                $response=array("message" =>"champs non remplis" ,"code"=>300 );
+            }
+            else if($physiques)
+            {
+                $response=array("message" =>"cet utilisateur existe déjà" ,"code"=>400 );
+            }
+            else {
+                //dump(new \DateTime($physiquebundle_physique_datnais));die();
+                $physique = new Physique();
+                $physique->setNom($physiquebundle_physique_nom);
+                $physique->setPrenom($physiquebundle_physique_prenom);
+                $physique->setDatnais(new \DateTime($physiquebundle_physique_datnais));
+                $physique->setTelephone($physiquebundle_physique_telephone);
+                $physique->setEmail($physiquebundle_physique_email);
+                $physique->setPays($physiquebundle_physique_pays);
+                $physique->setVille($physiquebundle_physique_ville);
+                $em->persist($physique);
+                $em->flush();
+                $response= array("message" =>"enregistré" ,"code"=>100 );
+            }
+            return new Response(json_encode($response),200,array('Content-Type'=> 'application/json'));
+            //  return new Response();
+            //return $this->redirectToRoute('physique_new',array('slug'=>$slug));
         }
-
         return $this->render('physique/new.html.twig', array(
             'physique' => $physique,
             'form' => $form->createView(),

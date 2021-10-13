@@ -67,7 +67,6 @@ class PhysiqueType extends AbstractType
         //     'class' => 'form-control',
         // ],'label'=>'Lieu de délivrance'])
         ;
-
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use($options){
 
             $physique = $event->getData();

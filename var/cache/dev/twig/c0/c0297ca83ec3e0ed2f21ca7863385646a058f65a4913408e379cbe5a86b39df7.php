@@ -12,6 +12,7 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         $this->blocks = array(
             'content' => array($this, 'block_content'),
             'sidebar' => array($this, 'block_sidebar'),
+            'javascripts' => array($this, 'block_javascripts'),
         );
     }
 
@@ -77,30 +78,12 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
             color:white;
             font-size:1.7rem;
         }
-        .formulaire 
-        {
-            color: black;
-            margin-top:5%;
-            margin-left:11%;
-            width:80%;
-            border:solid white 1px;
-        }
         #ouvrir
         {
             margin-left:80%;
             font-size:1.2rem;
         }
-        #index
-        {
-            color: white;
-            margin-left:94%;
-        }
-        .index:hover{
-            color:black;
-        }
-        ";
-        // line 63
-        echo "        #mineur
+        #mineur
         {
             display:none;
         }
@@ -110,175 +93,238 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         #prenom_tuteur {
             display:none;
         }
-        ";
-        // line 77
+         ";
+        // line 57
         echo "        ";
-        // line 125
-        echo "</style>
+        // line 66
+        echo "        ";
+        // line 74
+        echo "        
+         ";
+        // line 132
+        echo "
+        #grad1 {
+       
+            margin-top:3%;
+        }
+        .card {
+            margin-top:10%;
+            width:100%;
+            z-index: 0;
+            position: relative;
+        }
+        #form {
+            text-align: center;
+            position: relative;
+            margin-top: 35px
+        }
+       
+        #form fieldset .form-card {
+            background: white;
+            box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
+            padding: 12px 15px 12px 15px;
+            width: 95%;
+            margin: 0 2% 20px 3%;
+            text-align: left;
+            position: relative
+        }
+
+        #form fieldset {
+            background: white;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            width: 95%;
+            margin-left:1%;
+            margin-top:15%;
+            padding-bottom: 20px;
+            position: relative
+        }
+
+         #form fieldset:not(:first-of-type) {
+            display: none
+        }
+
+        #form input {
+            margin-bottom: 13px;
+            margin-top: 2px;
+        }
+        #enregistrer
+        {
+            margin-left:85%;
+        }
+        .fit-image {
+            width: 100%;
+            object-fit: cover
+        }
+</style>
     
 <h1></h1>
         
 ";
-        // line 129
+        // line 190
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 135
-        echo "    ";
-        // line 146
-        echo "
-        <div class=\"formulaire\">
+        // line 196
+        echo "    <div class=\"container\" id=\"grad1\">
             ";
-        // line 149
-        echo "            ";
-        // line 150
-        echo "             ";
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_start');
-        echo "
-            ";
-        // line 156
-        echo "                    ";
+        // line 197
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_start', array("attr" => array("id" => "form")));
+        echo " 
+                ";
+        // line 199
+        echo "                <fieldset>
+                    <div class=\"form-card\">
+                        ";
+        // line 201
         if ($this->getAttribute(($context["form"] ?? null), "nom", array(), "any", true, true)) {
-            // line 157
-            echo "                        <div id=\"mineur\">
-                            ";
-            // line 158
+            // line 202
+            echo "                            <div id=\"mineur\">
+                                ";
+            // line 203
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "mineur", array()), 'row');
             echo "
-                        </div>
-                    ";
-        }
-        // line 161
-        echo "                    <div class=\"form-row\">
-                        <div class=\"form-group col-md-6\">
-                            ";
-        // line 163
-        if ($this->getAttribute(($context["form"] ?? null), "nom", array(), "any", true, true)) {
-            // line 164
-            echo "                                ";
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "nom", array()), 'row');
-            echo "
-                            ";
-        }
-        // line 166
-        echo "                        </div>
-                        <div class=\"form-group col-md-6\">
-                            ";
-        // line 168
-        if ($this->getAttribute(($context["form"] ?? null), "prenom", array(), "any", true, true)) {
-            // line 169
-            echo "                                ";
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "prenom", array()), 'row');
-            echo "
-                            ";
-        }
-        // line 171
-        echo "                        </div>
-                    </div>
-                    <div class=\"form-row\">
-                        <div class=\"form-group col-md-6\">
-                            ";
-        // line 175
-        if ($this->getAttribute(($context["form"] ?? null), "sigle", array(), "any", true, true)) {
-            // line 176
-            echo "                                ";
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "sigle", array()), 'row');
-            echo "
-                            ";
-        }
-        // line 178
-        echo "                        </div>
-                        <div class=\"form-group col-md-6\">
-                            ";
-        // line 180
-        if ($this->getAttribute(($context["form"] ?? null), "raisonSociale", array(), "any", true, true)) {
-            // line 181
-            echo "                                ";
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "raisonSociale", array()), 'row');
-            echo "
-                            ";
-        }
-        // line 183
-        echo "                        </div>
-                    </div>
-                    <div class=\"form-row\">
-                        <div class=\"form-group col-md-6\">
-                            ";
-        // line 187
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "datnais", array()), 'row');
-        echo "
-                            <p id=\"reponse\"></p>
-                        </div>
-                        <div class=\"form-group col-md-6\">
-                            ";
-        // line 191
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "telephone", array()), 'row');
-        echo "
-                        </div>
-                    </div>
-                    <div class=\"form-group\">
+                            </div>
                         ";
-        // line 195
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "email", array()), 'row');
-        echo "
-                    </div>
-                    <div class=\"form-row\">
-                        <div class=\"form-group col-md-6\">
-                            ";
-        // line 199
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "pays", array()), 'row');
-        echo "
-                        </div>
-                        <div class=\"form-group col-md-6\">
-                            ";
-        // line 202
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "ville", array()), 'row');
-        echo "
-                        </div>
-                    </div>
-                    <div class=\"form-row\">
-                        <div class=\"form-group col-md-6\">
-                            <div id=\"tuteur\">
+        }
+        // line 206
+        echo "                        <div class=\"form-row\">
+                            <div class=\"form-group col-md-6\">
                                 ";
         // line 208
-        if ($this->getAttribute(($context["form"] ?? null), "tuteur", array(), "any", true, true)) {
+        if ($this->getAttribute(($context["form"] ?? null), "nom", array(), "any", true, true)) {
             // line 209
             echo "                                    ";
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "tuteur", array()), 'row');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "nom", array()), 'row');
             echo "
                                 ";
         }
         // line 211
         echo "                            </div>
-                        </div>
-                        <div class=\"form-group col-md-6\">
-                            <div id=\"prenom_tuteur\">
+                            <div class=\"form-group col-md-6\">
                                 ";
-        // line 215
-        if ($this->getAttribute(($context["form"] ?? null), "prenomTuteur", array(), "any", true, true)) {
-            // line 216
+        // line 213
+        if ($this->getAttribute(($context["form"] ?? null), "prenom", array(), "any", true, true)) {
+            // line 214
             echo "                                    ";
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "prenomTuteur", array()), 'row');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "prenom", array()), 'row');
             echo "
                                 ";
         }
-        // line 218
+        // line 216
         echo "                            </div>
                         </div>
-                    </div> 
-                    ";
-        // line 222
-        echo "                ";
+                        <div class=\"form-row\">
+                            <div class=\"form-group col-md-6\">    
+                                ";
+        // line 220
+        if ($this->getAttribute(($context["form"] ?? null), "sigle", array(), "any", true, true)) {
+            echo "   
+                                    ";
+            // line 221
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "sigle", array()), 'row');
+            echo "
+                                ";
+        }
         // line 223
-        echo "            ";
-        // line 224
+        echo "                            </div>
+                            <div class=\"form-group col-md-6\">
+                                ";
+        // line 225
+        if ($this->getAttribute(($context["form"] ?? null), "raisonSociale", array(), "any", true, true)) {
+            // line 226
+            echo "                                    ";
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "raisonSociale", array()), 'row');
+            echo "
+                                ";
+        }
+        // line 228
+        echo "                            </div>
+                        </div>                                
+                        <div class=\"form-row\">
+                            <div class=\"form-group col-md-6\">
+                                ";
+        // line 232
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "datnais", array()), 'row');
         echo "
-            ";
-        // line 252
-        echo "            <button type=\"submit\" class=\"btn btn-success\" id=\"enregistrer\">Enregistrer</button>
-            ";
+                                <p id=\"reponse\"></p>
+                            </div>
+                            <div class=\"form-group col-md-6\">
+                                ";
+        // line 236
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "telephone", array()), 'row');
+        echo "
+                            </div>
+                        </div>
+                        <div class=\"form-group\">
+                            ";
+        // line 240
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "email", array()), 'row');
+        echo "
+                        </div>
+                        <div class=\"form-row\">
+                            <div class=\"form-group col-md-6\">
+                                ";
+        // line 244
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "pays", array()), 'row');
+        echo "
+                            </div>
+                            <div class=\"form-group col-md-6\">
+                                ";
+        // line 247
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "ville", array()), 'row');
+        echo "
+                            </div>
+                        </div>
+                        <div class=\"form-row\">
+                            <div class=\"form-group col-md-6\">
+                                <div id=\"tuteur\">
+                                    ";
         // line 253
+        if ($this->getAttribute(($context["form"] ?? null), "tuteur", array(), "any", true, true)) {
+            // line 254
+            echo "                                        ";
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "tuteur", array()), 'row');
+            echo "
+                                    ";
+        }
+        // line 256
+        echo "                                </div>
+                            </div>
+                            <div class=\"form-group col-md-6\">
+                                <div id=\"prenom_tuteur\">
+                                    ";
+        // line 260
+        if ($this->getAttribute(($context["form"] ?? null), "prenomTuteur", array(), "any", true, true)) {
+            // line 261
+            echo "                                        ";
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "prenomTuteur", array()), 'row');
+            echo "
+                                    ";
+        }
+        // line 263
+        echo "                                </div>
+                            </div>
+                        </div> 
+                    </div>                                                     
+                      <input type=\"submit\" class=\"btn btn-outline-success next action-button\" id=\"enregistrer\" value=\"Enregister\">
+                </fieldset>
+                 <fieldset>
+                    <div class=\"form-card form-card-message\">
+                            <div class=\"row justify-content-center\">
+                                <div class=\"col-3\"> <img src=\"https://img.icons8.com/color/96/000000/ok--v2.png\" class=\"fit-image\"> </div>
+                            </div> <br><br>
+                            <div class=\"row justify-content-center\">
+                                <div class=\"col-7 text-center\">
+                                    <h5>Enregistré avec succès!</h5>                            
+                                 </div>
+                            </div>
+                    </div>                                                                                  
+                </fieldset>
+            ";
+        // line 281
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
-        echo "
+        echo " 
         </div>
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -288,7 +334,7 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
 
     }
 
-    // line 129
+    // line 190
     public function block_sidebar($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -297,17 +343,104 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
 
-        // line 130
+        // line 191
         echo "    <div class=\"sidebar\">
         <a href=\"";
-        // line 131
+        // line 192
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_home");
         echo "\" class=\"accueil\">Accueil</a>
         <a href=\"";
-        // line 132
+        // line 193
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_choix");
         echo "\" id=\"ouvrir\">Ouvrir un compte</a>
     </div>
+";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 286
+    public function block_javascripts($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 287
+        echo "    ";
+        $this->displayParentBlock("javascripts", $context, $blocks);
+        echo "
+        <script>
+            \$(document).ready(function(){
+                \$(\"#enregistrer\").click(function(e)
+                {
+                    e.preventDefault();
+                   var current_fs=\$(this).parent();
+                   var next_fs = \$(this).parent().next();
+                    var nom= \$(\"#physiquebundle_physique_nom\").val();
+                    var prenom= \$(\"#physiquebundle_physique_prenom\").val();
+                    var datnais= \$(\"#physiquebundle_physique_datnais\").val();
+                    var telephone=\$(\"#physiquebundle_physique_telephone\").val();
+                    var email= \$(\"#physiquebundle_physique_email\").val();
+                    var pays= \$(\"#physiquebundle_physique_pays\").val();
+                    var ville= \$(\"#physiquebundle_physique_ville\").val();
+                    //var tuteur= \$(\"#physiquebundle_physique_tuteur\").val();
+                    //var prenomTuteur= \$(\"#physiquebundle_physique_prenomTuteur\").val();
+                    
+                    \$.ajax(
+                        {
+                            method:'post',
+                            url:'physique_new',
+                            data: {
+                                physiquebundle_physique_nom:nom,
+                                physiquebundle_physique_prenom:prenom,
+                                physiquebundle_physique_datnais:datnais,
+                                physiquebundle_physique_telephone:telephone,
+                                physiquebundle_physique_email:email,
+                                physiquebundle_physique_pays:pays,
+                                physiquebundle_physique_ville:ville,
+                                //tuteur:tuteur
+                            },
+                            success: function(data){
+                                //console.log(data);
+                                if(data.code == 400){
+                                    console.log(data)
+                                    alert('error')
+                                }
+                                else if(data.code == 300)
+                                {
+                                    alert('Remplissez les champs')
+                                }
+                                else
+                                {
+                                    console.log(data)
+                                    next_fs.show();
+                                    current_fs.animate({opacity: 0}, {
+                                    step: function(now) {
+                                    
+                                    opacity = 1 - now;
+
+                                    current_fs.css({
+                                        'display': 'none',
+                                        'position': 'relative'
+                                    });
+                                    next_fs.css({'opacity': opacity});
+                                    },
+                                    duration: 2000
+                                });
+                                }
+                            }
+                        })
+                });
+            });
+    
+        </script>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -329,7 +462,7 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
 
     public function getDebugInfo()
     {
-        return array (  308 => 132,  304 => 131,  301 => 130,  292 => 129,  279 => 253,  276 => 252,  273 => 224,  271 => 223,  269 => 222,  264 => 218,  258 => 216,  256 => 215,  250 => 211,  244 => 209,  242 => 208,  233 => 202,  227 => 199,  220 => 195,  213 => 191,  206 => 187,  200 => 183,  194 => 181,  192 => 180,  188 => 178,  182 => 176,  180 => 175,  174 => 171,  168 => 169,  166 => 168,  162 => 166,  156 => 164,  154 => 163,  150 => 161,  144 => 158,  141 => 157,  138 => 156,  133 => 150,  131 => 149,  127 => 146,  125 => 135,  123 => 129,  117 => 125,  115 => 77,  103 => 63,  50 => 4,  41 => 3,  11 => 1,);
+        return array (  376 => 287,  367 => 286,  354 => 193,  350 => 192,  347 => 191,  338 => 190,  324 => 281,  304 => 263,  298 => 261,  296 => 260,  290 => 256,  284 => 254,  282 => 253,  273 => 247,  267 => 244,  260 => 240,  253 => 236,  246 => 232,  240 => 228,  234 => 226,  232 => 225,  228 => 223,  223 => 221,  219 => 220,  213 => 216,  207 => 214,  205 => 213,  201 => 211,  195 => 209,  193 => 208,  189 => 206,  183 => 203,  180 => 202,  178 => 201,  174 => 199,  170 => 197,  167 => 196,  165 => 190,  105 => 132,  102 => 74,  100 => 66,  98 => 57,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -375,35 +508,11 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
             color:white;
             font-size:1.7rem;
         }
-        .formulaire 
-        {
-            color: black;
-            margin-top:5%;
-            margin-left:11%;
-            width:80%;
-            border:solid white 1px;
-        }
         #ouvrir
         {
             margin-left:80%;
             font-size:1.2rem;
         }
-        #index
-        {
-            color: white;
-            margin-left:94%;
-        }
-        .index:hover{
-            color:black;
-        }
-        {# #physiquebundle_physique_tuteur
-        {
-            cursor: no-drop;
-        }
-        #physiquebundle_physique_prenomTuteur
-        {
-            cursor: no-drop;
-        } #}
         #mineur
         {
             display:none;
@@ -414,11 +523,37 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         #prenom_tuteur {
             display:none;
         }
-        {# #contain
+         {# .formulaire 
+        {
+            color: black;
+            margin-top:5%;
+            margin-left:11%;
+            width:80%;
+            border:solid white 1px;
+        } #}
+        {# #index
+        {
+            color: white;
+            margin-left:94%;
+            margin-top:5%;
+        }
+        .index:hover{
+            color:black;
+        } #}
+        {# #physiquebundle_physique_tuteur
+        {
+            cursor: no-drop;
+        }
+        #physiquebundle_physique_prenomTuteur
+        {
+            cursor: no-drop;
+        } #}
+        
+         {# #contain
         {
             margin-top:8%;
-        } #}
-        {# .stepwizard-step p {
+        }
+        .stepwizard-step p {
             margin-top: 0px;
             color:#666;
         }
@@ -465,7 +600,66 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         #step-2
         {
             margin-top:8%;
+        }
+       #pièce
+        {
+            margin-right:130%;
+            margin-top:5%;
         } #}
+
+        #grad1 {
+       
+            margin-top:3%;
+        }
+        .card {
+            margin-top:10%;
+            width:100%;
+            z-index: 0;
+            position: relative;
+        }
+        #form {
+            text-align: center;
+            position: relative;
+            margin-top: 35px
+        }
+       
+        #form fieldset .form-card {
+            background: white;
+            box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
+            padding: 12px 15px 12px 15px;
+            width: 95%;
+            margin: 0 2% 20px 3%;
+            text-align: left;
+            position: relative
+        }
+
+        #form fieldset {
+            background: white;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            width: 95%;
+            margin-left:1%;
+            margin-top:15%;
+            padding-bottom: 20px;
+            position: relative
+        }
+
+         #form fieldset:not(:first-of-type) {
+            display: none
+        }
+
+        #form input {
+            margin-bottom: 13px;
+            margin-top: 2px;
+        }
+        #enregistrer
+        {
+            margin-left:85%;
+        }
+        .fit-image {
+            width: 100%;
+            object-fit: cover
+        }
 </style>
     
 <h1></h1>
@@ -476,175 +670,164 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         <a href=\"{{ path('path_choix')}}\" id=\"ouvrir\">Ouvrir un compte</a>
     </div>
 {% endblock %}
-    {# <div class=\"container\" id=\"contain\">
-        <div class=\"stepwizard\">
-            <div class=\"stepwizard-row setup-panel\">
-                <div class=\"stepwizard-step col-xs-3\"> 
-                    <a href=\"#step-1\" type=\"button\" class=\"btn btn-success btn-circle\">1</a>
-                </div>
-                <div class=\"stepwizard-step col-xs-3\"> 
-                    <a href=\"#step-2\" type=\"button\" class=\"btn btn-success btn-circle\" disabled=\"disabled\">2</a>
-                </div>
-            </div>
-        </div> #}
-
-        <div class=\"formulaire\">
-            {# <a href=\"{{ path('physique_index') }}\"class=\"btn btn-primary\" id=\"index\">Liste</a> #}
-            {# {{ form_start(form,{'attr':{'role':\"form\"}}) }} #}
-             {{ form_start(form) }}
-            {# <div class=\"panel panel-primary setup-content\" id=\"step-1\">
-                <div class=\"panel-heading\">
-                    <h3 class=\"panel-title\">Informations personnelles</h3>
-                </div>
-                <div class=\"panel-body\"> #}
-                    {% if form.nom is defined %}
-                        <div id=\"mineur\">
-                            {{ form_row(form.mineur)}}
-                        </div>
-                    {% endif %}
-                    <div class=\"form-row\">
-                        <div class=\"form-group col-md-6\">
-                            {% if form.nom is defined %}
-                                {{form_row(form.nom)}}
-                            {% endif %}
-                        </div>
-                        <div class=\"form-group col-md-6\">
-                            {% if form.prenom is defined %}
-                                {{form_row(form.prenom)}}
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class=\"form-row\">
-                        <div class=\"form-group col-md-6\">
-                            {% if form.sigle is defined %}
-                                {{form_row(form.sigle)}}
-                            {% endif %}
-                        </div>
-                        <div class=\"form-group col-md-6\">
-                            {% if form.raisonSociale is defined %}
-                                {{form_row(form.raisonSociale)}}
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class=\"form-row\">
-                        <div class=\"form-group col-md-6\">
-                            {{ form_row(form.datnais)}}
-                            <p id=\"reponse\"></p>
-                        </div>
-                        <div class=\"form-group col-md-6\">
-                            {{ form_row(form.telephone)}}
-                        </div>
-                    </div>
-                    <div class=\"form-group\">
-                        {{ form_row(form.email)}}
-                    </div>
-                    <div class=\"form-row\">
-                        <div class=\"form-group col-md-6\">
-                            {{ form_row(form.pays)}}
-                        </div>
-                        <div class=\"form-group col-md-6\">
-                            {{ form_row(form.ville)}}
-                        </div>
-                    </div>
-                    <div class=\"form-row\">
-                        <div class=\"form-group col-md-6\">
-                            <div id=\"tuteur\">
-                                {% if form.tuteur is defined %}
-                                    {{form_row(form.tuteur)}}
-                                {% endif %}
+    <div class=\"container\" id=\"grad1\">
+            {{ form_start(form,{'attr':{'id':\"form\"}}) }} 
+                {# <h1>Remplissez le formulaire suivant pour continuer l'ouverture du compte</h1> #}
+                <fieldset>
+                    <div class=\"form-card\">
+                        {% if form.nom is defined %}
+                            <div id=\"mineur\">
+                                {{ form_row(form.mineur)}}
                             </div>
-                        </div>
-                        <div class=\"form-group col-md-6\">
-                            <div id=\"prenom_tuteur\">
-                                {% if form.prenomTuteur is defined %}
-                                    {{form_row(form.prenomTuteur)}}
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div> 
-                    {# <button class=\"btn btn-primary nextBtn pull-right\" type=\"button\">Suivant</button> #}
-                {# </div> #}
-            {# </div> #}
-
-            {# <div class=\"panel panel-primary setup-content\" id=\"step-2\">
-                    <div class=\"panel-heading\">
-                        <h3 class=\"panel-title\">Pièces à joindre</h3>
-                    </div>
-                    <div class=\"panel-body\">
+                        {% endif %}
                         <div class=\"form-row\">
                             <div class=\"form-group col-md-6\">
-                                {{form_row(form.typePiece)}}
+                                {% if form.nom is defined %}
+                                    {{form_row(form.nom)}}
+                                {% endif %}
                             </div>
                             <div class=\"form-group col-md-6\">
-                                {{form_row(form.refPiece)}}
+                                {% if form.prenom is defined %}
+                                    {{form_row(form.prenom)}}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class=\"form-row\">
+                            <div class=\"form-group col-md-6\">    
+                                {% if form.sigle is defined %}   
+                                    {{form_row(form.sigle)}}
+                                {% endif %}
+                            </div>
+                            <div class=\"form-group col-md-6\">
+                                {% if form.raisonSociale is defined %}
+                                    {{form_row(form.raisonSociale)}}
+                                {% endif %}
+                            </div>
+                        </div>                                
+                        <div class=\"form-row\">
+                            <div class=\"form-group col-md-6\">
+                                {{ form_row(form.datnais)}}
+                                <p id=\"reponse\"></p>
+                            </div>
+                            <div class=\"form-group col-md-6\">
+                                {{ form_row(form.telephone)}}
                             </div>
                         </div>
                         <div class=\"form-group\">
-                            {{ form_row(form.datexpiration)}}
+                            {{ form_row(form.email)}}
                         </div>
                         <div class=\"form-row\">
                             <div class=\"form-group col-md-6\">
-                                {{ form_row(form.paysEmission)}}
+                                {{ form_row(form.pays)}}
                             </div>
                             <div class=\"form-group col-md-6\">
-                                {{ form_row(form.emetteur)}}
+                                {{ form_row(form.ville)}}
                             </div>
                         </div>
-                        <button type=\"submit\" class=\"btn btn-success pull-right\" id=\"enregistrer\">Enregistrer</button>
-                    </div>
-            </div> #}
-            <button type=\"submit\" class=\"btn btn-success\" id=\"enregistrer\">Enregistrer</button>
-            {{ form_end(form) }}
+                        <div class=\"form-row\">
+                            <div class=\"form-group col-md-6\">
+                                <div id=\"tuteur\">
+                                    {% if form.tuteur is defined %}
+                                        {{form_row(form.tuteur)}}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class=\"form-group col-md-6\">
+                                <div id=\"prenom_tuteur\">
+                                    {% if form.prenomTuteur is defined %}
+                                        {{form_row(form.prenomTuteur)}}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div> 
+                    </div>                                                     
+                      <input type=\"submit\" class=\"btn btn-outline-success next action-button\" id=\"enregistrer\" value=\"Enregister\">
+                </fieldset>
+                 <fieldset>
+                    <div class=\"form-card form-card-message\">
+                            <div class=\"row justify-content-center\">
+                                <div class=\"col-3\"> <img src=\"https://img.icons8.com/color/96/000000/ok--v2.png\" class=\"fit-image\"> </div>
+                            </div> <br><br>
+                            <div class=\"row justify-content-center\">
+                                <div class=\"col-7 text-center\">
+                                    <h5>Enregistré avec succès!</h5>                            
+                                 </div>
+                            </div>
+                    </div>                                                                                  
+                </fieldset>
+            {{ form_end(form) }} 
         </div>
+    </div>
 {% endblock %}
 
-{# {% block javascripts %}
+{% block javascripts %}
+    {{parent() }}
+        <script>
+            \$(document).ready(function(){
+                \$(\"#enregistrer\").click(function(e)
+                {
+                    e.preventDefault();
+                   var current_fs=\$(this).parent();
+                   var next_fs = \$(this).parent().next();
+                    var nom= \$(\"#physiquebundle_physique_nom\").val();
+                    var prenom= \$(\"#physiquebundle_physique_prenom\").val();
+                    var datnais= \$(\"#physiquebundle_physique_datnais\").val();
+                    var telephone=\$(\"#physiquebundle_physique_telephone\").val();
+                    var email= \$(\"#physiquebundle_physique_email\").val();
+                    var pays= \$(\"#physiquebundle_physique_pays\").val();
+                    var ville= \$(\"#physiquebundle_physique_ville\").val();
+                    //var tuteur= \$(\"#physiquebundle_physique_tuteur\").val();
+                    //var prenomTuteur= \$(\"#physiquebundle_physique_prenomTuteur\").val();
+                    
+                    \$.ajax(
+                        {
+                            method:'post',
+                            url:'physique_new',
+                            data: {
+                                physiquebundle_physique_nom:nom,
+                                physiquebundle_physique_prenom:prenom,
+                                physiquebundle_physique_datnais:datnais,
+                                physiquebundle_physique_telephone:telephone,
+                                physiquebundle_physique_email:email,
+                                physiquebundle_physique_pays:pays,
+                                physiquebundle_physique_ville:ville,
+                                //tuteur:tuteur
+                            },
+                            success: function(data){
+                                //console.log(data);
+                                if(data.code == 400){
+                                    console.log(data)
+                                    alert('error')
+                                }
+                                else if(data.code == 300)
+                                {
+                                    alert('Remplissez les champs')
+                                }
+                                else
+                                {
+                                    console.log(data)
+                                    next_fs.show();
+                                    current_fs.animate({opacity: 0}, {
+                                    step: function(now) {
+                                    
+                                    opacity = 1 - now;
+
+                                    current_fs.css({
+                                        'display': 'none',
+                                        'position': 'relative'
+                                    });
+                                    next_fs.css({'opacity': opacity});
+                                    },
+                                    duration: 2000
+                                });
+                                }
+                            }
+                        })
+                });
+            });
     
-    <script>
-        {# \$(document).ready(function()
-        {
-            var navListItems = \$('div.setup-panel div a'),
-            allWells = \$('.setup-content'),
-            allNextBtn = \$('.nextBtn');
-
-            allWells.hide();
-
-            navListItems.click(function (e) {
-                e.preventDefault();
-                var \$target = \$(\$(this).attr('href')),
-                    \$item = \$(this);
-
-                if (!\$item.hasClass('disabled')) {
-                    navListItems.removeClass('btn-success').addClass('btn-default');
-                    \$item.addClass('btn-success');
-                    allWells.hide();
-                    \$target.show();
-                    \$target.find('input:eq(0)').focus();
-                }
-            });
-
-            allNextBtn.click(function () {
-                var curStep = \$(this).closest(\".setup-content\"),
-                    curStepBtn = curStep.attr(\"id\"),
-                    nextStepWizard = \$('div.setup-panel div a[href=\"#' + curStepBtn + '\"]').parent().next().children(\"a\"),
-                    curInputs = curStep.find(\"input[type='text'],input[type='url']\"),
-                    isValid = true;
-
-                \$(\".form-group\").removeClass(\"has-error\");
-                for (var i = 0; i < curInputs.length; i++) {
-                    if (!curInputs[i].validity.valid) {
-                        isValid = false;
-                        \$(curInputs[i]).closest(\".form-group\").addClass(\"has-error\");
-                    }
-                }
-
-                if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
-            });
-
-            \$('div.setup-panel div a.btn-success').trigger('click');});
-        }
-        ) 
-    </script>
-{% endblock %} #}", "physique/new.html.twig", "C:\\laragon\\www\\ouverture\\app\\Resources\\views\\physique\\new.html.twig");
+        </script>
+{% endblock %}
+", "physique/new.html.twig", "C:\\laragon\\www\\ouverture\\app\\Resources\\views\\physique\\new.html.twig");
     }
 }

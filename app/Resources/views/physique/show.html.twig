@@ -49,9 +49,8 @@
         }
         #liste{
             color:white;
-            margin-left:88%;
-            margin-top:1%;
-           
+            margin-top:10%;
+            margin-left:85%;
         }
         #supprimer
         {
@@ -60,8 +59,15 @@
         #modifier{
             margin-top:6%;
             color:white;
-            margin-left:92%;
+            margin-left:93%; 
         }
+        .fiche
+        {
+            border:solid rgb(198, 228, 238) 0.5px;
+            width:50%;
+            margin-left:7%;
+        }
+        .row{ margin-left:5%;}
 </style>
     {% block sidebar %}
     <div class="sidebar">
@@ -69,9 +75,13 @@
         <a href="{{ path('path_choix')}}" id="ouvrir">Ouvrir un compte</a>
     </div>
 {% endblock %}
+{# <a href="{{ path('physique_index') }}" class="btn btn-primary" id="liste">Retourner à la liste</a> #}
 {% if physique.nom is null %}
 <a href="{{ path('physique_edit', { 'id': physique.id ,'slug':2})}}" id="modifier" class="btn btn-primary">Modifier</a>
-    <table class="table table-hover table-sm">
+<div class="">
+        <p><strong>Sigle:</strong>{{ physique.sigle }}</p>
+    </div>
+    {# <table class="table table-hover table-sm">
         <tbody>
              <tr>
                 <th>Id:</th>
@@ -106,10 +116,10 @@
                 <td>{{ physique.ville }}</td>
             </tr>
             </tbody>
-    </table>
+    </table> #}
         {% else %}
         <a href="{{ path('physique_edit', { 'id': physique.id ,'slug':1})}}" id="modifier" class="btn btn-primary">Modifier</a>
-    <table class="table table-hover table-sm">
+    {# <table class="table table-hover table-sm">
         <tbody>
              <tr>
                 <th>Id:</th>
@@ -151,11 +161,18 @@
                 <th>Prénom du tuteur</th>
                 <td>{{ physique.prenomTuteur }}</td>
             </tr>
-        {% endif %}
+        
         </tbody>
-    </table>
+    </table> #}
+    <div class="fiche">
+    <div class="row">
+        <div class="col-md-4"><p><strong>Nom:</strong>{{ physique.nom }}</p></div>
+        <div class="col-md-4"><p><strong>Prénom:</strong>{{ physique.prenom }}</p></div>
+    </div>
+    </div>
+    {% endif %}
+    <a href="" class="btn btn-primary" id="pièces">Pièces jointes<a>
         {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
                 <input type="submit" class="btn btn-danger" id="supprimer" value="Supprimer">
         {{ form_end(delete_form) }}
-        <a href="{{ path('physique_index') }}" class="btn btn-primary" id="liste">Retourner à la liste</a>
 {% endblock %}

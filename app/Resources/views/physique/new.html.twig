@@ -31,35 +31,11 @@
             color:white;
             font-size:1.7rem;
         }
-        .formulaire 
-        {
-            color: black;
-            margin-top:5%;
-            margin-left:11%;
-            width:80%;
-            border:solid white 1px;
-        }
         #ouvrir
         {
             margin-left:80%;
             font-size:1.2rem;
         }
-        #index
-        {
-            color: white;
-            margin-left:94%;
-        }
-        .index:hover{
-            color:black;
-        }
-        {# #physiquebundle_physique_tuteur
-        {
-            cursor: no-drop;
-        }
-        #physiquebundle_physique_prenomTuteur
-        {
-            cursor: no-drop;
-        } #}
         #mineur
         {
             display:none;
@@ -70,11 +46,37 @@
         #prenom_tuteur {
             display:none;
         }
-        {# #contain
+         {# .formulaire 
+        {
+            color: black;
+            margin-top:5%;
+            margin-left:11%;
+            width:80%;
+            border:solid white 1px;
+        } #}
+        {# #index
+        {
+            color: white;
+            margin-left:94%;
+            margin-top:5%;
+        }
+        .index:hover{
+            color:black;
+        } #}
+        {# #physiquebundle_physique_tuteur
+        {
+            cursor: no-drop;
+        }
+        #physiquebundle_physique_prenomTuteur
+        {
+            cursor: no-drop;
+        } #}
+        
+         {# #contain
         {
             margin-top:8%;
-        } #}
-        {# .stepwizard-step p {
+        }
+        .stepwizard-step p {
             margin-top: 0px;
             color:#666;
         }
@@ -121,7 +123,66 @@
         #step-2
         {
             margin-top:8%;
+        }
+       #pièce
+        {
+            margin-right:130%;
+            margin-top:5%;
         } #}
+
+        #grad1 {
+       
+            margin-top:3%;
+        }
+        .card {
+            margin-top:10%;
+            width:100%;
+            z-index: 0;
+            position: relative;
+        }
+        #form {
+            text-align: center;
+            position: relative;
+            margin-top: 35px
+        }
+       
+        #form fieldset .form-card {
+            background: white;
+            box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
+            padding: 12px 15px 12px 15px;
+            width: 95%;
+            margin: 0 2% 20px 3%;
+            text-align: left;
+            position: relative
+        }
+
+        #form fieldset {
+            background: white;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            width: 95%;
+            margin-left:1%;
+            margin-top:15%;
+            padding-bottom: 20px;
+            position: relative
+        }
+
+         #form fieldset:not(:first-of-type) {
+            display: none
+        }
+
+        #form input {
+            margin-bottom: 13px;
+            margin-top: 2px;
+        }
+        #enregistrer
+        {
+            margin-left:85%;
+        }
+        .fit-image {
+            width: 100%;
+            object-fit: cover
+        }
 </style>
     
 <h1></h1>
@@ -132,173 +193,161 @@
         <a href="{{ path('path_choix')}}" id="ouvrir">Ouvrir un compte</a>
     </div>
 {% endblock %}
-    {# <div class="container" id="contain">
-        <div class="stepwizard">
-            <div class="stepwizard-row setup-panel">
-                <div class="stepwizard-step col-xs-3"> 
-                    <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
-                </div>
-                <div class="stepwizard-step col-xs-3"> 
-                    <a href="#step-2" type="button" class="btn btn-success btn-circle" disabled="disabled">2</a>
-                </div>
-            </div>
-        </div> #}
-
-        <div class="formulaire">
-            {# <a href="{{ path('physique_index') }}"class="btn btn-primary" id="index">Liste</a> #}
-            {# {{ form_start(form,{'attr':{'role':"form"}}) }} #}
-             {{ form_start(form) }}
-            {# <div class="panel panel-primary setup-content" id="step-1">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Informations personnelles</h3>
-                </div>
-                <div class="panel-body"> #}
-                    {% if form.nom is defined %}
-                        <div id="mineur">
-                            {{ form_row(form.mineur)}}
-                        </div>
-                    {% endif %}
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            {% if form.nom is defined %}
-                                {{form_row(form.nom)}}
-                            {% endif %}
-                        </div>
-                        <div class="form-group col-md-6">
-                            {% if form.prenom is defined %}
-                                {{form_row(form.prenom)}}
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            {% if form.sigle is defined %}
-                                {{form_row(form.sigle)}}
-                            {% endif %}
-                        </div>
-                        <div class="form-group col-md-6">
-                            {% if form.raisonSociale is defined %}
-                                {{form_row(form.raisonSociale)}}
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            {{ form_row(form.datnais)}}
-                            <p id="reponse"></p>
-                        </div>
-                        <div class="form-group col-md-6">
-                            {{ form_row(form.telephone)}}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {{ form_row(form.email)}}
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            {{ form_row(form.pays)}}
-                        </div>
-                        <div class="form-group col-md-6">
-                            {{ form_row(form.ville)}}
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <div id="tuteur">
-                                {% if form.tuteur is defined %}
-                                    {{form_row(form.tuteur)}}
-                                {% endif %}
+    <div class="container" id="grad1">
+            {{ form_start(form,{'attr':{'id':"form"}}) }} 
+                {# <h1>Remplissez le formulaire suivant pour continuer l'ouverture du compte</h1> #}
+                <fieldset>
+                    <div class="form-card">
+                        {% if form.nom is defined %}
+                            <div id="mineur">
+                                {{ form_row(form.mineur)}}
                             </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <div id="prenom_tuteur">
-                                {% if form.prenomTuteur is defined %}
-                                    {{form_row(form.prenomTuteur)}}
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div> 
-                    {# <button class="btn btn-primary nextBtn pull-right" type="button">Suivant</button> #}
-                {# </div> #}
-            {# </div> #}
-
-            {# <div class="panel panel-primary setup-content" id="step-2">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Pièces à joindre</h3>
-                    </div>
-                    <div class="panel-body">
+                        {% endif %}
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                {{form_row(form.typePiece)}}
+                                {% if form.nom is defined %}
+                                    {{form_row(form.nom)}}
+                                {% endif %}
                             </div>
                             <div class="form-group col-md-6">
-                                {{form_row(form.refPiece)}}
+                                {% if form.prenom is defined %}
+                                    {{form_row(form.prenom)}}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">    
+                                {% if form.sigle is defined %}   
+                                    {{form_row(form.sigle)}}
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                {% if form.raisonSociale is defined %}
+                                    {{form_row(form.raisonSociale)}}
+                                {% endif %}
+                            </div>
+                        </div>                                
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                {{ form_row(form.datnais)}}
+                                <p id="reponse"></p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{ form_row(form.telephone)}}
                             </div>
                         </div>
                         <div class="form-group">
-                            {{ form_row(form.datexpiration)}}
+                            {{ form_row(form.email)}}
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                {{ form_row(form.paysEmission)}}
+                                {{ form_row(form.pays)}}
                             </div>
                             <div class="form-group col-md-6">
-                                {{ form_row(form.emetteur)}}
+                                {{ form_row(form.ville)}}
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success pull-right" id="enregistrer">Enregistrer</button>
-                    </div>
-            </div> #}
-            <button type="submit" class="btn btn-success" id="enregistrer">Enregistrer</button>
-            {{ form_end(form) }}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div id="tuteur">
+                                    {% if form.tuteur is defined %}
+                                        {{form_row(form.tuteur)}}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div id="prenom_tuteur">
+                                    {% if form.prenomTuteur is defined %}
+                                        {{form_row(form.prenomTuteur)}}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div> 
+                    </div>                                                     
+                      <input type="submit" class="btn btn-outline-success next action-button" id="enregistrer" value="Enregister">
+                </fieldset>
+                 <fieldset>
+                    <div class="form-card form-card-message">
+                            <div class="row justify-content-center">
+                                <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
+                            </div> <br><br>
+                            <div class="row justify-content-center">
+                                <div class="col-7 text-center">
+                                    <h5>Enregistré avec succès!</h5>                            
+                                 </div>
+                            </div>
+                    </div>                                                                                  
+                </fieldset>
+            {{ form_end(form) }} 
         </div>
+    </div>
 {% endblock %}
 
-{# {% block javascripts %}
+{% block javascripts %}
+    {{parent() }}
+        <script>
+            $(document).ready(function(){
+                $("#enregistrer").click(function(e)
+                {
+                    e.preventDefault();
+                   var current_fs=$(this).parent();
+                   var next_fs = $(this).parent().next();
+                    var nom= $("#physiquebundle_physique_nom").val();
+                    var prenom= $("#physiquebundle_physique_prenom").val();
+                    var datnais= $("#physiquebundle_physique_datnais").val();
+                    var telephone=$("#physiquebundle_physique_telephone").val();
+                    var email= $("#physiquebundle_physique_email").val();
+                    var pays= $("#physiquebundle_physique_pays").val();
+                    var ville= $("#physiquebundle_physique_ville").val();
+                    //var tuteur= $("#physiquebundle_physique_tuteur").val();
+                    //var prenomTuteur= $("#physiquebundle_physique_prenomTuteur").val();
+                    
+                    $.ajax(
+                        {
+                            method:'post',
+                            url:'physique_new',
+                            data: {
+                                physiquebundle_physique_nom:nom,
+                                physiquebundle_physique_prenom:prenom,
+                                physiquebundle_physique_datnais:datnais,
+                                physiquebundle_physique_telephone:telephone,
+                                physiquebundle_physique_email:email,
+                                physiquebundle_physique_pays:pays,
+                                physiquebundle_physique_ville:ville,
+                                //tuteur:tuteur
+                            },
+                            success: function(data){
+                                //console.log(data);
+                                if(data.code == 400){
+                                    console.log(data)
+                                    alert('error')
+                                }
+                                else if(data.code == 300)
+                                {
+                                    alert('Remplissez les champs')
+                                }
+                                else
+                                {
+                                    console.log(data)
+                                    next_fs.show();
+                                    current_fs.animate({opacity: 0}, {
+                                    step: function(now) {
+                                    
+                                    opacity = 1 - now;
+
+                                    current_fs.css({
+                                        'display': 'none',
+                                        'position': 'relative'
+                                    });
+                                    next_fs.css({'opacity': opacity});
+                                    },
+                                    duration: 2000
+                                });
+                                }
+                            }
+                        })
+                });
+            });
     
-    <script>
-        {# $(document).ready(function()
-        {
-            var navListItems = $('div.setup-panel div a'),
-            allWells = $('.setup-content'),
-            allNextBtn = $('.nextBtn');
-
-            allWells.hide();
-
-            navListItems.click(function (e) {
-                e.preventDefault();
-                var $target = $($(this).attr('href')),
-                    $item = $(this);
-
-                if (!$item.hasClass('disabled')) {
-                    navListItems.removeClass('btn-success').addClass('btn-default');
-                    $item.addClass('btn-success');
-                    allWells.hide();
-                    $target.show();
-                    $target.find('input:eq(0)').focus();
-                }
-            });
-
-            allNextBtn.click(function () {
-                var curStep = $(this).closest(".setup-content"),
-                    curStepBtn = curStep.attr("id"),
-                    nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-                    curInputs = curStep.find("input[type='text'],input[type='url']"),
-                    isValid = true;
-
-                $(".form-group").removeClass("has-error");
-                for (var i = 0; i < curInputs.length; i++) {
-                    if (!curInputs[i].validity.valid) {
-                        isValid = false;
-                        $(curInputs[i]).closest(".form-group").addClass("has-error");
-                    }
-                }
-
-                if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
-            });
-
-            $('div.setup-panel div a.btn-success').trigger('click');});
-        }
-        ) 
-    </script>
-{% endblock %} #}
+        </script>
+{% endblock %}
