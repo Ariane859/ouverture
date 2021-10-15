@@ -7,8 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\HttpFoundation\Response;
 /**
  * Physique controller.
@@ -51,19 +49,20 @@ class PhysiqueController extends Controller
             
             $physiquebundle_physique_nom = $request->get("physiquebundle_physique_nom");
             $physiquebundle_physique_prenom = $request->get("physiquebundle_physique_prenom");
+            $physiquebundle_physique_sigle=$request->get("physiquebundle_physique_sigle");
+            $physiquebundle_physique_raisonSociale=$request->get("physiquebundle_physique_raisonSociale");
             $physiquebundle_physique_datnais = $request->get("physiquebundle_physique_datnais");
             $physiquebundle_physique_telephone = $request->get("physiquebundle_physique_telephone");
             $physiquebundle_physique_email = $request->get("physiquebundle_physique_email");
             $physiquebundle_physique_pays = $request->get("physiquebundle_physique_pays");
             $physiquebundle_physique_ville = $request->get("physiquebundle_physique_ville");
+            $physiquebundle_physique_tuteur = $request->get("physiquebundle_physique_tuteur");
+            $physiquebundle_physique_prenomTuteur = $request->get("physiquebundle_physique_prenomTuteur");
+
           // dump($data);die();
             $em = $this->getDoctrine()->getManager();
             $physiques = $em->getRepository('PhysiqueBundle:Physique')->findOneBy(array('nom'=>$physiquebundle_physique_nom,'prenom'=>$physiquebundle_physique_prenom ));
-            if($physiquebundle_physique_nom="" && $physiquebundle_physique_prenom="")
-            {
-                $response=array("message" =>"champs non remplis" ,"code"=>300 );
-            }
-            else if($physiques)
+            if($physiques)
             {
                 $response=array("message" =>"cet utilisateur existe déjà" ,"code"=>400 );
             }
@@ -72,11 +71,15 @@ class PhysiqueController extends Controller
                 $physique = new Physique();
                 $physique->setNom($physiquebundle_physique_nom);
                 $physique->setPrenom($physiquebundle_physique_prenom);
+                $physique->setSigle($physiquebundle_physique_sigle);
+                $physique->setRaisonSociale($physiquebundle_physique_raisonSociale);
                 $physique->setDatnais(new \DateTime($physiquebundle_physique_datnais));
                 $physique->setTelephone($physiquebundle_physique_telephone);
                 $physique->setEmail($physiquebundle_physique_email);
                 $physique->setPays($physiquebundle_physique_pays);
                 $physique->setVille($physiquebundle_physique_ville);
+                $physique->setTuteur($physiquebundle_physique_tuteur);
+                $physique->setPrenomTuteur($physiquebundle_physique_prenomTuteur);
                 $em->persist($physique);
                 $em->flush();
                 $response= array("message" =>"enregistré" ,"code"=>100 );

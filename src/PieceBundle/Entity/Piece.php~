@@ -1,0 +1,80 @@
+<?php
+
+namespace PieceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Piece
+ *
+ * @ORM\Table(name="piece")
+ * @ORM\Entity(repositoryClass="PieceBundle\Repository\PieceRepository")
+ */
+class Piece
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+      /**
+     * @ORM\ManyToOne(targetEntity="\PhysiqueBundle\Entity\Physique", inversedBy="pieces")
+     * @ORM\JoinColumn(name="physique_id", referencedColumnName="physique_id")
+     */
+    private $physique;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="typePiece", type="string", length=100, nullable=true, unique=true)
+     */
+    private $typePiece;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="refPiece", type="integer", nullable=true)
+     */
+    private $refPiece;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datexpiration", type="datetime", nullable=true)
+     */
+    private $datexpiration;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datdeclaration", type="datetime", nullable=true)
+     */
+    private $datdeclaration;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datedelivrance", type="datetime", nullable=true)
+     */
+    private $datedelivrance;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="emetteur", type="string", length=100, nullable=true)
+     */
+    private $emetteur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="paysEmission", type="string", length=255, nullable=true)
+     */
+    private $paysEmission;
+
+
+}

@@ -4,7 +4,7 @@
 <style>
         body
             {
-                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-family: Georgia, Times, 'Times New Roman', serif;
             }
             table{
                 margin-top:2%;
@@ -57,17 +57,70 @@
             margin-left:92%;
         }
         #modifier{
-            margin-top:6%;
+            margin-top:5%;
             color:white;
             margin-left:93%; 
         }
         .fiche
         {
-            border:solid rgb(198, 228, 238) 0.5px;
-            width:50%;
-            margin-left:7%;
+            border:solid rgb(210, 220, 200) 0.5px;
+            width:70%;
+            margin-left:16%;
+            margin-top:4%;
         }
-        .row{ margin-left:5%;}
+        .row
+        { 
+            margin-left:9%;
+            margin-top:2%;
+        }
+        .prenom
+        {
+            margin-left:0%;
+        }
+        strong
+        {
+            font-size:110%;
+        }
+        p
+        {
+            font-size:101%;
+           
+        }
+        h1
+        {
+            font-size:170%;
+            margin-left:16%;
+            border:solid skyblue 1px;
+            width:70%;
+            height:15%;
+            padding:1%;
+           
+        }
+        .information
+        {
+             margin-top:8%;
+             font-size:170%;
+        }
+        .pièces{
+            margin-top:3%;
+            font-size:170%;
+        }
+        center{
+            margin-top:2%;
+        }
+        .actions{
+            margin-left:0%
+        }
+        .mod
+        {
+            margin-left:62%;
+            
+        }
+        .sup
+        {
+            margin-top:0.30%;
+            margin-right:0%;
+        }
 </style>
     {% block sidebar %}
     <div class="sidebar">
@@ -77,102 +130,67 @@
 {% endblock %}
 {# <a href="{{ path('physique_index') }}" class="btn btn-primary" id="liste">Retourner à la liste</a> #}
 {% if physique.nom is null %}
-<a href="{{ path('physique_edit', { 'id': physique.id ,'slug':2})}}" id="modifier" class="btn btn-primary">Modifier</a>
-<div class="">
-        <p><strong>Sigle:</strong>{{ physique.sigle }}</p>
-    </div>
-    {# <table class="table table-hover table-sm">
-        <tbody>
-             <tr>
-                <th>Id:</th>
-                <td>{{ physique.id }}</td>
-            </tr>
-             <tr>
-                <th>Sigle:</th>
-                <td>{{ physique.sigle }}</td>
-            </tr>
-            <tr>
-                <th>Raison sociale:</th>
-                <td>{{ physique.raisonSociale }}</td>
-            </tr>
-            <tr>
-                <th>Date de naissance:</th>
-                <td>{% if physique.datnais %}{{ physique.datnais|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Telephone:</th>
-                <td>{{ physique.telephone }}</td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td>{{ physique.email }}</td>
-            </tr>
-            <tr>
-                <th>Pays:</th>
-                <td>{{ physique.pays }}</td>
-            </tr>
-            <tr>
-                <th>Ville:</th>
-                <td>{{ physique.ville }}</td>
-            </tr>
-            </tbody>
-    </table> #}
+        <h1 class="information">Informations personnelles</h1>
+            <div class="fiche">
+            <div class="row">
+                <div class="col-md-6"><p><strong>Nom:</strong>    {{ physique.nom }}</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 prenom"><p><strong>Prénom:</strong>    {{ physique.prenom }}</p></div>
+                <div class="col-md-6 "><p><strong>Date de naissance:</strong>    {% if physique.datnais %}{{ physique.datnais|date('Y-m-d') }}{% endif %}</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 "><p><strong>Telephone:</strong>    {{  physique.telephone }}</p></div>
+                <div class="col-md-6 "><p><strong>Email:</strong>    {{ physique.email }}</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 "><p><strong>Pays:</strong>    {{  physique.pays }}</p></div>
+                <div class="col-md-6 "><p><strong>Ville:</strong>    {{ physique.ville }}</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 "><p><strong>Tuteur:</strong>    {{  physique.tuteur }}</p></div>
+                <div class="col-md-6 "><p><strong>Prénom du tuteur:</strong>    {{ physique.prenomTuteur }}</p></div>
+            </div>
+    
+{% else %}
+        <h1 class="information">Informations personnelles</h1>
+         <div class="fiche">
+            <div class="row">
+                <div class="col-md-6"><p><strong>Nom:</strong>    {{ physique.nom }}</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 prenom"><p><strong>Prénom:</strong>    {{ physique.prenom }}</p></div>
+                <div class="col-md-6 "><p><strong>Date de naissance:</strong>    {% if physique.datnais %}{{ physique.datnais|date('Y-m-d') }}{% endif %}</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 "><p><strong>Telephone:</strong>    {{  physique.telephone }}</p></div>
+                <div class="col-md-6 "><p><strong>Email:</strong>    {{ physique.email }}</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 "><p><strong>Pays:</strong>    {{  physique.pays }}</p></div>
+                <div class="col-md-6 "><p><strong>Ville:</strong>    {{ physique.ville }}</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 "><p><strong>Tuteur:</strong>    {{  physique.tuteur }}</p></div>
+                <div class="col-md-6 "><p><strong>Prénom du tuteur:</strong>    {{ physique.prenomTuteur }}</p></div>
+            </div>
+            </div>
+{% endif %}
+
+        <h1 class="pièces">Pièces jointes</h1>
+            <center> Aucune pièces jointes trouvées</center>
+        <div class="row actions">
+        <div class="col-md-1 mod">
+        {% if physique.nom is null %}
+            <a href="{{ path('physique_edit', { 'id': physique.id ,'slug':2})}}" id="modifier" class="btn btn-primary">Modifier</a>
         {% else %}
-        <a href="{{ path('physique_edit', { 'id': physique.id ,'slug':1})}}" id="modifier" class="btn btn-primary">Modifier</a>
-    {# <table class="table table-hover table-sm">
-        <tbody>
-             <tr>
-                <th>Id:</th>
-                <td>{{ physique.id }}</td>
-            </tr>
-             <tr>
-                <th>Nom:</th>
-                <td>{{ physique.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prénom:</th>
-                <td>{{ physique.prenom }}</td>
-            </tr>
-             <tr>
-                <th>Date de naissance:</th>
-                <td>{% if physique.datnais %}{{ physique.datnais|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Telephone:</th>
-                <td>{{ physique.telephone }}</td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td>{{ physique.email }}</td>
-            </tr>
-            <tr>
-                <th>Pays:</th>
-                <td>{{ physique.pays }}</td>
-            </tr>
-            <tr>
-                <th>Ville:</th>
-                <td>{{ physique.ville }}</td>
-            </tr>
-            <tr>
-                <th>Tuteur:</th>
-                <td>{{ physique.tuteur }}</td>
-            </tr>
-            <tr>
-                <th>Prénom du tuteur</th>
-                <td>{{ physique.prenomTuteur }}</td>
-            </tr>
-        
-        </tbody>
-    </table> #}
-    <div class="fiche">
-    <div class="row">
-        <div class="col-md-4"><p><strong>Nom:</strong>{{ physique.nom }}</p></div>
-        <div class="col-md-4"><p><strong>Prénom:</strong>{{ physique.prenom }}</p></div>
-    </div>
-    </div>
-    {% endif %}
-    <a href="" class="btn btn-primary" id="pièces">Pièces jointes<a>
+            <a href="{{ path('physique_edit', { 'id': physique.id ,'slug':1})}}" id="modifier" class="btn btn-primary">Modifier</a>
+        {% endif %}
+        </div>
+        <div class="col-md-1 sup">
         {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
                 <input type="submit" class="btn btn-danger" id="supprimer" value="Supprimer">
         {{ form_end(delete_form) }}
+        </div>
+        </div>
 {% endblock %}

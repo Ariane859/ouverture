@@ -5,6 +5,7 @@
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-4": {
+            "":"core/",
             "AdminBundle\\": "src/AdminBundle",
             "DBBundle\\": "src/DBBundle",
             "CommonBundle\\": "src/CommonBundle",
@@ -12,7 +13,7 @@
             "SiteBundle\\": "src/SiteBundle",
             "PhysiqueBundle\\": "src/PhysiqueBundle",
             "HomeBundle\\": "src/HomeBundle",
-            "MoraleBundle\\": "src/MoraleBundle"
+            "PieceBundle\\": "src/PieceBundle"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },

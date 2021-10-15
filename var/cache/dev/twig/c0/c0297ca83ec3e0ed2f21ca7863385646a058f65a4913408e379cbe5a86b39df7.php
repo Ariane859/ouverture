@@ -69,40 +69,35 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
                 text-decoration: none;
             }
         a:hover
-        {
-            color:white;
-            text-decoration:none;
-        }
+            {
+                color:white;
+                text-decoration:none;
+            }
         .accueil
-        {
-            color:white;
-            font-size:1.7rem;
-        }
+            {
+                color:white;
+                font-size:1.7rem;
+            }
         #ouvrir
-        {
-            margin-left:80%;
-            font-size:1.2rem;
-        }
+            {
+                margin-left:80%;
+                font-size:1.2rem;
+            }
         #mineur
-        {
-            display:none;
-        }
-        #tuteur {
-            display:none;
-        }
-        #prenom_tuteur {
-            display:none;
-        }
+            {
+                display:none;
+            }
+        #tuteur 
+            {
+                display:none;
+            }
+        #prenom_tuteur 
+            {
+                display:none;
+            }
          ";
-        // line 57
-        echo "        ";
-        // line 66
-        echo "        ";
-        // line 74
-        echo "        
-         ";
-        // line 132
-        echo "
+        // line 59
+        echo "    
         #grad1 {
        
             margin-top:3%;
@@ -161,115 +156,113 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
 <h1></h1>
         
 ";
-        // line 190
+        // line 117
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 196
+        // line 123
         echo "    <div class=\"container\" id=\"grad1\">
             ";
-        // line 197
+        // line 124
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_start', array("attr" => array("id" => "form")));
         echo " 
-                ";
-        // line 199
-        echo "                <fieldset>
+                <fieldset>
                     <div class=\"form-card\">
                         ";
-        // line 201
+        // line 127
         if ($this->getAttribute(($context["form"] ?? null), "nom", array(), "any", true, true)) {
-            // line 202
+            // line 128
             echo "                            <div id=\"mineur\">
                                 ";
-            // line 203
+            // line 129
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "mineur", array()), 'row');
             echo "
                             </div>
                         ";
         }
-        // line 206
+        // line 132
         echo "                        <div class=\"form-row\">
                             <div class=\"form-group col-md-6\">
                                 ";
-        // line 208
+        // line 134
         if ($this->getAttribute(($context["form"] ?? null), "nom", array(), "any", true, true)) {
-            // line 209
+            // line 135
             echo "                                    ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "nom", array()), 'row');
             echo "
                                 ";
         }
-        // line 211
+        // line 137
         echo "                            </div>
                             <div class=\"form-group col-md-6\">
                                 ";
-        // line 213
+        // line 139
         if ($this->getAttribute(($context["form"] ?? null), "prenom", array(), "any", true, true)) {
-            // line 214
+            // line 140
             echo "                                    ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "prenom", array()), 'row');
             echo "
                                 ";
         }
-        // line 216
+        // line 142
         echo "                            </div>
                         </div>
                         <div class=\"form-row\">
                             <div class=\"form-group col-md-6\">    
                                 ";
-        // line 220
+        // line 146
         if ($this->getAttribute(($context["form"] ?? null), "sigle", array(), "any", true, true)) {
             echo "   
                                     ";
-            // line 221
+            // line 147
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "sigle", array()), 'row');
             echo "
                                 ";
         }
-        // line 223
+        // line 149
         echo "                            </div>
                             <div class=\"form-group col-md-6\">
                                 ";
-        // line 225
+        // line 151
         if ($this->getAttribute(($context["form"] ?? null), "raisonSociale", array(), "any", true, true)) {
-            // line 226
+            // line 152
             echo "                                    ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "raisonSociale", array()), 'row');
             echo "
                                 ";
         }
-        // line 228
+        // line 154
         echo "                            </div>
                         </div>                                
                         <div class=\"form-row\">
                             <div class=\"form-group col-md-6\">
                                 ";
-        // line 232
+        // line 158
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "datnais", array()), 'row');
         echo "
                                 <p id=\"reponse\"></p>
                             </div>
                             <div class=\"form-group col-md-6\">
                                 ";
-        // line 236
+        // line 162
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "telephone", array()), 'row');
         echo "
                             </div>
                         </div>
                         <div class=\"form-group\">
                             ";
-        // line 240
+        // line 166
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "email", array()), 'row');
         echo "
                         </div>
                         <div class=\"form-row\">
                             <div class=\"form-group col-md-6\">
                                 ";
-        // line 244
+        // line 170
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "pays", array()), 'row');
         echo "
                             </div>
                             <div class=\"form-group col-md-6\">
                                 ";
-        // line 247
+        // line 173
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "ville", array()), 'row');
         echo "
                             </div>
@@ -278,29 +271,29 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
                             <div class=\"form-group col-md-6\">
                                 <div id=\"tuteur\">
                                     ";
-        // line 253
+        // line 179
         if ($this->getAttribute(($context["form"] ?? null), "tuteur", array(), "any", true, true)) {
-            // line 254
+            // line 180
             echo "                                        ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "tuteur", array()), 'row');
             echo "
                                     ";
         }
-        // line 256
+        // line 182
         echo "                                </div>
                             </div>
                             <div class=\"form-group col-md-6\">
                                 <div id=\"prenom_tuteur\">
                                     ";
-        // line 260
+        // line 186
         if ($this->getAttribute(($context["form"] ?? null), "prenomTuteur", array(), "any", true, true)) {
-            // line 261
+            // line 187
             echo "                                        ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "prenomTuteur", array()), 'row');
             echo "
                                     ";
         }
-        // line 263
+        // line 189
         echo "                                </div>
                             </div>
                         </div> 
@@ -320,10 +313,9 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
                     </div>                                                                                  
                 </fieldset>
             ";
-        // line 281
+        // line 207
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
         echo " 
-        </div>
     </div>
 ";
         
@@ -334,7 +326,7 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
 
     }
 
-    // line 190
+    // line 117
     public function block_sidebar($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -343,14 +335,14 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
 
-        // line 191
+        // line 118
         echo "    <div class=\"sidebar\">
         <a href=\"";
-        // line 192
+        // line 119
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_home");
         echo "\" class=\"accueil\">Accueil</a>
         <a href=\"";
-        // line 193
+        // line 120
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_choix");
         echo "\" id=\"ouvrir\">Ouvrir un compte</a>
     </div>
@@ -363,7 +355,7 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
 
     }
 
-    // line 286
+    // line 211
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -372,7 +364,7 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 287
+        // line 212
         echo "    ";
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
@@ -385,14 +377,23 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
                    var next_fs = \$(this).parent().next();
                     var nom= \$(\"#physiquebundle_physique_nom\").val();
                     var prenom= \$(\"#physiquebundle_physique_prenom\").val();
+                    var sigle=\$(\"#physiquebundle_physique_sigle\").val();
+                    var raisonSociale=\$(\"#physiquebundle_physique_raisonSociale\").val();
                     var datnais= \$(\"#physiquebundle_physique_datnais\").val();
                     var telephone=\$(\"#physiquebundle_physique_telephone\").val();
                     var email= \$(\"#physiquebundle_physique_email\").val();
                     var pays= \$(\"#physiquebundle_physique_pays\").val();
                     var ville= \$(\"#physiquebundle_physique_ville\").val();
-                    //var tuteur= \$(\"#physiquebundle_physique_tuteur\").val();
-                    //var prenomTuteur= \$(\"#physiquebundle_physique_prenomTuteur\").val();
-                    
+                    var tuteur= \$(\"#physiquebundle_physique_tuteur\").val();
+                    var prenomTuteur= \$(\"#physiquebundle_physique_prenomTuteur\").val();
+                    if(nom==\"\" || prenom==\"\" || sigle==\"\" || raisonSociale==\"\" || datnais==\"\" || telephone==\"\" || email==\"\" || pays==\"\" ||
+                        ville==\"\")
+                        {
+                            alert('Veuillez remplir tous les champs');
+                        }
+                    else 
+                    {
+                            
                     \$.ajax(
                         {
                             method:'post',
@@ -400,22 +401,22 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
                             data: {
                                 physiquebundle_physique_nom:nom,
                                 physiquebundle_physique_prenom:prenom,
+                                physiquebundle_physique_sigle:sigle,
+                                physiquebundle_physique_raisonSociale:raisonSociale,
                                 physiquebundle_physique_datnais:datnais,
                                 physiquebundle_physique_telephone:telephone,
                                 physiquebundle_physique_email:email,
                                 physiquebundle_physique_pays:pays,
                                 physiquebundle_physique_ville:ville,
-                                //tuteur:tuteur
+                                physiquebundle_physique_tuteur:tuteur,
+                                physiquebundle_physique_prenomTuteur:prenomTuteur
+
                             },
                             success: function(data){
                                 //console.log(data);
                                 if(data.code == 400){
                                     console.log(data)
-                                    alert('error')
-                                }
-                                else if(data.code == 300)
-                                {
-                                    alert('Remplissez les champs')
+                                    alert('Cet utilisateur existe déjà')
                                 }
                                 else
                                 {
@@ -432,11 +433,12 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
                                     });
                                     next_fs.css({'opacity': opacity});
                                     },
-                                    duration: 2000
+                                    duration: 1000
                                 });
                                 }
                             }
                         })
+                    }
                 });
             });
     
@@ -462,7 +464,7 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
 
     public function getDebugInfo()
     {
-        return array (  376 => 287,  367 => 286,  354 => 193,  350 => 192,  347 => 191,  338 => 190,  324 => 281,  304 => 263,  298 => 261,  296 => 260,  290 => 256,  284 => 254,  282 => 253,  273 => 247,  267 => 244,  260 => 240,  253 => 236,  246 => 232,  240 => 228,  234 => 226,  232 => 225,  228 => 223,  223 => 221,  219 => 220,  213 => 216,  207 => 214,  205 => 213,  201 => 211,  195 => 209,  193 => 208,  189 => 206,  183 => 203,  180 => 202,  178 => 201,  174 => 199,  170 => 197,  167 => 196,  165 => 190,  105 => 132,  102 => 74,  100 => 66,  98 => 57,  51 => 4,  42 => 3,  11 => 1,);
+        return array (  368 => 212,  359 => 211,  346 => 120,  342 => 119,  339 => 118,  330 => 117,  317 => 207,  297 => 189,  291 => 187,  289 => 186,  283 => 182,  277 => 180,  275 => 179,  266 => 173,  260 => 170,  253 => 166,  246 => 162,  239 => 158,  233 => 154,  227 => 152,  225 => 151,  221 => 149,  216 => 147,  212 => 146,  206 => 142,  200 => 140,  198 => 139,  194 => 137,  188 => 135,  186 => 134,  182 => 132,  176 => 129,  173 => 128,  171 => 127,  165 => 124,  162 => 123,  160 => 117,  100 => 59,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -499,30 +501,32 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
                 text-decoration: none;
             }
         a:hover
-        {
-            color:white;
-            text-decoration:none;
-        }
+            {
+                color:white;
+                text-decoration:none;
+            }
         .accueil
-        {
-            color:white;
-            font-size:1.7rem;
-        }
+            {
+                color:white;
+                font-size:1.7rem;
+            }
         #ouvrir
-        {
-            margin-left:80%;
-            font-size:1.2rem;
-        }
+            {
+                margin-left:80%;
+                font-size:1.2rem;
+            }
         #mineur
-        {
-            display:none;
-        }
-        #tuteur {
-            display:none;
-        }
-        #prenom_tuteur {
-            display:none;
-        }
+            {
+                display:none;
+            }
+        #tuteur 
+            {
+                display:none;
+            }
+        #prenom_tuteur 
+            {
+                display:none;
+            }
          {# .formulaire 
         {
             color: black;
@@ -531,82 +535,7 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
             width:80%;
             border:solid white 1px;
         } #}
-        {# #index
-        {
-            color: white;
-            margin-left:94%;
-            margin-top:5%;
-        }
-        .index:hover{
-            color:black;
-        } #}
-        {# #physiquebundle_physique_tuteur
-        {
-            cursor: no-drop;
-        }
-        #physiquebundle_physique_prenomTuteur
-        {
-            cursor: no-drop;
-        } #}
-        
-         {# #contain
-        {
-            margin-top:8%;
-        }
-        .stepwizard-step p {
-            margin-top: 0px;
-            color:#666;
-        }
-        .stepwizard-row {
-            display: table-row;
-        }
-        .stepwizard {
-            display: table;
-            width: 100%;
-            position: relative;
-        }
-        .stepwizard-step button[disabled] {
-            /*opacity: 1 !important;
-            filter: alpha(opacity=100) !important;*/
-        }
-        .stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
-            opacity:1 !important;
-            color:#bbb;
-        }
-        .stepwizard-row:before {
-            top: 14px;
-            bottom: 0;
-            position: absolute;
-            content:\" \";
-            width: 100%;
-            height: 1px;
-            background-color: #ccc;
-            z-index: 0;
-        }
-        .stepwizard-step {
-            display: table-cell;
-            text-align: center;
-            position: relative;
-        }
-        .btn-circle {
-            width: 30px;
-            height: 30px;
-            text-align: center;
-            padding: 6px 0;
-            font-size: 12px;
-            line-height: 1.428571429;
-            border-radius: 15px;
-        }
-        #step-2
-        {
-            margin-top:8%;
-        }
-       #pièce
-        {
-            margin-right:130%;
-            margin-top:5%;
-        } #}
-
+    
         #grad1 {
        
             margin-top:3%;
@@ -672,7 +601,6 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
 {% endblock %}
     <div class=\"container\" id=\"grad1\">
             {{ form_start(form,{'attr':{'id':\"form\"}}) }} 
-                {# <h1>Remplissez le formulaire suivant pour continuer l'ouverture du compte</h1> #}
                 <fieldset>
                     <div class=\"form-card\">
                         {% if form.nom is defined %}
@@ -756,7 +684,6 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
                     </div>                                                                                  
                 </fieldset>
             {{ form_end(form) }} 
-        </div>
     </div>
 {% endblock %}
 
@@ -771,14 +698,23 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
                    var next_fs = \$(this).parent().next();
                     var nom= \$(\"#physiquebundle_physique_nom\").val();
                     var prenom= \$(\"#physiquebundle_physique_prenom\").val();
+                    var sigle=\$(\"#physiquebundle_physique_sigle\").val();
+                    var raisonSociale=\$(\"#physiquebundle_physique_raisonSociale\").val();
                     var datnais= \$(\"#physiquebundle_physique_datnais\").val();
                     var telephone=\$(\"#physiquebundle_physique_telephone\").val();
                     var email= \$(\"#physiquebundle_physique_email\").val();
                     var pays= \$(\"#physiquebundle_physique_pays\").val();
                     var ville= \$(\"#physiquebundle_physique_ville\").val();
-                    //var tuteur= \$(\"#physiquebundle_physique_tuteur\").val();
-                    //var prenomTuteur= \$(\"#physiquebundle_physique_prenomTuteur\").val();
-                    
+                    var tuteur= \$(\"#physiquebundle_physique_tuteur\").val();
+                    var prenomTuteur= \$(\"#physiquebundle_physique_prenomTuteur\").val();
+                    if(nom==\"\" || prenom==\"\" || sigle==\"\" || raisonSociale==\"\" || datnais==\"\" || telephone==\"\" || email==\"\" || pays==\"\" ||
+                        ville==\"\")
+                        {
+                            alert('Veuillez remplir tous les champs');
+                        }
+                    else 
+                    {
+                            
                     \$.ajax(
                         {
                             method:'post',
@@ -786,22 +722,22 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
                             data: {
                                 physiquebundle_physique_nom:nom,
                                 physiquebundle_physique_prenom:prenom,
+                                physiquebundle_physique_sigle:sigle,
+                                physiquebundle_physique_raisonSociale:raisonSociale,
                                 physiquebundle_physique_datnais:datnais,
                                 physiquebundle_physique_telephone:telephone,
                                 physiquebundle_physique_email:email,
                                 physiquebundle_physique_pays:pays,
                                 physiquebundle_physique_ville:ville,
-                                //tuteur:tuteur
+                                physiquebundle_physique_tuteur:tuteur,
+                                physiquebundle_physique_prenomTuteur:prenomTuteur
+
                             },
                             success: function(data){
                                 //console.log(data);
                                 if(data.code == 400){
                                     console.log(data)
-                                    alert('error')
-                                }
-                                else if(data.code == 300)
-                                {
-                                    alert('Remplissez les champs')
+                                    alert('Cet utilisateur existe déjà')
                                 }
                                 else
                                 {
@@ -818,11 +754,12 @@ class __TwigTemplate_705963378db49c18e8562f67ed7416fcbb7fff839fe57fc3c35088655ad
                                     });
                                     next_fs.css({'opacity': opacity});
                                     },
-                                    duration: 2000
+                                    duration: 1000
                                 });
                                 }
                             }
                         })
+                    }
                 });
             });
     

@@ -20,8 +20,8 @@ class AppKernel extends Kernel
             new Vich\UploaderBundle\VichUploaderBundle(),
             new PhysiqueBundle\PhysiqueBundle(),
             new HomeBundle\HomeBundle(),
-            new MoraleBundle\MoraleBundle(),
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle()
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new PieceBundle\PieceBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -73,7 +73,7 @@
         </div>
     {% endblock %}
             <a href="{{ path('physique_index') }}"class="btn btn-primary" id="index">Liste</a>
-
+    <h2>Informations personnelles</h2>
     <div class="formulaire">
         {{ form_start(edit_form) }}
 
@@ -149,12 +149,48 @@
             <div class="footer">
                 <input type="submit" class="btn btn-primary" value="Valider" />
         {{ form_end(edit_form) }}
+
             {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
              <input type="submit" value="Delete" class="btn btn-danger">
             {{ form_end(delete_form) }}
         </div>
     </div>
+    <h2>Pièces jointes</h2>
+    <a href="" id="ajout" data-toggle="modal" class="btn btn-primary">Ajouter</a>
+     {# modal #}
+            <div class="modal fade" id="modalResult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <form id="formulaire">
+                                <input class="form-control" type="text" placeholder="Search" id="type">
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary"id="valider">Valider</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            
+            {% block javascripts %} 
+{{parent() }}
+
+<script> 
+     
+$(document).ready(function(){
+
+    $("#ajout").click(function(ev){
+        ev.preventDefault();
+        $('#type').val("")
+        $('#modalResult').modal('show')
+
+        })
+    });
+
+
+</script>   
 {% endblock %}
-
-
+{% endblock %}
 

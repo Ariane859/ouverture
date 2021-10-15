@@ -33,8 +33,8 @@ return array(
     'Psr\\Link\\' => array($vendorDir . '/psr/link/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
+    'PieceBundle\\' => array($baseDir . '/src/PieceBundle'),
     'PhysiqueBundle\\' => array($baseDir . '/src/PhysiqueBundle'),
-    'MoraleBundle\\' => array($baseDir . '/src/MoraleBundle'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Incenteev\\ParameterHandler\\' => array($vendorDir . '/incenteev/composer-parameter-handler'),
     'HomeBundle\\' => array($baseDir . '/src/HomeBundle'),
@@ -49,4 +49,5 @@ return array(
     'Composer\\CaBundle\\' => array($vendorDir . '/composer/ca-bundle/src'),
     'CommonBundle\\' => array($baseDir . '/src/CommonBundle'),
     'AdminBundle\\' => array($baseDir . '/src/AdminBundle'),
+    '' => array($baseDir . '/core'),
 );

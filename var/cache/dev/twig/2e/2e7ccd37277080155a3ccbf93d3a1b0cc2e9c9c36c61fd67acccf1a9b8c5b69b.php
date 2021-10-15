@@ -12,6 +12,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         $this->blocks = array(
             'content' => array($this, 'block_content'),
             'sidebar' => array($this, 'block_sidebar'),
+            'javascripts' => array($this, 'block_javascripts'),
         );
     }
 
@@ -109,7 +110,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         echo "            <a href=\"";
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_index");
         echo "\"class=\"btn btn-primary\" id=\"index\">Liste</a>
-
+    <h2>Informations personnelles</h2>
     <div class=\"formulaire\">
         ";
         // line 78
@@ -253,18 +254,41 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         // line 151
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["edit_form"] ?? $this->getContext($context, "edit_form")), 'form_end');
         echo "
+
             ";
-        // line 152
+        // line 153
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_start', array("attr" => array("onSubmit" => "return confirm('Voulez vous vraiment supprimer?');")));
         echo "
              <input type=\"submit\" value=\"Delete\" class=\"btn btn-danger\">
             ";
-        // line 154
+        // line 155
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_end');
         echo "
         </div>
     </div>
-";
+    <h2>Pièces jointes</h2>
+    <a href=\"\" id=\"ajout\" data-toggle=\"modal\" class=\"btn btn-primary\">Ajouter</a>
+     ";
+        // line 161
+        echo "            <div class=\"modal fade\" id=\"modalResult\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+                <div class=\"modal-dialog\" role=\"document\">
+                    <div class=\"modal-content\">
+                        <div class=\"modal-body\">
+                            <form id=\"formulaire\">
+                                <input class=\"form-control\" type=\"text\" placeholder=\"Search\" id=\"type\">
+                            </form>
+                        </div>
+                        <div class=\"modal-footer\">
+                            <button type=\"button\" class=\"btn btn-primary\"id=\"valider\">Valider</button>
+                            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            
+            ";
+        // line 177
+        $this->displayBlock('javascripts', $context, $blocks);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -302,6 +326,44 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 
     }
 
+    // line 177
+    public function block_javascripts($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        echo " 
+";
+        // line 178
+        $this->displayParentBlock("javascripts", $context, $blocks);
+        echo "
+
+<script> 
+     
+\$(document).ready(function(){
+
+    \$(\"#ajout\").click(function(ev){
+        ev.preventDefault();
+        \$('#type').val(\"\")
+        \$('#modalResult').modal('show')
+
+        })
+    });
+
+
+</script>   
+";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
     public function getTemplateName()
     {
         return "physique/edit.html.twig";
@@ -314,7 +376,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 
     public function getDebugInfo()
     {
-        return array (  293 => 72,  289 => 71,  286 => 70,  277 => 69,  263 => 154,  258 => 152,  254 => 151,  247 => 146,  241 => 144,  239 => 143,  233 => 139,  227 => 137,  225 => 136,  216 => 130,  210 => 127,  203 => 123,  196 => 119,  190 => 116,  184 => 112,  178 => 110,  176 => 109,  172 => 107,  166 => 105,  164 => 104,  158 => 100,  152 => 98,  150 => 97,  146 => 95,  140 => 93,  138 => 92,  134 => 90,  132 => 85,  126 => 82,  123 => 81,  121 => 80,  116 => 78,  109 => 75,  107 => 69,  103 => 67,  101 => 61,  50 => 4,  41 => 3,  11 => 1,);
+        return array (  341 => 178,  330 => 177,  317 => 72,  313 => 71,  310 => 70,  301 => 69,  291 => 177,  273 => 161,  265 => 155,  260 => 153,  255 => 151,  248 => 146,  242 => 144,  240 => 143,  234 => 139,  228 => 137,  226 => 136,  217 => 130,  211 => 127,  204 => 123,  197 => 119,  191 => 116,  185 => 112,  179 => 110,  177 => 109,  173 => 107,  167 => 105,  165 => 104,  159 => 100,  153 => 98,  151 => 97,  147 => 95,  141 => 93,  139 => 92,  135 => 90,  133 => 85,  127 => 82,  124 => 81,  122 => 80,  117 => 78,  110 => 75,  108 => 69,  104 => 67,  102 => 61,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -402,7 +464,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         </div>
     {% endblock %}
             <a href=\"{{ path('physique_index') }}\"class=\"btn btn-primary\" id=\"index\">Liste</a>
-
+    <h2>Informations personnelles</h2>
     <div class=\"formulaire\">
         {{ form_start(edit_form) }}
 
@@ -478,14 +540,50 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
             <div class=\"footer\">
                 <input type=\"submit\" class=\"btn btn-primary\" value=\"Valider\" />
         {{ form_end(edit_form) }}
+
             {{ form_start(delete_form,{'attr':{'onSubmit':\"return confirm('Voulez vous vraiment supprimer?');\"}}) }}
              <input type=\"submit\" value=\"Delete\" class=\"btn btn-danger\">
             {{ form_end(delete_form) }}
         </div>
     </div>
+    <h2>Pièces jointes</h2>
+    <a href=\"\" id=\"ajout\" data-toggle=\"modal\" class=\"btn btn-primary\">Ajouter</a>
+     {# modal #}
+            <div class=\"modal fade\" id=\"modalResult\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+                <div class=\"modal-dialog\" role=\"document\">
+                    <div class=\"modal-content\">
+                        <div class=\"modal-body\">
+                            <form id=\"formulaire\">
+                                <input class=\"form-control\" type=\"text\" placeholder=\"Search\" id=\"type\">
+                            </form>
+                        </div>
+                        <div class=\"modal-footer\">
+                            <button type=\"button\" class=\"btn btn-primary\"id=\"valider\">Valider</button>
+                            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            
+            {% block javascripts %} 
+{{parent() }}
+
+<script> 
+     
+\$(document).ready(function(){
+
+    \$(\"#ajout\").click(function(ev){
+        ev.preventDefault();
+        \$('#type').val(\"\")
+        \$('#modalResult').modal('show')
+
+        })
+    });
+
+
+</script>   
 {% endblock %}
-
-
+{% endblock %}
 
 ", "physique/edit.html.twig", "C:\\laragon\\www\\ouverture\\app\\Resources\\views\\physique\\edit.html.twig");
     }

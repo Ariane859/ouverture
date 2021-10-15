@@ -1,15 +1,15 @@
-morale_morale:
-    resource: "@MoraleBundle/Controller/MoraleController.php"
+piece:
+    resource: "@PieceBundle/Controller/"
     type:     annotation
-
+    prefix:   /
+    
 physique_physique:
     resource: "@PhysiqueBundle/Controller/PhysiqueController.php"
     type:     annotation
 
-morale:
-    resource: "@MoraleBundle/Controller/"
+piece_piece:
+    resource: "@PieceBundle/Controller/PieceController.php"
     type:     annotation
-    prefix:   /
 
 home:
     resource: "@HomeBundle/Controller/"

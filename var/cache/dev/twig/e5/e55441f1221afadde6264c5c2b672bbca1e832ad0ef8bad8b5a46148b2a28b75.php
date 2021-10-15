@@ -50,7 +50,7 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
         echo "<style>
         body
             {
-                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-family: Georgia, Times, 'Times New Roman', serif;
             }
             table{
                 margin-top:2%;
@@ -103,68 +103,219 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
             margin-left:92%;
         }
         #modifier{
-            margin-top:6%;
+            margin-top:5%;
             color:white;
             margin-left:93%; 
         }
         .fiche
         {
-            border:solid rgb(198, 228, 238) 0.5px;
-            width:50%;
-            margin-left:7%;
+            border:solid rgb(210, 220, 200) 0.5px;
+            width:70%;
+            margin-left:16%;
+            margin-top:4%;
         }
-        .row{ margin-left:5%;}
+        .row
+        { 
+            margin-left:9%;
+            margin-top:2%;
+        }
+        .prenom
+        {
+            margin-left:0%;
+        }
+        strong
+        {
+            font-size:110%;
+        }
+        p
+        {
+            font-size:101%;
+           
+        }
+        h1
+        {
+            font-size:170%;
+            margin-left:16%;
+            border:solid skyblue 1px;
+            width:70%;
+            height:15%;
+            padding:1%;
+           
+        }
+        .information
+        {
+             margin-top:8%;
+             font-size:170%;
+        }
+        .pièces{
+            margin-top:3%;
+            font-size:170%;
+        }
+        center{
+            margin-top:2%;
+        }
+        .actions{
+            margin-left:0%
+        }
+        .mod
+        {
+            margin-left:62%;
+            
+        }
+        .sup
+        {
+            margin-top:0.30%;
+            margin-right:0%;
+        }
 </style>
     ";
-        // line 72
+        // line 125
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 79
+        // line 132
         if ((null === $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "nom", array()))) {
-            // line 80
-            echo "<a href=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "id", array()), "slug" => 2)), "html", null, true);
-            echo "\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
-<div class=\"\">
-        <p><strong>Sigle:</strong>";
-            // line 82
-            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "sigle", array()), "html", null, true);
-            echo "</p>
-    </div>
-    ";
-            // line 120
-            echo "        ";
-        } else {
-            // line 121
-            echo "        <a href=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "id", array()), "slug" => 1)), "html", null, true);
-            echo "\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
-    ";
-            // line 167
-            echo "    <div class=\"fiche\">
-    <div class=\"row\">
-        <div class=\"col-md-4\"><p><strong>Nom:</strong>";
-            // line 169
+            // line 133
+            echo "        <h1 class=\"information\">Informations personnelles</h1>
+            <div class=\"fiche\">
+            <div class=\"row\">
+                <div class=\"col-md-6\"><p><strong>Nom:</strong>    ";
+            // line 136
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "nom", array()), "html", null, true);
             echo "</p></div>
-        <div class=\"col-md-4\"><p><strong>Prénom:</strong>";
-            // line 170
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 prenom\"><p><strong>Prénom:</strong>    ";
+            // line 139
             echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "prenom", array()), "html", null, true);
             echo "</p></div>
-    </div>
-    </div>
-    ";
+                <div class=\"col-md-6 \"><p><strong>Date de naissance:</strong>    ";
+            // line 140
+            if ($this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "datnais", array())) {
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "datnais", array()), "Y-m-d"), "html", null, true);
+            }
+            echo "</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 \"><p><strong>Telephone:</strong>    ";
+            // line 143
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "telephone", array()), "html", null, true);
+            echo "</p></div>
+                <div class=\"col-md-6 \"><p><strong>Email:</strong>    ";
+            // line 144
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "email", array()), "html", null, true);
+            echo "</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 \"><p><strong>Pays:</strong>    ";
+            // line 147
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "pays", array()), "html", null, true);
+            echo "</p></div>
+                <div class=\"col-md-6 \"><p><strong>Ville:</strong>    ";
+            // line 148
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "ville", array()), "html", null, true);
+            echo "</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 \"><p><strong>Tuteur:</strong>    ";
+            // line 151
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "tuteur", array()), "html", null, true);
+            echo "</p></div>
+                <div class=\"col-md-6 \"><p><strong>Prénom du tuteur:</strong>    ";
+            // line 152
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "prenomTuteur", array()), "html", null, true);
+            echo "</p></div>
+            </div>
+    
+";
+        } else {
+            // line 156
+            echo "        <h1 class=\"information\">Informations personnelles</h1>
+         <div class=\"fiche\">
+            <div class=\"row\">
+                <div class=\"col-md-6\"><p><strong>Nom:</strong>    ";
+            // line 159
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "nom", array()), "html", null, true);
+            echo "</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 prenom\"><p><strong>Prénom:</strong>    ";
+            // line 162
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "prenom", array()), "html", null, true);
+            echo "</p></div>
+                <div class=\"col-md-6 \"><p><strong>Date de naissance:</strong>    ";
+            // line 163
+            if ($this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "datnais", array())) {
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "datnais", array()), "Y-m-d"), "html", null, true);
+            }
+            echo "</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 \"><p><strong>Telephone:</strong>    ";
+            // line 166
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "telephone", array()), "html", null, true);
+            echo "</p></div>
+                <div class=\"col-md-6 \"><p><strong>Email:</strong>    ";
+            // line 167
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "email", array()), "html", null, true);
+            echo "</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 \"><p><strong>Pays:</strong>    ";
+            // line 170
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "pays", array()), "html", null, true);
+            echo "</p></div>
+                <div class=\"col-md-6 \"><p><strong>Ville:</strong>    ";
+            // line 171
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "ville", array()), "html", null, true);
+            echo "</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 \"><p><strong>Tuteur:</strong>    ";
+            // line 174
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "tuteur", array()), "html", null, true);
+            echo "</p></div>
+                <div class=\"col-md-6 \"><p><strong>Prénom du tuteur:</strong>    ";
+            // line 175
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "prenomTuteur", array()), "html", null, true);
+            echo "</p></div>
+            </div>
+            </div>
+";
         }
-        // line 174
-        echo "    <a href=\"\" class=\"btn btn-primary\" id=\"pièces\">Pièces jointes<a>
+        // line 179
+        echo "
+        <h1 class=\"pièces\">Pièces jointes</h1>
+            <center> Aucune pièces jointes trouvées</center>
+        <div class=\"row actions\">
+        <div class=\"col-md-1 mod\">
         ";
-        // line 175
+        // line 184
+        if ((null === $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "nom", array()))) {
+            // line 185
+            echo "            <a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "id", array()), "slug" => 2)), "html", null, true);
+            echo "\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
+        ";
+        } else {
+            // line 187
+            echo "            <a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_edit", array("id" => $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "id", array()), "slug" => 1)), "html", null, true);
+            echo "\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
+        ";
+        }
+        // line 189
+        echo "        </div>
+        <div class=\"col-md-1 sup\">
+        ";
+        // line 191
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_start', array("attr" => array("onSubmit" => "return confirm('Voulez vous vraiment supprimer?');")));
         echo "
                 <input type=\"submit\" class=\"btn btn-danger\" id=\"supprimer\" value=\"Supprimer\">
         ";
-        // line 177
+        // line 193
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_end');
         echo "
+        </div>
+        </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -174,7 +325,7 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
 
     }
 
-    // line 72
+    // line 125
     public function block_sidebar($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -183,14 +334,14 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
 
-        // line 73
+        // line 126
         echo "    <div class=\"sidebar\">
         <a href=\"";
-        // line 74
+        // line 127
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_home");
         echo "\" class=\"accueil\">Accueil</a>
         <a href=\"";
-        // line 75
+        // line 128
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_choix");
         echo "\" id=\"ouvrir\">Ouvrir un compte</a>
     </div>
@@ -215,7 +366,7 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
 
     public function getDebugInfo()
     {
-        return array (  194 => 75,  190 => 74,  187 => 73,  178 => 72,  166 => 177,  161 => 175,  158 => 174,  151 => 170,  147 => 169,  143 => 167,  138 => 121,  135 => 120,  130 => 82,  124 => 80,  122 => 79,  120 => 72,  50 => 4,  41 => 3,  11 => 1,);
+        return array (  345 => 128,  341 => 127,  338 => 126,  329 => 125,  315 => 193,  310 => 191,  306 => 189,  300 => 187,  294 => 185,  292 => 184,  285 => 179,  278 => 175,  274 => 174,  268 => 171,  264 => 170,  258 => 167,  254 => 166,  246 => 163,  242 => 162,  236 => 159,  231 => 156,  224 => 152,  220 => 151,  214 => 148,  210 => 147,  204 => 144,  200 => 143,  192 => 140,  188 => 139,  182 => 136,  177 => 133,  175 => 132,  173 => 125,  50 => 4,  41 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -234,7 +385,7 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
 <style>
         body
             {
-                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-family: Georgia, Times, 'Times New Roman', serif;
             }
             table{
                 margin-top:2%;
@@ -287,17 +438,70 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
             margin-left:92%;
         }
         #modifier{
-            margin-top:6%;
+            margin-top:5%;
             color:white;
             margin-left:93%; 
         }
         .fiche
         {
-            border:solid rgb(198, 228, 238) 0.5px;
-            width:50%;
-            margin-left:7%;
+            border:solid rgb(210, 220, 200) 0.5px;
+            width:70%;
+            margin-left:16%;
+            margin-top:4%;
         }
-        .row{ margin-left:5%;}
+        .row
+        { 
+            margin-left:9%;
+            margin-top:2%;
+        }
+        .prenom
+        {
+            margin-left:0%;
+        }
+        strong
+        {
+            font-size:110%;
+        }
+        p
+        {
+            font-size:101%;
+           
+        }
+        h1
+        {
+            font-size:170%;
+            margin-left:16%;
+            border:solid skyblue 1px;
+            width:70%;
+            height:15%;
+            padding:1%;
+           
+        }
+        .information
+        {
+             margin-top:8%;
+             font-size:170%;
+        }
+        .pièces{
+            margin-top:3%;
+            font-size:170%;
+        }
+        center{
+            margin-top:2%;
+        }
+        .actions{
+            margin-left:0%
+        }
+        .mod
+        {
+            margin-left:62%;
+            
+        }
+        .sup
+        {
+            margin-top:0.30%;
+            margin-right:0%;
+        }
 </style>
     {% block sidebar %}
     <div class=\"sidebar\">
@@ -307,104 +511,69 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
 {% endblock %}
 {# <a href=\"{{ path('physique_index') }}\" class=\"btn btn-primary\" id=\"liste\">Retourner à la liste</a> #}
 {% if physique.nom is null %}
-<a href=\"{{ path('physique_edit', { 'id': physique.id ,'slug':2})}}\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
-<div class=\"\">
-        <p><strong>Sigle:</strong>{{ physique.sigle }}</p>
-    </div>
-    {# <table class=\"table table-hover table-sm\">
-        <tbody>
-             <tr>
-                <th>Id:</th>
-                <td>{{ physique.id }}</td>
-            </tr>
-             <tr>
-                <th>Sigle:</th>
-                <td>{{ physique.sigle }}</td>
-            </tr>
-            <tr>
-                <th>Raison sociale:</th>
-                <td>{{ physique.raisonSociale }}</td>
-            </tr>
-            <tr>
-                <th>Date de naissance:</th>
-                <td>{% if physique.datnais %}{{ physique.datnais|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Telephone:</th>
-                <td>{{ physique.telephone }}</td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td>{{ physique.email }}</td>
-            </tr>
-            <tr>
-                <th>Pays:</th>
-                <td>{{ physique.pays }}</td>
-            </tr>
-            <tr>
-                <th>Ville:</th>
-                <td>{{ physique.ville }}</td>
-            </tr>
-            </tbody>
-    </table> #}
+        <h1 class=\"information\">Informations personnelles</h1>
+            <div class=\"fiche\">
+            <div class=\"row\">
+                <div class=\"col-md-6\"><p><strong>Nom:</strong>    {{ physique.nom }}</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 prenom\"><p><strong>Prénom:</strong>    {{ physique.prenom }}</p></div>
+                <div class=\"col-md-6 \"><p><strong>Date de naissance:</strong>    {% if physique.datnais %}{{ physique.datnais|date('Y-m-d') }}{% endif %}</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 \"><p><strong>Telephone:</strong>    {{  physique.telephone }}</p></div>
+                <div class=\"col-md-6 \"><p><strong>Email:</strong>    {{ physique.email }}</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 \"><p><strong>Pays:</strong>    {{  physique.pays }}</p></div>
+                <div class=\"col-md-6 \"><p><strong>Ville:</strong>    {{ physique.ville }}</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 \"><p><strong>Tuteur:</strong>    {{  physique.tuteur }}</p></div>
+                <div class=\"col-md-6 \"><p><strong>Prénom du tuteur:</strong>    {{ physique.prenomTuteur }}</p></div>
+            </div>
+    
+{% else %}
+        <h1 class=\"information\">Informations personnelles</h1>
+         <div class=\"fiche\">
+            <div class=\"row\">
+                <div class=\"col-md-6\"><p><strong>Nom:</strong>    {{ physique.nom }}</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 prenom\"><p><strong>Prénom:</strong>    {{ physique.prenom }}</p></div>
+                <div class=\"col-md-6 \"><p><strong>Date de naissance:</strong>    {% if physique.datnais %}{{ physique.datnais|date('Y-m-d') }}{% endif %}</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 \"><p><strong>Telephone:</strong>    {{  physique.telephone }}</p></div>
+                <div class=\"col-md-6 \"><p><strong>Email:</strong>    {{ physique.email }}</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 \"><p><strong>Pays:</strong>    {{  physique.pays }}</p></div>
+                <div class=\"col-md-6 \"><p><strong>Ville:</strong>    {{ physique.ville }}</p></div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-6 \"><p><strong>Tuteur:</strong>    {{  physique.tuteur }}</p></div>
+                <div class=\"col-md-6 \"><p><strong>Prénom du tuteur:</strong>    {{ physique.prenomTuteur }}</p></div>
+            </div>
+            </div>
+{% endif %}
+
+        <h1 class=\"pièces\">Pièces jointes</h1>
+            <center> Aucune pièces jointes trouvées</center>
+        <div class=\"row actions\">
+        <div class=\"col-md-1 mod\">
+        {% if physique.nom is null %}
+            <a href=\"{{ path('physique_edit', { 'id': physique.id ,'slug':2})}}\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
         {% else %}
-        <a href=\"{{ path('physique_edit', { 'id': physique.id ,'slug':1})}}\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
-    {# <table class=\"table table-hover table-sm\">
-        <tbody>
-             <tr>
-                <th>Id:</th>
-                <td>{{ physique.id }}</td>
-            </tr>
-             <tr>
-                <th>Nom:</th>
-                <td>{{ physique.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prénom:</th>
-                <td>{{ physique.prenom }}</td>
-            </tr>
-             <tr>
-                <th>Date de naissance:</th>
-                <td>{% if physique.datnais %}{{ physique.datnais|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Telephone:</th>
-                <td>{{ physique.telephone }}</td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td>{{ physique.email }}</td>
-            </tr>
-            <tr>
-                <th>Pays:</th>
-                <td>{{ physique.pays }}</td>
-            </tr>
-            <tr>
-                <th>Ville:</th>
-                <td>{{ physique.ville }}</td>
-            </tr>
-            <tr>
-                <th>Tuteur:</th>
-                <td>{{ physique.tuteur }}</td>
-            </tr>
-            <tr>
-                <th>Prénom du tuteur</th>
-                <td>{{ physique.prenomTuteur }}</td>
-            </tr>
-        
-        </tbody>
-    </table> #}
-    <div class=\"fiche\">
-    <div class=\"row\">
-        <div class=\"col-md-4\"><p><strong>Nom:</strong>{{ physique.nom }}</p></div>
-        <div class=\"col-md-4\"><p><strong>Prénom:</strong>{{ physique.prenom }}</p></div>
-    </div>
-    </div>
-    {% endif %}
-    <a href=\"\" class=\"btn btn-primary\" id=\"pièces\">Pièces jointes<a>
+            <a href=\"{{ path('physique_edit', { 'id': physique.id ,'slug':1})}}\" id=\"modifier\" class=\"btn btn-primary\">Modifier</a>
+        {% endif %}
+        </div>
+        <div class=\"col-md-1 sup\">
         {{ form_start(delete_form,{'attr':{'onSubmit':\"return confirm('Voulez vous vraiment supprimer?');\"}}) }}
                 <input type=\"submit\" class=\"btn btn-danger\" id=\"supprimer\" value=\"Supprimer\">
         {{ form_end(delete_form) }}
+        </div>
+        </div>
 {% endblock %}
 ", "physique/show.html.twig", "C:\\laragon\\www\\ouverture\\app\\Resources\\views\\physique\\show.html.twig");
     }

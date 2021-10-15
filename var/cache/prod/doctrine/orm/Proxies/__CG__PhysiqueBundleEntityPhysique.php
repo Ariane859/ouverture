@@ -64,10 +64,10 @@ class Physique extends \PhysiqueBundle\Entity\Physique implements \Doctrine\ORM\
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'id', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'typeCompte', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'nom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'sigle', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'raisonSociale', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'datnais', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'telephone', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'email', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'pays', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'ville', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'tuteur', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenomTuteur'];
+            return ['__isInitialized__', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'id', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'typeCompte', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'nom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'sigle', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'raisonSociale', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'datnais', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'telephone', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'email', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'pays', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'ville', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'tuteur', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenomTuteur', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'mineur'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'id', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'typeCompte', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'nom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'sigle', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'raisonSociale', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'datnais', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'telephone', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'email', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'pays', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'ville', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'tuteur', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenomTuteur'];
+        return ['__isInitialized__', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'id', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'typeCompte', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'nom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenom', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'sigle', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'raisonSociale', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'datnais', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'telephone', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'email', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'pays', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'ville', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'tuteur', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'prenomTuteur', '' . "\0" . 'PhysiqueBundle\\Entity\\Physique' . "\0" . 'mineur'];
     }
 
     /**
@@ -450,6 +450,28 @@ class Physique extends \PhysiqueBundle\Entity\Physique implements \Doctrine\ORM\
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRaisonSociale', []);
 
         return parent::getRaisonSociale();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setmineur($mineur)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setmineur', [$mineur]);
+
+        return parent::setmineur($mineur);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getmineur()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getmineur', []);
+
+        return parent::getmineur();
     }
 
 }

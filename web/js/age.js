@@ -68,7 +68,7 @@
                 if(document.getElementById('physiquebundle_physique_tuteur').value=="" && document.getElementById('physiquebundle_physique_prenomTuteur').value=="")
                 {
                     e.preventDefault()
-                    alert('Veuillez entrez le nom de votre tuteur!!!')
+                    alert('Veuillez entrez le nom de votre tuteur et le prénom du tuteur!!!')
                 }
             }
             })

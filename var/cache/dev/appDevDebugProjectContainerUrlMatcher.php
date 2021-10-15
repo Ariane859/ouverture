@@ -107,98 +107,85 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // morale_default_index
+        // piece_default_index
         if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'MoraleBundle\\Controller\\DefaultController::indexAction',  '_route' => 'morale_default_index',);
+            $ret = array (  '_controller' => 'PieceBundle\\Controller\\DefaultController::indexAction',  '_route' => 'piece_default_index',);
             if ('/' === substr($pathinfo, -1)) {
                 // no-op
             } elseif ('GET' !== $canonicalMethod) {
-                goto not_morale_default_index;
+                goto not_piece_default_index;
             } else {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'morale_default_index'));
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'piece_default_index'));
             }
 
             return $ret;
         }
-        not_morale_default_index:
+        not_piece_default_index:
 
-        if (0 === strpos($pathinfo, '/morale')) {
-            // morale_index
-            if ('/morale' === $trimmedPathinfo) {
-                $ret = array (  '_controller' => 'MoraleBundle\\Controller\\MoraleController::indexAction',  '_route' => 'morale_index',);
-                if ('/' === substr($pathinfo, -1)) {
-                    // no-op
-                } elseif ('GET' !== $canonicalMethod) {
-                    goto not_morale_index;
-                } else {
-                    return array_replace($ret, $this->redirect($rawPathinfo.'/', 'morale_index'));
-                }
-
+        if (0 === strpos($pathinfo, '/piece')) {
+            // piece_index
+            if ('/piece/piece' === $pathinfo) {
+                $ret = array (  '_controller' => 'PieceBundle\\Controller\\PieceController::indexAction',  '_route' => 'piece_index',);
                 if (!in_array($canonicalMethod, array('GET'))) {
                     $allow = array_merge($allow, array('GET'));
-                    goto not_morale_index;
+                    goto not_piece_index;
                 }
 
                 return $ret;
             }
-            not_morale_index:
+            not_piece_index:
 
-            // morale_new
-            if ('/morale/new' === $pathinfo) {
-                $ret = array (  '_controller' => 'MoraleBundle\\Controller\\MoraleController::newAction',  '_route' => 'morale_new',);
+            // piece_new
+            if ('/piece/new/piece' === $pathinfo) {
+                $ret = array (  '_controller' => 'PieceBundle\\Controller\\PieceController::newAction',  '_route' => 'piece_new',);
                 if (!in_array($canonicalMethod, array('GET', 'POST'))) {
                     $allow = array_merge($allow, array('GET', 'POST'));
-                    goto not_morale_new;
+                    goto not_piece_new;
                 }
 
                 return $ret;
             }
-            not_morale_new:
+            not_piece_new:
 
-            // morale_show
-            if (preg_match('#^/morale/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'morale_show')), array (  '_controller' => 'MoraleBundle\\Controller\\MoraleController::showAction',));
+            // piece_show
+            if (preg_match('#^/piece/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'piece_show')), array (  '_controller' => 'PieceBundle\\Controller\\PieceController::showAction',));
                 if (!in_array($canonicalMethod, array('GET'))) {
                     $allow = array_merge($allow, array('GET'));
-                    goto not_morale_show;
+                    goto not_piece_show;
                 }
 
                 return $ret;
             }
-            not_morale_show:
+            not_piece_show:
 
-            // morale_edit
-            if (preg_match('#^/morale/(?P<id>[^/]++)/edit$#sD', $pathinfo, $matches)) {
-                $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'morale_edit')), array (  '_controller' => 'MoraleBundle\\Controller\\MoraleController::editAction',));
+            // piece_edit
+            if (preg_match('#^/piece/(?P<id>[^/]++)/edit$#sD', $pathinfo, $matches)) {
+                $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'piece_edit')), array (  '_controller' => 'PieceBundle\\Controller\\PieceController::editAction',));
                 if (!in_array($canonicalMethod, array('GET', 'POST'))) {
                     $allow = array_merge($allow, array('GET', 'POST'));
-                    goto not_morale_edit;
+                    goto not_piece_edit;
                 }
 
                 return $ret;
             }
-            not_morale_edit:
+            not_piece_edit:
 
-            // morale_delete
-            if (preg_match('#^/morale/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'morale_delete')), array (  '_controller' => 'MoraleBundle\\Controller\\MoraleController::deleteAction',));
+            // piece_delete
+            if (preg_match('#^/piece/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'piece_delete')), array (  '_controller' => 'PieceBundle\\Controller\\PieceController::deleteAction',));
                 if (!in_array($requestMethod, array('DELETE'))) {
                     $allow = array_merge($allow, array('DELETE'));
-                    goto not_morale_delete;
+                    goto not_piece_delete;
                 }
 
                 return $ret;
             }
-            not_morale_delete:
+            not_piece_delete:
 
         }
 
-        // path_home
-        if ('/home' === $pathinfo) {
-            return array (  '_controller' => 'HomeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'path_home',);
-        }
-
-        if (0 === strpos($pathinfo, '/physique')) {
+        elseif (0 === strpos($pathinfo, '/physique')) {
             // path_compte_physique
             if ('/physique' === $pathinfo) {
                 return array (  '_controller' => 'PhysiqueBundle\\Controller\\DefaultController::indexAction',  '_route' => 'path_compte_physique',);
@@ -292,6 +279,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
             not_physique_search:
 
+        }
+
+        // path_home
+        if ('/home' === $pathinfo) {
+            return array (  '_controller' => 'HomeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'path_home',);
         }
 
         // path_choix

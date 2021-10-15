@@ -23,7 +23,7 @@ class __TwigTemplate_b8044a6af533e7a421c817dde72be17fb73a01d28ff4fb6c2b1ba5160d8
 
         // line 1
         echo "
-      <div class=\"modal-body\">
+      <div id=\"modal-body\">
         ";
         // line 3
         $context['_parent'] = $context;
@@ -138,7 +138,7 @@ class __TwigTemplate_b8044a6af533e7a421c817dde72be17fb73a01d28ff4fb6c2b1ba5160d8
     public function getSourceContext()
     {
         return new Twig_Source("
-      <div class=\"modal-body\">
+      <div id=\"modal-body\">
         {% for physique in physiques %}
             <tr>
                 <th scope=\"row\"><a href=\"{{ path('physique_show', { 'id': physique.id }) }}\">{{ physique.id }}</a></th>

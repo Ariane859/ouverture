@@ -17,14 +17,14 @@
                 position:absolute;
             }
         .accueil
-        {
-            color:white;
-            font-size:1.7rem;
-        }
+            {
+                color:white;
+                font-size:1.7rem;
+            }
         .accueil:hover
-        {
-            color:white;
-        }
+            {
+                color:white;
+            }
         a
             {
                 color: black;
@@ -32,38 +32,25 @@
                 text-decoration: none;
             }
         a:hover
-        {
-            color:black;
-            text-decoration:none;
-        }
+            {
+                color:black;
+                text-decoration:none;
+            }
         h2
             {
                 color: black;
-                margin-top:10%;
                 font-size:2.4rem;
 
             }
-        .type
+        .container
         {
-            
+           margin-top:10%;
+        }
+        
+        .row
+        {
             margin-top:8%;
-            margin-left:19%;
-            
-        }
-        .personne_morale
-        {
-            
-            font-size:1.75rem;
-            padding:4%;
-            margin-top:29%;
-        }
-        .personne_physique
-        {
-            margin-left: 4%;
-            font-size:1.75rem;
-            padding:4%;
-            margin-top:29%;
-
+            margin-left:9%;
         }
     </style>
     
@@ -72,9 +59,15 @@
         <a href="{{path('path_home')}}" class="accueil">Accueil</a>
     </div>
 {% endblock %}
-    <center><h2>Choisir le type de compte que vous voulez créer</h2></center>
-    <div class="type">
-        <a href="{{ path('physique_new', {'slug':1}) }}"><i class="fa fa-user" style="font-size:385px"></i></a>
-        <a href="{{ path('physique_new',{'slug':2})  }}"><i class="fa fa-building-o" style="font-size:385px;margin-left: 18%"></i></a>
-    </div>       
+    <div class="container">
+        <center><h2>Choisir le type de compte que vous voulez créer</h2></center>
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{{ path('physique_new', {'slug':1}) }}"><i class="fa fa-user" style="font-size:385px"></i></a>
+            </div>
+            <div class="col-md-6">
+                <a href="{{ path('physique_new',{'slug':2})  }}"><i class="fa fa-building-o" style="font-size:385px"></i></a>
+            </div>
+        </div>
+    </div>    
 {% endblock %}

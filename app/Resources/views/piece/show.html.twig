@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Piece</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ piece.id }}</td>
+            </tr>
+            <tr>
+                <th>Typepiece</th>
+                <td>{{ piece.typePiece }}</td>
+            </tr>
+            <tr>
+                <th>Refpiece</th>
+                <td>{{ piece.refPiece }}</td>
+            </tr>
+            <tr>
+                <th>Datexpiration</th>
+                <td>{% if piece.datexpiration %}{{ piece.datexpiration|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datdeclaration</th>
+                <td>{% if piece.datdeclaration %}{{ piece.datdeclaration|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datedelivrance</th>
+                <td>{% if piece.datedelivrance %}{{ piece.datedelivrance|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Emetteur</th>
+                <td>{{ piece.emetteur }}</td>
+            </tr>
+            <tr>
+                <th>Paysemission</th>
+                <td>{{ piece.paysEmission }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('piece_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('piece_edit', { 'id': piece.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

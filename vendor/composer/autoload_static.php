@@ -57,11 +57,11 @@ class ComposerStaticInit33c4832ed20c0f974fffb0a06f2cbf46
             'Psr\\Link\\' => 9,
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
+            'PieceBundle\\' => 12,
             'PhysiqueBundle\\' => 15,
         ),
         'M' => 
         array (
-            'MoraleBundle\\' => 13,
             'Monolog\\' => 8,
         ),
         'I' => 
@@ -206,13 +206,13 @@ class ComposerStaticInit33c4832ed20c0f974fffb0a06f2cbf46
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
+        'PieceBundle\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/PieceBundle',
+        ),
         'PhysiqueBundle\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/PhysiqueBundle',
-        ),
-        'MoraleBundle\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/MoraleBundle',
         ),
         'Monolog\\' => 
         array (
@@ -270,6 +270,10 @@ class ComposerStaticInit33c4832ed20c0f974fffb0a06f2cbf46
         array (
             0 => __DIR__ . '/../..' . '/src/AdminBundle',
         ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/../..' . '/core',
     );
 
     public static $prefixesPsr0 = array (
@@ -352,6 +356,7 @@ class ComposerStaticInit33c4832ed20c0f974fffb0a06f2cbf46
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit33c4832ed20c0f974fffb0a06f2cbf46::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit33c4832ed20c0f974fffb0a06f2cbf46::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit33c4832ed20c0f974fffb0a06f2cbf46::$fallbackDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit33c4832ed20c0f974fffb0a06f2cbf46::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit33c4832ed20c0f974fffb0a06f2cbf46::$classMap;
 
