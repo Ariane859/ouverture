@@ -7,7 +7,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
 use Doctrine\Common\Collections\ArrayCollection;
- 
+use PhysiqueBundle\Entity\Piece;
+use PieceBundle\Form\PieceType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -20,7 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
  * @UniqueEntity(fields={"sigle"}, message="Ce sigle est déjà utilisé !")
  * @UniqueEntity(fields={"raisonSociale"}, message="elle est déjà utilisé !")
  */
-class Physique
+class Physique extends PieceType
 {
     /**
      * @var int
@@ -130,7 +131,7 @@ class Physique
 
     public function __toString()
     {
-        return $this->nom;
+        return (string)$this->nom;
     }
 
     /**

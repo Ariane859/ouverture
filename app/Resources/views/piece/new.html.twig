@@ -1,16 +1,120 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Piece creation</h1>
+    <style>
+       {# #datedelivrance
+       {
+           display:none;
+       }
+       #datdeclaration
+       {
+           display:none;
+       } #}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    </style>
+    <div class="container">
+            <h1>Pièces</h1>
+            <hr></hr>
+                <div class="col">
+                    {{ form_start(form,{'action': path('piece_new')}) }}
+                        {# {{ form_widget(form) }} #}
+                        <div class="form-group">
+                            {{ form_row(form.typePiece, { 'label': 'Type Piece'})}}
+                        </div>
+                        <div class="form-group">
+                            <div id="refPiece">
+                                {{ form_row(form.refPiece, { 'label': 'N° Pièce'})}}
+                            </div>
+                        </div>                
+                        <div class="form-group">
+                            <div id="datexpiration">
+                                {{ form_row(form.datexpiration, { 'label': 'Date d\'expiration'})}}
+                           </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="datdeclaration">
+                                {{ form_row(form.datdeclaration, { 'label': 'Date de déclaration'})}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="datedelivrance">
+                                {{ form_row(form.datedelivrance, { 'label': 'Date de délivrance'})}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="emetteur">
+                                {{ form_row(form.emetteur, { 'label': 'Emetteur'})}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="paysEmission">
+                                {{ form_row(form.paysEmission, { 'label': 'Pays d\'émission'})}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="physique">
+                                {{ form_row(form.physique, { 'label': 'Nom', 'attr': {'class': 'form-control'} } )}}
+                            </div>
+                        </div>
+                            <div id="fichier">
+                                {{ form_row(form.fichier, { 'label': 'Fichier', 'attr': {'class': 'form-control'} } )}}
+                            </div>
+                        <input type="submit" class="btn btn-outline-info" value="Enregister" />
+                    {{ form_end(form) }}
+                </div>
+    </div>
+{% endblock %}
 
-    <ul>
-        <li>
-            <a href="{{ path('piece_index') }}">Back to the list</a>
-        </li>
-    </ul>
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function(){
+            $('#piecebundle_piece_typePiece').on('change',function(e)
+            {
+                e.preventDefault();
+                var typePiece = $(this).val();
+                console.log(typePiece);
+                if (typePiece =='Photo')
+                {
+                    document.getElementById('datexpiration').style.display= "none";
+                    document.getElementById('datedelivrance').style.display= "none";
+                    document.getElementById('datdeclaration').style.display= "none";
+                    document.getElementById('refPiece').style.display= "none";
+                    document.getElementById('emetteur').style.display= "none";
+                    document.getElementById('paysEmission').style.display= "none";
+                    document.getElementById('physique').style.display= "none";
+                }
+                else if(typePiece =='Carte d\'identité' || typePiece=='Passeport')
+                {
+                    document.getElementById('refPiece').style.display= "block";
+                    document.getElementById('emetteur').style.display= "block";
+                     document.getElementById('paysEmission').style.display= "block";
+                    document.getElementById('physique').style.display= "block";
+                    document.getElementById('datedelivrance').style.display= "none";
+                    document.getElementById('datdeclaration').style.display= "none";
+                    document.getElementById('datexpiration').style.display= "block";
+                }
+                else if(typePiece=='Attestation de résidence') {
+                     document.getElementById('refPiece').style.display= "block";
+                    document.getElementById('emetteur').style.display= "block";
+                     document.getElementById('paysEmission').style.display= "block";
+                    document.getElementById('physique').style.display= "block";
+                    document.getElementById('datedelivrance').style.display= "block";
+                    document.getElementById('datdeclaration').style.display= "none";
+                    document.getElementById('datexpiration').style.display= "none";
+
+                }
+                else
+                {
+                     document.getElementById('refPiece').style.display= "block";
+                    document.getElementById('emetteur').style.display= "block";
+                     document.getElementById('paysEmission').style.display= "block";
+                    document.getElementById('physique').style.display= "block";
+                    document.getElementById('datedelivrance').style.display= "none";
+                    document.getElementById('datdeclaration').style.display= "block";
+                    document.getElementById('datexpiration').style.display= "none";
+                }
+            })
+        })
+    </script>
 {% endblock %}

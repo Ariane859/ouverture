@@ -3,6 +3,7 @@
 namespace PhysiqueBundle\Controller;
 
 use PhysiqueBundle\Entity\Physique;
+use PieceBundle\Entity\Piece;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -103,13 +104,15 @@ class PhysiqueController extends Controller
     public function showAction(Physique $physique)
     {
         $deleteForm = $this->createDeleteForm($physique);
-
+        $em = $this->getDoctrine()->getManager();
+        $pieces = $em->getRepository('PieceBundle:Piece')->findBy(array('physique' => $physique->getId()));
         return $this->render('physique/show.html.twig', array(
+            // 'piece' => $piece,
+            'pieces' => $pieces,
             'physique' => $physique,
             'delete_form' => $deleteForm->createView(),
         ));
     }
-
     /**
      * Displays a form to edit an existing physique entity.
      *
@@ -118,22 +121,30 @@ class PhysiqueController extends Controller
      */
     public function editAction(Request $request, Physique $physique, $slug)
     {
+        $piece = new Piece();
         $deleteForm = $this->createDeleteForm($physique, array('slug' => $slug));
+        $em = $this->getDoctrine()->getManager();
+        $pieces = $em->getRepository('PieceBundle:Piece')->findBy(array('physique' => $physique->getId()));
+        $form = $this->createForm('PieceBundle\Form\PieceType', $piece,[
+        'action' => $this->generateUrl('piece_new'),
+        'method' => 'POST',]);
+        $form->handleRequest($request);
         $editForm = $this->createForm('PhysiqueBundle\Form\PhysiqueType', $physique, array('slug' => $slug));
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             //dump(1);die();
             $this->getDoctrine()->getManager()->flush();
-
             //return $this->redirectToRoute('physique_edit', array('id' => $physique->getId(),'type'=>$type));
             return $this->redirectToRoute('physique_index');
         }
 
         return $this->render('physique/edit.html.twig', array(
+            'pieces'=>$pieces,
             'physique' => $physique,
             'edit_form' => $editForm->createView(),
-             'delete_form' => $deleteForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -147,17 +158,18 @@ class PhysiqueController extends Controller
     {
         $form = $this->createDeleteForm($physique);
         $form->handleRequest($request);
-
+        // $em = $this->getDoctrine()->getManager();
+        // $pieces = $em->getRepository('PieceBundle:Piece')->findBy(array('physique' => $physique->getId()));
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($physique);
             $em->flush();
             $this->addFlash('notice',"Supprimé avec succès!");
-            return $this->redirectToRoute('physique_index');
-            
+            return $this->redirectToRoute('physique_index');  
         }
 
-        
+        // return $this->redirectToRoute('physique_index');
+
     }
 
     /**

@@ -1,41 +1,64 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Piece</h1>
-
-    <table>
+    <style>
+        body
+        {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            /*margin-top:30px;*/
+        }
+     {# .formulaire 
+    {
+        color: black;
+        margin-top:5%;
+        margin-left:11%;
+        width:80%;
+        border:solid white 1px;
+    } #}
+    h1
+    {
+        color:teal;
+        font-weight:bold;
+        }
+    </style>
+    <h1>Piece n° : {{ piece.id }}</h1>
+    <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ piece.id }}</td>
-            </tr>
-            <tr>
-                <th>Typepiece</th>
+                <th>Type Pièce:</th>
                 <td>{{ piece.typePiece }}</td>
             </tr>
             <tr>
-                <th>Refpiece</th>
+                <th>N° Pièce:</th>
                 <td>{{ piece.refPiece }}</td>
             </tr>
             <tr>
-                <th>Datexpiration</th>
+                <th>Expire le:</th>
                 <td>{% if piece.datexpiration %}{{ piece.datexpiration|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Datdeclaration</th>
+                <th>Déclaré le:</th>
                 <td>{% if piece.datdeclaration %}{{ piece.datdeclaration|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Datedelivrance</th>
+                <th>Délivré(e) le:</th>
                 <td>{% if piece.datedelivrance %}{{ piece.datedelivrance|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Emetteur</th>
+                <th>Emetteur:</th>
                 <td>{{ piece.emetteur }}</td>
             </tr>
             <tr>
-                <th>Paysemission</th>
+                <th>Lieu:</th>
                 <td>{{ piece.paysEmission }}</td>
+            </tr>
+             <tr>
+                <th>Nom:</th>
+                <td>{{ piece.physique }}</td>
+            </tr>
+             <tr>
+                <th>Fichier:</th>
+                <td><a href="{{ asset('uploads/brochures/' ~ piece.fichier) }}" style="color:skyblue">{{ piece.fichier }}</a></td>
             </tr>
         </tbody>
     </table>
@@ -47,10 +70,10 @@
         <li>
             <a href="{{ path('piece_edit', { 'id': piece.id }) }}">Edit</a>
         </li>
-        <li>
+        {# <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
-        </li>
+        </li> #}
     </ul>
 {% endblock %}

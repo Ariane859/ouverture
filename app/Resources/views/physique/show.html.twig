@@ -6,7 +6,7 @@
             {
                 font-family: Georgia, Times, 'Times New Roman', serif;
             }
-            table{
+        table{
                 margin-top:2%;
             }
         .sidebar
@@ -16,11 +16,11 @@
                 top: 0;
                 left: 0;
                 padding:1%;
-                position:absolute;
+                position:relative;
             }
         a
             {
-                color: white;
+                color:white;
                 text-decoration: none;
             }
         a:hover
@@ -38,14 +38,15 @@
             border:solid blue 0px;
             margin-left:80%;
             font-size:1.2rem;
+            color:white;
         }
         #index
         {
             color: white;
             margin-left:94%;
         }
-        .index:hover{
-            color:black;
+        #ouvrir:hover{
+            color:white;
         }
         #liste{
             color:white;
@@ -63,7 +64,7 @@
         }
         .fiche
         {
-            border:solid rgb(210, 220, 200) 0.5px;
+            border:solid rgb(192,192,192)0.5px;
             width:70%;
             margin-left:16%;
             margin-top:4%;
@@ -90,8 +91,6 @@
         {
             font-size:170%;
             margin-left:16%;
-            border:solid skyblue 1px;
-            width:70%;
             height:15%;
             padding:1%;
            
@@ -100,10 +99,16 @@
         {
              margin-top:8%;
              font-size:170%;
+            border:solid skyblue 1px;
+            width:70%;
         }
         .pièces{
             margin-top:3%;
             font-size:170%;
+            margin-left:;
+            border:solid skyblue 1px;
+            width:59%;
+            
         }
         center{
             margin-top:2%;
@@ -113,13 +118,31 @@
         }
         .mod
         {
-            margin-left:62%;
+            margin-left:52%;
             
         }
         .sup
         {
             margin-top:0.30%;
-            margin-right:0%;
+            margin-right:30%;
+        }
+        #table
+        {
+            width:80%;
+            margin:25px 40px 75px 80px;
+
+        }
+        li
+        {
+            display:inline-block;
+        }
+        tr
+            {
+                font-size:95%;
+                text-align:center;
+            }
+        td {
+            text-align:center;
         }
 </style>
     {% block sidebar %}
@@ -129,6 +152,8 @@
     </div>
 {% endblock %}
 {# <a href="{{ path('physique_index') }}" class="btn btn-primary" id="liste">Retourner à la liste</a> #}
+<div class="container"
+<div class="row">
 {% if physique.nom is null %}
         <h1 class="information">Informations personnelles</h1>
             <div class="fiche">
@@ -150,6 +175,7 @@
             <div class="row">
                 <div class="col-md-6 "><p><strong>Tuteur:</strong>    {{  physique.tuteur }}</p></div>
                 <div class="col-md-6 "><p><strong>Prénom du tuteur:</strong>    {{ physique.prenomTuteur }}</p></div>
+            </div>
             </div>
     
 {% else %}
@@ -176,21 +202,147 @@
             </div>
             </div>
 {% endif %}
-
+</div>
+<div class="row">
         <h1 class="pièces">Pièces jointes</h1>
-            <center> Aucune pièces jointes trouvées</center>
+            {% if pieces is not null %}
+             <table class="table table-striped table-hover table-responsive-lg table-sm thead-light" id="table">
+             <thead>
+            <tr>
+                <th>Type Pièce</th>
+                <th>N° Pièce</th>
+                <th>Date Expiration</th>
+                <th>Date Déclaration</th>
+                <th>Date Délivrance</th>
+                <th>Emetteur</th>
+                <th>Pays d'émission</th>
+                <th>Fichier</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for piece in pieces %}
+            <tr>
+                <td>{{ piece.typePiece }}</td>
+                <td>{{ piece.refPiece }}</td>
+                <td>{% if piece.datexpiration %}{{ piece.datexpiration|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if piece.datdeclaration %}{{ piece.datdeclaration|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if piece.datedelivrance %}{{ piece.datedelivrance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ piece.emetteur }}</td>
+                <td>{{ piece.paysEmission }}</td>
+                <td><a href="{{ asset('uploads/brochures/' ~ piece.fichier) }}" style="color:skyblue">{{ piece.fichier }}</a></td>
+                 <td>{{ piece.physique }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a data-key="{{piece.id}}"  class="btn btn-info view" style="color:white;">Voir</a>
+                            {# onclick="afficher({{piece.id}})" #}
+                            {# href="{{ path('piece_show', { 'id': piece.id }) }}" #}
+                        </li>
+                        {# <li> 
+                            {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
+                                <input type="submit" class="btn btn-danger" id="supprimer" value="Supprimer">
+                            {{ form_end(delete_form) }}
+                        </li> #}
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody> 
+    </table>
+     {% else %}
+        <p>Aucune pièce trouvé!</p>
+     {% endif %}
+    </div>
+    
+        <!-- modal-->
+        <div class="modal fade" id="modalShow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                       <div class="modal-body" id="body_show">
+                            {# {% for piece in pieces %}
+                            {% include 'piece/show.html.twig' %}
+                            {% endfor %} #}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                 </div>
+            </div>
         <div class="row actions">
-        <div class="col-md-1 mod">
+        <div class="col-md mod">
         {% if physique.nom is null %}
             <a href="{{ path('physique_edit', { 'id': physique.id ,'slug':2})}}" id="modifier" class="btn btn-primary">Modifier</a>
         {% else %}
             <a href="{{ path('physique_edit', { 'id': physique.id ,'slug':1})}}" id="modifier" class="btn btn-primary">Modifier</a>
         {% endif %}
         </div>
-        <div class="col-md-1 sup">
+        <div class="col-md sup">
         {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
                 <input type="submit" class="btn btn-danger" id="supprimer" value="Supprimer">
         {{ form_end(delete_form) }}
         </div>
         </div>
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent()}}
+        <script>
+            $(document).ready(function(e)
+            {
+                $(".view").click(function(ev){
+                    ev.preventDefault();
+                    //alert(1)
+                    let id = $(this).attr("data-key")
+                    let data = {
+                        id: id
+                    }
+                    console.log(data)
+                    const url = Routing.generate('piece_show');
+                    $.ajax(url, 
+                    {
+                        dataType: 'text', // type of response data
+                        //timeout: 500,     // timeout milliseconds
+                        data: data,
+                        success: function (data) {   // success callback function
+                           // $('p').html("cool");
+                           //alert(544544)
+                           console.log(data)
+                           $('#body_show').html(data)
+                           $('#modalShow').modal('show')
+
+                        },
+                        error: function (errorMessage) { // error callback 
+                            //$('p').append('Error: ' + errorMessage);
+                        }
+                    });
+                   
+                    /*fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            //$('#body').html(data)
+                            //$('#modal_body').html(data)
+                            //$('#modalResult').modal('show')
+                            //console.log('Success:', data);  
+                            console.log(data)
+                        })*/
+                    //$('#modalShow').modal('show')
+                })
+
+
+            })
+        </script>
 {% endblock %}

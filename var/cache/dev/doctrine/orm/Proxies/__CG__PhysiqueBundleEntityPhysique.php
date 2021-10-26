@@ -466,6 +466,28 @@ class Physique extends \PhysiqueBundle\Entity\Physique implements \Doctrine\ORM\
     /**
      * {@inheritDoc}
      */
+    public function setMineur($mineur)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMineur', [$mineur]);
+
+        return parent::setMineur($mineur);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function mineur()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'mineur', []);
+
+        return parent::mineur();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function addPiece(\PieceBundle\Entity\Piece $piece)
     {
 
@@ -494,6 +516,72 @@ class Physique extends \PhysiqueBundle\Entity\Physique implements \Doctrine\ORM\
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPieces', []);
 
         return parent::getPieces();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function buildForm(\Symfony\Component\Form\FormBuilderInterface $builder, array $options)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'buildForm', [$builder, $options]);
+
+        return parent::buildForm($builder, $options);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function configureOptions(\Symfony\Component\OptionsResolver\OptionsResolver $resolver)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'configureOptions', [$resolver]);
+
+        return parent::configureOptions($resolver);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getBlockPrefix()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBlockPrefix', []);
+
+        return parent::getBlockPrefix();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function buildView(\Symfony\Component\Form\FormView $view, \Symfony\Component\Form\FormInterface $form, array $options)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'buildView', [$view, $form, $options]);
+
+        return parent::buildView($view, $form, $options);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function finishView(\Symfony\Component\Form\FormView $view, \Symfony\Component\Form\FormInterface $form, array $options)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'finishView', [$view, $form, $options]);
+
+        return parent::finishView($view, $form, $options);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getParent()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getParent', []);
+
+        return parent::getParent();
     }
 
 }

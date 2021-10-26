@@ -2,11 +2,15 @@
 
 namespace PieceBundle\Controller;
 
+use PhysiqueBundle\Entity\Physique;
 use PieceBundle\Entity\Piece;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -19,7 +23,7 @@ class PieceController extends Controller
     /**
      * Lists all piece entities.
      *
-     * @Route("/piece", name="piece_index")
+     * @Route("/index_piece", name="piece_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -41,16 +45,38 @@ class PieceController extends Controller
      */
     public function newAction(Request $request)
     {
+        $physique=new Physique();
         $piece = new Piece();
         $form = $this->createForm('PieceBundle\Form\PieceType', $piece);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $fichier = $form->get('fichier')->getData();
+            if ($fichier) {
+                $originalFilename = pathinfo($fichier->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$fichier->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $fichier->move(
+                        $this->getParameter('brochures_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'brochureFilename' property to store the PDF file name
+                // instead of its contents
+                $piece->setFichier($newFilename);
+            }
             $em = $this->getDoctrine()->getManager();
             $em->persist($piece);
             $em->flush();
 
-            return $this->redirectToRoute('piece_show', array('id' => $piece->getId()));
+        //return $this->redirectToRoute('physique_new');
         }
 
         return $this->render('piece/new.html.twig', array(
@@ -62,16 +88,23 @@ class PieceController extends Controller
     /**
      * Finds and displays a piece entity.
      *
-     * @Route("/{id}", name="piece_show")
+     * @Route("/viewPiece", name="piece_show", options={"expose" = true})
      * @Method("GET")
      */
-    public function showAction(Piece $piece)
+    public function showAction(Request $request)
     {
-        $deleteForm = $this->createDeleteForm($piece);
-
+        // ,Piece $piece
+        // $deleteForm = $this->createDeleteForm($piece);
+        //dump($request->get('id'));die();
+        $id=$request->get('id');
+        $em = $this->getDoctrine()->getManager();
+        $pieces = $em->getRepository('PieceBundle:Piece')->findBy(array('id' =>$id));
+        //dump($pieces[0]);die();
+        //return new JsonResponse($pieces);
         return $this->render('piece/show.html.twig', array(
-            'piece' => $piece,
-            'delete_form' => $deleteForm->createView(),
+            // 'pieces'=>$piece,
+            'piece'=>$pieces[0],
+            // 'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -135,4 +168,6 @@ class PieceController extends Controller
             ->getForm()
         ;
     }
+
+    
 }

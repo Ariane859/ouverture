@@ -3,6 +3,8 @@
 namespace PieceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use PhysiqueBundle\Entity\Physique;
+use PhysiqueBundle\Form\PhysiqueType;
 
 /**
  * Piece
@@ -35,9 +37,9 @@ class Piece
     private $typePiece;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="refPiece", type="integer", nullable=true)
+     * @ORM\Column(name="refPiece", type="string", length=100, nullable=true)
      */
     private $refPiece;
 
@@ -76,6 +78,12 @@ class Piece
      */
     private $paysEmission;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fichier", type="string", length=255, nullable=true)
+     */
+    private $fichier;
 
 
     /**
@@ -278,5 +286,29 @@ class Piece
     public function getPhysique()
     {
         return $this->physique;
+    }
+
+    /**
+     * Set fichier
+     *
+     * @param string $fichier
+     *
+     * @return Piece
+     */
+    public function setFichier($fichier)
+    {
+        $this->fichier = $fichier;
+
+        return $this;
+    }
+
+    /**
+     * Get fichier
+     *
+     * @return string
+     */
+    public function getFichier()
+    {
+        return $this->fichier;
     }
 }

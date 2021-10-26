@@ -124,7 +124,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         if (0 === strpos($pathinfo, '/piece')) {
             // piece_index
-            if ('/piece/piece' === $pathinfo) {
+            if ('/piece/index_piece' === $pathinfo) {
                 $ret = array (  '_controller' => 'PieceBundle\\Controller\\PieceController::indexAction',  '_route' => 'piece_index',);
                 if (!in_array($canonicalMethod, array('GET'))) {
                     $allow = array_merge($allow, array('GET'));
@@ -148,8 +148,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             not_piece_new:
 
             // piece_show
-            if (preg_match('#^/piece/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'piece_show')), array (  '_controller' => 'PieceBundle\\Controller\\PieceController::showAction',));
+            if ('/piece/viewPiece' === $pathinfo) {
+                $ret = array (  '_controller' => 'PieceBundle\\Controller\\PieceController::showAction',  '_route' => 'piece_show',);
                 if (!in_array($canonicalMethod, array('GET'))) {
                     $allow = array_merge($allow, array('GET'));
                     goto not_piece_show;
