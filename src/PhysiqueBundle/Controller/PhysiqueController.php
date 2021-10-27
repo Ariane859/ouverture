@@ -63,10 +63,14 @@ class PhysiqueController extends Controller
           // dump($data);die();
             $em = $this->getDoctrine()->getManager();
             $physiques = $em->getRepository('PhysiqueBundle:Physique')->findOneBy(array('nom'=>$physiquebundle_physique_nom,'prenom'=>$physiquebundle_physique_prenom ));
+            $conditions=$em->getRepository('PhysiqueBundle:Physique')->findOneBy(array('email'=>$physiquebundle_physique_email,'telephone'=>$physiquebundle_physique_telephone ));;
             if($physiques)
             {
                 $response=array("message" =>"cet utilisateur existe déjà" ,"code"=>400 );
             }
+            // elseif () {
+            //     # code...
+            // }
             else {
                 //dump(new \DateTime($physiquebundle_physique_datnais));die();
                 $physique = new Physique();

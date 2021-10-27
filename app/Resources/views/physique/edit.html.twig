@@ -113,7 +113,7 @@
             } #}
             #ajout
             {
-                margin-left:82%;
+                margin-left:97%;
                 font-family: Georgia, Times, 'Times New Roman', serif;
             }
             #information
@@ -258,12 +258,10 @@
                     <td>{{ piece.physique }}</td>
                     <td>
                         <ul>
-                            <li>
+                            {# <li>
                                 <a href="{{ path('piece_show', { 'id': piece.id }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('piece_edit', { 'id': piece.id }) }}">edit</a>
-                            </li>
+                            </li> #}
+                                <a href="{{ path('piece_edit', { 'id': piece.id }) }}" class="btn btn-info">Modifier</a>
                         </ul>
                     </td>
                 </tr>

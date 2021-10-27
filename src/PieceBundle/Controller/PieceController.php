@@ -45,7 +45,7 @@ class PieceController extends Controller
      */
     public function newAction(Request $request)
     {
-        $physique=new Physique();
+        //$physique=new Physique();
         $piece = new Piece();
         $form = $this->createForm('PieceBundle\Form\PieceType', $piece);
         $form->handleRequest($request);

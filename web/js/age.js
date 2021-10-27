@@ -7,9 +7,10 @@
             if(reg.test(date_naissance)){
                 var elem_n = date_naissance.split('-');
                 console.log(elem_n);
-                mois_n = elem_n[1];
-                jour_n = elem_n[0];
                 annee_n = elem_n[0];
+                mois_n = elem_n[1];
+                jour_n = elem_n[2];
+                
     
                 var date_day = new Date();
                 jour_day = date_day.getDate();

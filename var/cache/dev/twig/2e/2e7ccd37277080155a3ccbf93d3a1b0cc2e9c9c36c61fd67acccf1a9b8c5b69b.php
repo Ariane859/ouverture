@@ -150,7 +150,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         // line 114
         echo "            #ajout
             {
-                margin-left:82%;
+                margin-left:97%;
                 font-family: Georgia, Times, 'Times New Roman', serif;
             }
             #information
@@ -419,18 +419,11 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
                 echo "</td>
                     <td>
                         <ul>
-                            <li>
-                                <a href=\"";
-                // line 262
-                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("piece_show", array("id" => $this->getAttribute($context["piece"], "id", array()))), "html", null, true);
-                echo "\">show</a>
-                            </li>
-                            <li>
-                                <a href=\"";
-                // line 265
+                            ";
+                // line 264
+                echo "                                <a href=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("piece_edit", array("id" => $this->getAttribute($context["piece"], "id", array()))), "html", null, true);
-                echo "\">edit</a>
-                            </li>
+                echo "\" class=\"btn btn-info\">Modifier</a>
                         </ul>
                     </td>
                 </tr>
@@ -439,21 +432,21 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['piece'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 271
+            // line 269
             echo "            </tbody> 
         </table>
         ";
         } else {
-            // line 274
+            // line 272
             echo "            <p>Aucune pièce trouvé!</p>
         ";
         }
-        // line 276
+        // line 274
         echo "    <a href=\"";
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("piece_new");
         echo "\" id=\"ajout\" data-toggle=\"modal\" class=\"btn btn-primary\">Ajouter</a>
      ";
-        // line 278
+        // line 276
         echo "            <div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
                 <div class=\"modal-dialog\" role=\"document\">
                     <div class=\"modal-content\">
@@ -464,10 +457,10 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
                         </div>
                         <div class=\"modal-body\" id=\"body-edit\">
                             ";
-        // line 288
+        // line 286
         echo "                             ";
-        $this->loadTemplate("piece/new.html.twig", "physique/edit.html.twig", 288)->display($context);
-        // line 289
+        $this->loadTemplate("piece/new.html.twig", "physique/edit.html.twig", 286)->display($context);
+        // line 287
         echo "                        </div>
                         <div class=\"modal-footer\">
                             <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
@@ -478,7 +471,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         </div>
     </div>       
 ";
-        // line 298
+        // line 296
         $this->displayBlock('javascripts', $context, $blocks);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -517,7 +510,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 
     }
 
-    // line 298
+    // line 296
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -528,7 +521,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 
         echo " 
 ";
-        // line 299
+        // line 297
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
 
@@ -565,7 +558,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 
     public function getDebugInfo()
     {
-        return array (  532 => 299,  521 => 298,  508 => 140,  504 => 139,  501 => 138,  492 => 137,  482 => 298,  471 => 289,  468 => 288,  457 => 278,  452 => 276,  448 => 274,  443 => 271,  431 => 265,  425 => 262,  418 => 258,  412 => 257,  408 => 256,  404 => 255,  398 => 254,  392 => 253,  386 => 252,  382 => 251,  378 => 250,  372 => 249,  369 => 248,  365 => 247,  346 => 230,  344 => 229,  341 => 228,  335 => 224,  330 => 222,  325 => 220,  318 => 215,  312 => 213,  310 => 212,  304 => 208,  298 => 206,  296 => 205,  287 => 199,  281 => 196,  274 => 192,  267 => 188,  261 => 185,  255 => 181,  249 => 179,  247 => 178,  243 => 176,  237 => 174,  235 => 173,  229 => 169,  223 => 167,  221 => 166,  217 => 164,  211 => 162,  209 => 161,  205 => 159,  203 => 154,  197 => 151,  194 => 150,  192 => 149,  188 => 148,  181 => 144,  178 => 143,  176 => 137,  151 => 114,  149 => 111,  147 => 108,  140 => 95,  51 => 4,  42 => 3,  11 => 1,);
+        return array (  525 => 297,  514 => 296,  501 => 140,  497 => 139,  494 => 138,  485 => 137,  475 => 296,  464 => 287,  461 => 286,  450 => 276,  445 => 274,  441 => 272,  436 => 269,  424 => 264,  418 => 258,  412 => 257,  408 => 256,  404 => 255,  398 => 254,  392 => 253,  386 => 252,  382 => 251,  378 => 250,  372 => 249,  369 => 248,  365 => 247,  346 => 230,  344 => 229,  341 => 228,  335 => 224,  330 => 222,  325 => 220,  318 => 215,  312 => 213,  310 => 212,  304 => 208,  298 => 206,  296 => 205,  287 => 199,  281 => 196,  274 => 192,  267 => 188,  261 => 185,  255 => 181,  249 => 179,  247 => 178,  243 => 176,  237 => 174,  235 => 173,  229 => 169,  223 => 167,  221 => 166,  217 => 164,  211 => 162,  209 => 161,  205 => 159,  203 => 154,  197 => 151,  194 => 150,  192 => 149,  188 => 148,  181 => 144,  178 => 143,  176 => 137,  151 => 114,  149 => 111,  147 => 108,  140 => 95,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -693,7 +686,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
             } #}
             #ajout
             {
-                margin-left:82%;
+                margin-left:97%;
                 font-family: Georgia, Times, 'Times New Roman', serif;
             }
             #information
@@ -838,12 +831,10 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
                     <td>{{ piece.physique }}</td>
                     <td>
                         <ul>
-                            <li>
+                            {# <li>
                                 <a href=\"{{ path('piece_show', { 'id': piece.id }) }}\">show</a>
-                            </li>
-                            <li>
-                                <a href=\"{{ path('piece_edit', { 'id': piece.id }) }}\">edit</a>
-                            </li>
+                            </li> #}
+                                <a href=\"{{ path('piece_edit', { 'id': piece.id }) }}\" class=\"btn btn-info\">Modifier</a>
                         </ul>
                     </td>
                 </tr>

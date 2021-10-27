@@ -84,7 +84,7 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
         $this->displayBlock('footer', $context, $blocks);
         // line 40
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 57
+        // line 58
         echo "</body>
 </html>
 ";
@@ -242,8 +242,12 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
         // line 53
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/age.js"), "html", null, true);
         echo "\"></script>
+    <script src=\"";
+        // line 54
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/expiration.js"), "html", null, true);
+        echo "\"></script>
     ";
-        // line 55
+        // line 56
         echo "    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -265,7 +269,7 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
 
     public function getDebugInfo()
     {
-        return array (  247 => 55,  243 => 53,  239 => 52,  235 => 51,  229 => 47,  225 => 44,  223 => 43,  220 => 41,  211 => 40,  194 => 39,  177 => 38,  160 => 37,  143 => 36,  131 => 29,  127 => 26,  118 => 25,  100 => 12,  88 => 57,  86 => 40,  84 => 39,  82 => 38,  80 => 37,  78 => 36,  72 => 32,  70 => 25,  62 => 20,  56 => 17,  51 => 15,  45 => 12,  32 => 1,);
+        return array (  251 => 56,  247 => 54,  243 => 53,  239 => 52,  235 => 51,  229 => 47,  225 => 44,  223 => 43,  220 => 41,  211 => 40,  194 => 39,  177 => 38,  160 => 37,  143 => 36,  131 => 29,  127 => 26,  118 => 25,  100 => 12,  88 => 58,  86 => 40,  84 => 39,  82 => 38,  80 => 37,  78 => 36,  72 => 32,  70 => 25,  62 => 20,  56 => 17,  51 => 15,  45 => 12,  32 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -331,6 +335,7 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
     <script src=\"{{ asset('bundles/fosjsrouting/js/router.js') }}\"></script>
     <script src=\"{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}\"></script>
     <script src=\"{{ asset('js/age.js')}}\"></script>
+    <script src=\"{{ asset('js/expiration.js')}}\"></script>
     {# <script src=\"{{ asset('js/pays.js')}}\"></script> #}
     {# <script src=\"{{ asset('js/message.js')}}\"></script> #}
 {% endblock %}

@@ -97,7 +97,10 @@ class PhysiqueType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'PhysiqueBundle\Entity\Physique',
-            'slug' => null
+            'slug' => null,
+            'error_mapping' => [
+                '.' => 'city',
+            ],
         ));
     }
 
