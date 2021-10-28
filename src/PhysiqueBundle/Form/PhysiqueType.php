@@ -72,7 +72,7 @@ class PhysiqueType extends AbstractType
                 ->add('prenomTuteur', null,array('label' => 'Prénom du tuteur : ','attr' => [
                     'class' => 'form-control'
                 ]))
-                ->add('mineur', CheckboxType::class);
+                ->add('mineur', CheckboxType::class,['mapped'=> false]);
             }
             else {
                 $form

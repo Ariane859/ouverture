@@ -144,8 +144,8 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
         }
         .information
         {
-             margin-top:8%;
-             font-size:170%;
+            margin-top:8%;
+            font-size:170%;
             border:solid skyblue 1px;
             width:70%;
         }
@@ -705,8 +705,8 @@ class __TwigTemplate_cf65c4f2c52322e934ef48c36808deffdd810bfeca2a395caf0a04093e7
         }
         .information
         {
-             margin-top:8%;
-             font-size:170%;
+            margin-top:8%;
+            font-size:170%;
             border:solid skyblue 1px;
             width:70%;
         }

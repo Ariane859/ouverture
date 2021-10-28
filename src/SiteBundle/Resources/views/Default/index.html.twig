@@ -9,7 +9,7 @@
             }
         .sidebar
             {
-                background-color: teal;
+                background-color:teal;
                 width: 100%;
                 top: 0;
                 left: 0;
@@ -49,7 +49,7 @@
         
         .row
         {
-            margin-top:8%;
+            margin-top:5%;
             margin-left:9%;
         }
     </style>
@@ -63,10 +63,10 @@
         <center><h2>Choisir le type de compte que vous voulez créer</h2></center>
         <div class="row">
             <div class="col-md-6">
-                <a href="{{ path('physique_new', {'slug':1}) }}"><i class="fa fa-user" style="font-size:385px"></i></a>
+                <a href="{{ path('physique_new', {'slug':1}) }}" style="text-decoration: none"><i class="fa fa-user" style="font-size:380px"></i><h6 style="color: black;font-weight: bolder; margin-left:5%;">Compte personne physique</h6></a>
             </div>
             <div class="col-md-6">
-                <a href="{{ path('physique_new',{'slug':2})  }}"><i class="fa fa-building-o" style="font-size:385px"></i></a>
+                <a href="{{ path('physique_new',{'slug':2})  }}"><i class="fa fa-building-o" style="font-size:370px"></i><h6 class="boldFont site-text-color" style="color:black;font-weight: bolder; margin-left:10%;margin-top:3%;">Compte personne moral</h6></a>
             </div>
         </div>
     </div>    

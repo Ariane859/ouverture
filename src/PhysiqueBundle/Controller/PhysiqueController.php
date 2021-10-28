@@ -48,6 +48,7 @@ class PhysiqueController extends Controller
         // if ($form->isSubmitted() && $form->isValid()) {
          if ($request->isXmlHttpRequest()) {
             
+            $physiquebundle_physique_mineur = $request->get("physiquebundle_physique_mineur");
             $physiquebundle_physique_nom = $request->get("physiquebundle_physique_nom");
             $physiquebundle_physique_prenom = $request->get("physiquebundle_physique_prenom");
             $physiquebundle_physique_sigle=$request->get("physiquebundle_physique_sigle");
@@ -60,35 +61,103 @@ class PhysiqueController extends Controller
             $physiquebundle_physique_tuteur = $request->get("physiquebundle_physique_tuteur");
             $physiquebundle_physique_prenomTuteur = $request->get("physiquebundle_physique_prenomTuteur");
 
-          // dump($data);die();
+           
             $em = $this->getDoctrine()->getManager();
-            $physiques = $em->getRepository('PhysiqueBundle:Physique')->findOneBy(array('nom'=>$physiquebundle_physique_nom,'prenom'=>$physiquebundle_physique_prenom ));
-            $conditions=$em->getRepository('PhysiqueBundle:Physique')->findOneBy(array('email'=>$physiquebundle_physique_email,'telephone'=>$physiquebundle_physique_telephone ));;
-            if($physiques)
+            $physiques = "";
+            if($physiquebundle_physique_nom != null && $physiquebundle_physique_prenom != null)
             {
-                $response=array("message" =>"cet utilisateur existe déjà" ,"code"=>400 );
+                $physiques = $em->getRepository('PhysiqueBundle:Physique')->findOneBy(array('nom'=>$physiquebundle_physique_nom,'prenom'=>$physiquebundle_physique_prenom ));
             }
-            // elseif () {
-            //     # code...
-            // }
+            else 
+            {
+                $physiques = $em->getRepository('PhysiqueBundle:Physique')->findOneBy(array('sigle'=>$physiquebundle_physique_sigle,'raisonSociale'=>$physiquebundle_physique_raisonSociale));
+            }
+            $email=$em->getRepository('PhysiqueBundle:Physique')->findOneBy(array('email'=>$physiquebundle_physique_email));;
+            $telephone=$em->getRepository('PhysiqueBundle:Physique')->findOneBy(array('telephone'=>$physiquebundle_physique_telephone));;
+            //dump($physiquebundle_physique_nom, $physiquebundle_physique_prenom);die();
+            //dump($email, $telephone,$physiquebundle_physique_mineur);die();
+            if($physiquebundle_physique_mineur == "false")
+            {
+                //dump($email, $telephone,$physiquebundle_physique_mineur);die();
+                if(!is_null($email) || !is_null($telephone))
+                {
+                    $response=array("message" =>"Erreur !! Cet email et ce numéro de téléphone est déjà utilisé." ,"code"=>600 );
+                }
+                else {
+                    if($physiques)
+                        {
+                            $response=array("message" =>"cet utilisateur existe déjà" ,"code"=>400 );
+                        }
+                    else {
+                        //dump($physiquebundle_physique_mineur);die();
+                        $physique = new Physique();
+                        $physique->setMineur($physiquebundle_physique_mineur);
+                        $physique->setNom($physiquebundle_physique_nom);
+                        $physique->setPrenom($physiquebundle_physique_prenom);
+                        $physique->setSigle($physiquebundle_physique_sigle);
+                        $physique->setRaisonSociale($physiquebundle_physique_raisonSociale);
+                        $physique->setDatnais(new \DateTime($physiquebundle_physique_datnais));
+                        $physique->setTelephone($physiquebundle_physique_telephone);
+                        $physique->setEmail($physiquebundle_physique_email);
+                        $physique->setPays($physiquebundle_physique_pays);
+                        $physique->setVille($physiquebundle_physique_ville);
+                        $physique->setTuteur($physiquebundle_physique_tuteur);
+                        $physique->setPrenomTuteur($physiquebundle_physique_prenomTuteur);
+                        $em->persist($physique);
+                        $em->flush();
+                        $response= array("message" =>"enregistré" ,"code"=>100 );
+                    }
+                }
+            }
             else {
-                //dump(new \DateTime($physiquebundle_physique_datnais));die();
-                $physique = new Physique();
-                $physique->setNom($physiquebundle_physique_nom);
-                $physique->setPrenom($physiquebundle_physique_prenom);
-                $physique->setSigle($physiquebundle_physique_sigle);
-                $physique->setRaisonSociale($physiquebundle_physique_raisonSociale);
-                $physique->setDatnais(new \DateTime($physiquebundle_physique_datnais));
-                $physique->setTelephone($physiquebundle_physique_telephone);
-                $physique->setEmail($physiquebundle_physique_email);
-                $physique->setPays($physiquebundle_physique_pays);
-                $physique->setVille($physiquebundle_physique_ville);
-                $physique->setTuteur($physiquebundle_physique_tuteur);
-                $physique->setPrenomTuteur($physiquebundle_physique_prenomTuteur);
-                $em->persist($physique);
-                $em->flush();
-                $response= array("message" =>"enregistré" ,"code"=>100 );
+                //dump((bool)$physiquebundle_physique_mineur);die();
+                if($physiques)
+                    {
+                        $response=array("message" =>"cet utilisateur existe déjà" ,"code"=>400 );
+                    }
+                else {
+      //dump($physiquebundle_physique_mineur);die();
+                    $physique = new Physique();
+                    $physique->setMineur($physiquebundle_physique_mineur);
+                    $physique->setNom($physiquebundle_physique_nom);
+                    $physique->setPrenom($physiquebundle_physique_prenom);
+                    $physique->setSigle($physiquebundle_physique_sigle);
+                    $physique->setRaisonSociale($physiquebundle_physique_raisonSociale);
+                    $physique->setDatnais(new \DateTime($physiquebundle_physique_datnais));
+                    $physique->setTelephone($physiquebundle_physique_telephone);
+                    $physique->setEmail($physiquebundle_physique_email);
+                    $physique->setPays($physiquebundle_physique_pays);
+                    $physique->setVille($physiquebundle_physique_ville);
+                    $physique->setTuteur($physiquebundle_physique_tuteur);
+                    $physique->setPrenomTuteur($physiquebundle_physique_prenomTuteur);
+                    $em->persist($physique);
+                    $em->flush();
+                    $response= array("message" =>"enregistré" ,"code"=>100 );
+                }
             }
+            // if($physiques)
+            // {
+            //     $response=array("message" =>"cet utilisateur existe déjà" ,"code"=>400 );
+            // }
+            // else {
+            //     dump($physiquebundle_physique_mineur);die();
+            //     $physique = new Physique();
+            //     $physique->setMineur($physiquebundle_physique_mineur);
+            //     $physique->setNom($physiquebundle_physique_nom);
+            //     $physique->setPrenom($physiquebundle_physique_prenom);
+            //     $physique->setSigle($physiquebundle_physique_sigle);
+            //     $physique->setRaisonSociale($physiquebundle_physique_raisonSociale);
+            //     $physique->setDatnais(new \DateTime($physiquebundle_physique_datnais));
+            //     $physique->setTelephone($physiquebundle_physique_telephone);
+            //     $physique->setEmail($physiquebundle_physique_email);
+            //     $physique->setPays($physiquebundle_physique_pays);
+            //     $physique->setVille($physiquebundle_physique_ville);
+            //     $physique->setTuteur($physiquebundle_physique_tuteur);
+            //     $physique->setPrenomTuteur($physiquebundle_physique_prenomTuteur);
+            //     $em->persist($physique);
+            //     $em->flush();
+            //     $response= array("message" =>"enregistré" ,"code"=>100 );
+            // }
             return new Response(json_encode($response),200,array('Content-Type'=> 'application/json'));
             //  return new Response();
             //return $this->redirectToRoute('physique_new',array('slug'=>$slug));
