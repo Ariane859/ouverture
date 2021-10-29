@@ -53,7 +53,7 @@
             margin-top:10%;
             margin-left:85%;
         }
-        #supprimer
+        {# #supprimer
         {
             margin-left:92%;
         }
@@ -61,7 +61,7 @@
             margin-top:5%;
             color:white;
             margin-left:93%; 
-        }
+        } #}
         .fiche
         {
             border:solid rgb(192,192,192)0.5px;
@@ -113,10 +113,8 @@
         center{
             margin-top:2%;
         }
-        .actions{
-            margin-left:0%
-        }
-        .mod
+      
+        {# .mod
         {
             margin-left:52%;
             
@@ -125,7 +123,7 @@
         {
             margin-top:0.30%;
             margin-right:30%;
-        }
+        } #}
         #table
         {
             width:80%;
@@ -153,6 +151,7 @@
 {% endblock %}
 {# <a href="{{ path('physique_index') }}" class="btn btn-primary" id="liste">Retourner à la liste</a> #}
 <div class="container"
+
 <div class="row">
 {% if physique.nom is null %}
         <h1 class="information">Informations personnelles</h1>
@@ -255,36 +254,35 @@
         <p>Aucune pièce trouvé!</p>
      {% endif %}
     </div>
-    
-        <!-- modal-->
-        <div class="modal fade" id="modalShow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                       <div class="modal-body" id="body_show">
-                            {# {% for piece in pieces %}
-                            {% include 'piece/show.html.twig' %}
-                            {% endfor %} #}
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                 </div>
-            </div>
+  <!-- modal-->
+  <div class="modal fade" id="modalShow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+         <div class="modal-body" id="body_show">
+              {# {% for piece in pieces %}
+              {% include 'piece/show.html.twig' %}
+              {% endfor %} #}
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+      </div>
+   </div>
+</div>
         <div class="row actions">
-        <div class="col-md mod">
+        <div class="col-2 mod">
         {% if physique.nom is null %}
             <a href="{{ path('physique_edit', { 'id': physique.id ,'slug':2})}}" id="modifier" class="btn btn-primary">Modifier</a>
         {% else %}
             <a href="{{ path('physique_edit', { 'id': physique.id ,'slug':1})}}" id="modifier" class="btn btn-primary">Modifier</a>
         {% endif %}
         </div>
-        <div class="col-md sup">
+        <div class="col-2 sup">
         {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
                 <input type="submit" class="btn btn-danger" id="supprimer" value="Supprimer">
         {{ form_end(delete_form) }}

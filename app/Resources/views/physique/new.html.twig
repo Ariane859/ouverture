@@ -204,10 +204,12 @@
                             </div> <br><br>
                             <div class="row justify-content-center">
                                 <div class="col-7 text-center">
-                                    <h5>Enregistré avec succès!</h5>                            
-                                 </div>
+                                    <h5>Compte enregistré avec succès!</h5><br>
+                                    <center>Merci !</center>                            
+                                </div>
                             </div>
-                    </div>                                                                                  
+                    </div>
+                {# <a href="{{ path('physique_show') }}" class="btn btn-info">Voir mes Informations</a>                                                                                 #}
                 </fieldset>
             {{ form_end(form) }} 
     </div>
@@ -287,7 +289,7 @@
                                     });
                                     next_fs.css({'opacity': opacity});
                                     },
-                                    duration: 800
+                                    duration: 600
                                 });
                                 }
                             }

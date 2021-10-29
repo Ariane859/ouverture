@@ -217,11 +217,11 @@
             </div>
             <div class="row foot">
                 <input type="submit" class="btn btn-primary" id="valider" value="Valider" />
-                {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
-                <input type="submit" value="Delete" class="btn btn-danger supp" id="supprimer">
-               {{ form_end(delete_form) }}
             </div>
         {{ form_end(edit_form) }}
+        {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
+                <input type="submit" class="btn btn-danger" id="supprimer" value="Supprimer">
+        {{ form_end(delete_form) }} 
     </div>
     <div class="piece">
     {# data-toggle="modal" #}

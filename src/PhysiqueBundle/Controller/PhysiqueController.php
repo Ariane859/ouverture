@@ -190,12 +190,12 @@ class PhysiqueController extends Controller
      * Displays a form to edit an existing physique entity.
      *
      * @Route("/{slug}/{id}/edit/", name="physique_edit")
-     * @Method({"GET", "POST"})
+     * @Method({"GET", "POST","DELETE"})
      */
     public function editAction(Request $request, Physique $physique, $slug)
     {
         $piece = new Piece();
-        $deleteForm = $this->createDeleteForm($physique, array('slug' => $slug));
+        $deleteForm = $this->createDeleteForm($physique,array('slug' => $slug));
         $em = $this->getDoctrine()->getManager();
         $pieces = $em->getRepository('PieceBundle:Piece')->findBy(array('physique' => $physique->getId()));
         $form = $this->createForm('PieceBundle\Form\PieceType', $piece,[
@@ -206,7 +206,7 @@ class PhysiqueController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            //dump(1);die();
+            dump(1);die();
             $this->getDoctrine()->getManager()->flush();
             //return $this->redirectToRoute('physique_edit', array('id' => $physique->getId(),'type'=>$type));
             return $this->redirectToRoute('physique_index');

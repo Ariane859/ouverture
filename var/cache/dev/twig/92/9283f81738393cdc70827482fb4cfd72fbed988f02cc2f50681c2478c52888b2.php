@@ -102,7 +102,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
             }
         #bouton_search
             {
-               
+               margin-left:55%;
             }
         #tab
             {
@@ -179,7 +179,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
             <div class=\"col-lg-12\">
             ";
         // line 148
-        echo "                <table class=\"table table-hover table-bordered table-responsive-lg\" id=\"tab\">
+        echo "                <table class=\"table table-hover  table-responsive-lg\" id=\"tab\">
                     <thead class=\"thead-light\">
                         <tr>
                             <th>Id</th>
@@ -512,7 +512,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
             }
         #bouton_search
             {
-               
+               margin-left:55%;
             }
         #tab
             {
@@ -602,7 +602,7 @@ class __TwigTemplate_98e4a0eb76838414367cdc69119a17da697ea8fc1112f830b61922c0ec3
             <h1>Listes</h1>
             <div class=\"col-lg-12\">
             {# <a href=\"{{ path('physique_new', {'slug':1}) }}\" class=\"btn btn-primary\" id=\"ajouter\">Ajouter</a></div> #}
-                <table class=\"table table-hover table-bordered table-responsive-lg\" id=\"tab\">
+                <table class=\"table table-hover  table-responsive-lg\" id=\"tab\">
                     <thead class=\"thead-light\">
                         <tr>
                             <th>Id</th>

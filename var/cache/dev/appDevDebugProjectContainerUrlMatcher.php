@@ -238,8 +238,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     return array_replace($ret, $this->redirect($rawPathinfo.'/', 'physique_edit'));
                 }
 
-                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
-                    $allow = array_merge($allow, array('GET', 'POST'));
+                if (!in_array($canonicalMethod, array('GET', 'POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'DELETE'));
                     goto not_physique_edit;
                 }
 
