@@ -50,9 +50,13 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         // line 4
         echo "
     <style>
+        * {
+            /*font-family: Georgia, Times, 'Times New Roman', serif;*/
+            font-family: 'Times New Roman';
+        }
             body
             {
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             .sidebar
             {
@@ -62,32 +66,32 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
                 left: 0;
                 padding:1%;
                 position:relative;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             a
             {
-                color: white;
+               
                 text-decoration: none;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             a:hover
             {
                 color:white;
                 text-decoration:none;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             .accueil
             {
                 color:white;
                 text-decoration:none;
                 font-size:1.7rem;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             .accueil:hover
             {
                 color:white;
                 text-decoration:none;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             .formulaire 
             {
@@ -96,66 +100,66 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
                 margin-left:11%;
                 width:80%;
                 border:solid white 1px;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             #ouvrir
             {
                 color:white;
                 text-decoration:none;
-                margin-left:80%;
+                margin-left:75%;
                 font-size:1.2rem;
                 color:white;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             #ouvrir:hover
                 {
                     color:white;
                     text-decoration:none;
-                    font-family: Georgia, Times, 'Times New Roman', serif;
+                    
                 }
             #index
             {
                 color: white;
                 margin-top:2%;
-                margin-left:94%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                margin-left:74%;
+                
             }
             h2
             {
                 margin-left:10%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             .piece
             {
                 margin-top:5%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             .foot
             {
                
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             ";
-        // line 95
+        // line 99
         echo "            #supprimer
             {
-                margin-left:1%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                margin-left:2%;
+               
             }
             ";
-        // line 108
+        // line 112
         echo "            ";
-        // line 111
+        // line 115
         echo "            ";
-        // line 114
+        // line 118
         echo "            #ajout
             {
                 margin-left:97%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             #information
             {
-                font-family:  Georgia, Times, 'Times New Roman', serif;
+                
             }
             tr
             {
@@ -169,121 +173,148 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
             {
                 margin-left:3%;
             }
+            #ajout:hover
+            {
+                color:white;
+            }
+            #notification
+            {
+               margin-left:10%;
+            }
     </style>
 
     ";
-        // line 137
+        // line 149
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 143
+        // line 168
         echo "
             <a href=\"";
-        // line 144
+        // line 169
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_index");
         echo "\"class=\"btn btn-primary\" id=\"index\">Liste</a>
 <div class=\"container\">
+            ";
+        // line 172
+        echo "            <div class=\"modal1 fade\" id=\"modalNotif\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\" aria-hidden=\"true\">
+            <div class=\"modal-dialog modal-sm\" role=\"document\">
+                <div class=\"modal-content\">
+                    <div class=\"modal-header\">
+                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+                        <span aria-hidden=\"true\">&times;</span>
+                        </button>
+                    </div>
+                    <div class=\"modal-body\" id=\"body_notif\">
+                    </div>
+                    <div class=\"modal-footer\">
+                        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
+                    </div>
+                </div>
+             </div>
+        </div>
+
     <h2 id=\"information\">Informations personnelles</h2>
     <div class=\"formulaire\">
         ";
-        // line 148
+        // line 191
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["edit_form"] ?? $this->getContext($context, "edit_form")), 'form_start');
         echo "
             ";
-        // line 149
+        // line 192
         if ($this->getAttribute(($context["edit_form"] ?? null), "nom", array(), "any", true, true)) {
-            // line 150
+            // line 193
             echo "                <div id=\"editform_mineur\">
                 ";
-            // line 151
+            // line 194
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "mineur", array()), 'row');
             echo "
                 </div>
             ";
         }
-        // line 154
+        // line 197
         echo "        ";
-        // line 159
+        // line 202
         echo "            <div class=\"form-row\">
                 <div class=\"form-group col-md-6\">
                     ";
-        // line 161
+        // line 204
         if ($this->getAttribute(($context["edit_form"] ?? null), "nom", array(), "any", true, true)) {
-            // line 162
+            // line 205
             echo "                    ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "nom", array()), 'row');
             echo "
                     ";
         }
-        // line 164
+        // line 207
         echo "                </div>
                 <div class=\"form-group col-md-6\">
                     ";
-        // line 166
+        // line 209
         if ($this->getAttribute(($context["edit_form"] ?? null), "prenom", array(), "any", true, true)) {
-            // line 167
+            // line 210
             echo "                    ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "prenom", array()), 'row');
             echo "
                     ";
         }
-        // line 169
+        // line 212
         echo "                </div>
             </div>
             <div class=\"form-row\">
                 <div class=\"form-group col-md-6\">
                     ";
-        // line 173
+        // line 216
         if ($this->getAttribute(($context["edit_form"] ?? null), "sigle", array(), "any", true, true)) {
-            // line 174
+            // line 217
             echo "                    ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "sigle", array()), 'row');
             echo "
                     ";
         }
-        // line 176
+        // line 219
         echo "                </div>
                     <div class=\"form-group col-md-6\">
                     ";
-        // line 178
+        // line 221
         if ($this->getAttribute(($context["edit_form"] ?? null), "raisonSociale", array(), "any", true, true)) {
-            // line 179
+            // line 222
             echo "                    ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "raisonSociale", array()), 'row');
             echo "
                     ";
         }
-        // line 181
+        // line 224
         echo "                </div>
             </div>
             <div class=\"form-row\">
                 <div class=\"form-group col-md-6\">
                     ";
-        // line 185
+        // line 228
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "datnais", array()), 'row');
         echo "
                 </div>
                 <div class=\"form-group col-md-6\">
                     ";
-        // line 188
+        // line 231
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "telephone", array()), 'row');
         echo "
                 </div>
             </div>
             <div class=\"form-group\">
                 ";
-        // line 192
+        // line 235
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "email", array()), 'row');
         echo "
             </div>
             <div class=\"form-row\">
                 <div class=\"form-group col-md-6\">
                     ";
-        // line 196
+        // line 239
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "pays", array()), 'row');
         echo "
                 </div>
                 <div class=\"form-group col-md-6\">
                     ";
-        // line 199
+        // line 242
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "ville", array()), 'row');
         echo "
                 </div>
@@ -292,57 +323,63 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
                 <div class=\"form-group col-md-6\">
                     <div id=\"tuteur\">
                         ";
-        // line 205
+        // line 248
         if ($this->getAttribute(($context["edit_form"] ?? null), "tuteur", array(), "any", true, true)) {
-            // line 206
+            // line 249
             echo "                            ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "tuteur", array()), 'row');
             echo "
                         ";
         }
-        // line 208
+        // line 251
         echo "                    </div>
                 </div>
                 <div class=\"form-group col-md-6\">
                     <div id=\"prenom_tuteur\">
                         ";
-        // line 212
+        // line 255
         if ($this->getAttribute(($context["edit_form"] ?? null), "prenomTuteur", array(), "any", true, true)) {
-            // line 213
+            // line 256
             echo "                            ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["edit_form"] ?? $this->getContext($context, "edit_form")), "prenomTuteur", array()), 'row');
             echo "
                         ";
         }
-        // line 215
+        // line 258
         echo "                    </div>
                 </div>
             </div>
             <div class=\"row foot\">
                 <input type=\"submit\" class=\"btn btn-primary\" id=\"valider\" value=\"Valider\" />
-            </div>
         ";
-        // line 221
+        // line 263
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["edit_form"] ?? $this->getContext($context, "edit_form")), 'form_end');
         echo "
         ";
-        // line 222
+        // line 264
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_start', array("attr" => array("onSubmit" => "return confirm('Voulez vous vraiment supprimer?');")));
         echo "
                 <input type=\"submit\" class=\"btn btn-danger\" id=\"supprimer\" value=\"Supprimer\">
         ";
-        // line 224
+        // line 266
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_end');
         echo " 
+            </div>
     </div>
     <div class=\"piece\">
     ";
-        // line 228
+        // line 271
         echo "    <h2>Pièces jointes</h2>
-        ";
-        // line 229
+    <a data-target=\"";
+        // line 272
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("piece_new");
+        echo "\" data-tooltip=\"voir\" id=\"ajout\" ";
+        echo " class=\"tooltipped modal-trigger\" href=\"#myModal\">";
+        echo " <i class=\"fa fa-plus-square\" style=\"font-size:36px\"></i> </a>
+    ";
+        // line 273
         if ( !(null === ($context["pieces"] ?? $this->getContext($context, "pieces")))) {
-            // line 230
+            // line 274
             echo "                <table class=\"table table-striped table-hover table-sm table-responsive-lg thead-light\" id=\"table\">
                 <thead>
                 <tr>
@@ -361,69 +398,86 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
             </thead>
             <tbody>
                 ";
-            // line 247
+            // line 291
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["pieces"] ?? $this->getContext($context, "pieces")));
             foreach ($context['_seq'] as $context["_key"] => $context["piece"]) {
-                // line 248
+                // line 292
                 echo "                <tr>
                     <td><a href=\"";
-                // line 249
+                // line 293
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("piece_show", array("id" => $this->getAttribute($context["piece"], "id", array()))), "html", null, true);
                 echo "\" style=\"color:black;\">";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["piece"], "id", array()), "html", null, true);
                 echo "</a></td>
                     <td>";
-                // line 250
+                // line 294
                 echo twig_escape_filter($this->env, $this->getAttribute($context["piece"], "typePiece", array()), "html", null, true);
                 echo "</td>
                     <td>";
-                // line 251
+                // line 295
                 echo twig_escape_filter($this->env, $this->getAttribute($context["piece"], "refPiece", array()), "html", null, true);
                 echo "</td>
                     <td>";
-                // line 252
+                // line 296
                 if ($this->getAttribute($context["piece"], "datexpiration", array())) {
                     echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["piece"], "datexpiration", array()), "Y-m-d H:i:s"), "html", null, true);
                 }
                 echo "</td>
                     <td>";
-                // line 253
+                // line 297
                 if ($this->getAttribute($context["piece"], "datdeclaration", array())) {
                     echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["piece"], "datdeclaration", array()), "Y-m-d H:i:s"), "html", null, true);
                 }
                 echo "</td>
                     <td>";
-                // line 254
+                // line 298
                 if ($this->getAttribute($context["piece"], "datedelivrance", array())) {
                     echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["piece"], "datedelivrance", array()), "Y-m-d H:i:s"), "html", null, true);
                 }
                 echo "</td>
                     <td>";
-                // line 255
+                // line 299
                 echo twig_escape_filter($this->env, $this->getAttribute($context["piece"], "emetteur", array()), "html", null, true);
                 echo "</td>
                     <td>";
-                // line 256
+                // line 300
                 echo twig_escape_filter($this->env, $this->getAttribute($context["piece"], "paysEmission", array()), "html", null, true);
                 echo "</td>
                     <td><a href=\"";
-                // line 257
+                // line 301
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("uploads/brochures/" . $this->getAttribute($context["piece"], "fichier", array()))), "html", null, true);
                 echo "\" style=\"color:skyblue\">";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["piece"], "fichier", array()), "html", null, true);
                 echo "</a></td>
                     <td>";
-                // line 258
+                // line 302
                 echo twig_escape_filter($this->env, $this->getAttribute($context["piece"], "physique", array()), "html", null, true);
                 echo "</td>
                     <td>
                         <ul>
                             ";
-                // line 264
-                echo "                                <a href=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("piece_edit", array("id" => $this->getAttribute($context["piece"], "id", array()))), "html", null, true);
-                echo "\" class=\"btn btn-info\">Modifier</a>
+                // line 308
+                echo "                                <a data-target=\"";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["piece"], "id", array()), "html", null, true);
+                echo "\" class=\"btn btn-info tooltipped modal-trigger1 ajout1\" id=\"\" data-toggle=\"modal\" href=\"#myModal1\">Modifier</a>
+                            ";
+                // line 310
+                echo "                            ";
+                // line 311
+                echo "                                ";
+                // line 312
+                echo "                                <form method=\"post\" action=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("piece_delete", array("id" => $this->getAttribute($context["piece"], "id", array()))), "html", null, true);
+                echo "\" onsubmit=\"return confirm('Voulez vous vraiment supprimer?');\">
+                                    <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
+                                    <input type=\"hidden\" name=\"_token\" value=\"";
+                // line 314
+                echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . $this->getAttribute($context["piece"], "id", array()))), "html", null, true);
+                echo "\">
+                                  
+                                    <button class=\"btn btn-info\" style=\"padding-left:9%; width:99.9%;margin-top:3%\">Supprimer</button>
+                                </form>
                         </ul>
                     </td>
                 </tr>
@@ -432,22 +486,37 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['piece'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 269
+            // line 322
             echo "            </tbody> 
         </table>
         ";
         } else {
-            // line 272
+            // line 325
             echo "            <p>Aucune pièce trouvé!</p>
         ";
         }
-        // line 274
-        echo "    <a href=\"";
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("piece_new");
-        echo "\" id=\"ajout\" data-toggle=\"modal\" class=\"btn btn-primary\">Ajouter</a>
+        // line 327
+        echo "    
      ";
-        // line 276
-        echo "            <div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+        // line 329
+        echo "     <div class=\"modal fade modal1\" id=\"myModal1\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+     <div class=\"modal-dialog\" role=\"document\">
+         <div class=\"modal-content\">
+              <div class=\"modal-header\">
+                 <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+                 <span aria-hidden=\"true\">&times;</span>
+                 </button>
+             </div>
+             <div class=\"modal-body\" id=\"body-edit1\">
+             </div>
+             <div class=\"modal-footer\">
+                 <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
+             </div>
+         </div>
+      </div>
+ </div>
+
+            <div class=\"modal fade modal2\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
                 <div class=\"modal-dialog\" role=\"document\">
                     <div class=\"modal-content\">
                          <div class=\"modal-header\">
@@ -455,12 +524,11 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
                             <span aria-hidden=\"true\">&times;</span>
                             </button>
                         </div>
-                        <div class=\"modal-body\" id=\"body-edit\">
+                        <div class=\"modal-body\" id=\"body-new\">
                             ";
-        // line 286
+        // line 356
         echo "                             ";
-        $this->loadTemplate("piece/new.html.twig", "physique/edit.html.twig", 286)->display($context);
-        // line 287
+        // line 357
         echo "                        </div>
                         <div class=\"modal-footer\">
                             <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
@@ -469,10 +537,8 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
                  </div>
             </div>
         </div>
-    </div>       
+    </div>
 ";
-        // line 296
-        $this->displayBlock('javascripts', $context, $blocks);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -481,7 +547,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 
     }
 
-    // line 137
+    // line 149
     public function block_sidebar($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -490,16 +556,35 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
 
-        // line 138
+        // line 150
         echo "        <div class=\"sidebar\">
+        <div class=\"row cl\">
+        <div class=\"col-md-2\">
             <a href=\"";
-        // line 139
+        // line 153
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_home");
         echo "\" class=\"accueil\">Accueil</a>
+        </div>
+        <div class=\"col-md-4\">
+    <a data-target=\"";
+        // line 156
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("physique_showMessage", array("id" => $this->getAttribute(($context["physique"] ?? $this->getContext($context, "physique")), "id", array()))), "html", null, true);
+        echo "\" data-tooltip=\"voir\" class=\"tooltipped modal-trigger btn btn-outline-light my-6 my-sm-6\" href=\"#modalNotif\" id=\"notification\" data-toggle=\"modal\"><i class=\"fa fa-bell\"></i><span class=\"badge\" style=\"position: absolute;
+top: -10px;padding: 5px 10px;border-radius: 50%;background:red;color: white;\" id=\"notific\">";
+        // line 157
+        echo twig_escape_filter($this->env, ($context["comptesNotifs"] ?? $this->getContext($context, "comptesNotifs")), "html", null, true);
+        echo "</span></a>
+            ";
+        // line 160
+        echo "        </div>
+        <div class=\"col-md-6\">
             <a href=\"";
-        // line 140
+        // line 162
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("path_choix");
         echo "\" id=\"ouvrir\">Ouvrir un compte</a>
+        </div>
+    </div>
+        </div>
         </div>
     ";
         
@@ -510,7 +595,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 
     }
 
-    // line 296
+    // line 367
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -521,7 +606,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 
         echo " 
 ";
-        // line 297
+        // line 368
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
 
@@ -529,10 +614,44 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
      
 \$(document).ready(function(){
 
-    \$(\"#ajout\").click(function(ev){
-        ev.preventDefault();
-        \$('#type').val(\"\")
-        \$('#myModal').modal('show')
+    \$(\".ajout1\").click(function(){
+        //ev.preventDefault();
+        //On initialise les modales materialize
+        //\$('.modal1').modal();
+        //On récupère l'url depuis la propriété \"Data-target\" de la balise html a
+        const url = \$(this).attr('data-target');
+        const absUrl = \"http://localhost/ouverture/web/app_dev.php/piece/\"+url+\"/edit\"
+        console.log(absUrl);
+        
+         \$.ajax(
+        {
+            type: 'get', 
+            url: absUrl,
+            success: function (data) { 
+               //console.log(data)
+               \$('#body-edit1').html(data)
+               \$('#myModal1').modal('show')
+
+            },
+            error: function (errorMessage) { 
+            }
+        }); 
+
+        })
+        })
+
+        \$(document).ready(function(){
+    \$(\".modal-trigger\").click(function(){
+        
+        \$('.modal2').modal();
+        
+        url = \$(this).attr('data-target');
+        \$.get(url, function (data) {
+           
+            \$('#body-new').html(data);
+
+            \$('#myModal').modal('open');
+        });
 
         })
     });
@@ -558,7 +677,7 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 
     public function getDebugInfo()
     {
-        return array (  525 => 297,  514 => 296,  501 => 140,  497 => 139,  494 => 138,  485 => 137,  475 => 296,  464 => 287,  461 => 286,  450 => 276,  445 => 274,  441 => 272,  436 => 269,  424 => 264,  418 => 258,  412 => 257,  408 => 256,  404 => 255,  398 => 254,  392 => 253,  386 => 252,  382 => 251,  378 => 250,  372 => 249,  369 => 248,  365 => 247,  346 => 230,  344 => 229,  341 => 228,  335 => 224,  330 => 222,  326 => 221,  318 => 215,  312 => 213,  310 => 212,  304 => 208,  298 => 206,  296 => 205,  287 => 199,  281 => 196,  274 => 192,  267 => 188,  261 => 185,  255 => 181,  249 => 179,  247 => 178,  243 => 176,  237 => 174,  235 => 173,  229 => 169,  223 => 167,  221 => 166,  217 => 164,  211 => 162,  209 => 161,  205 => 159,  203 => 154,  197 => 151,  194 => 150,  192 => 149,  188 => 148,  181 => 144,  178 => 143,  176 => 137,  151 => 114,  149 => 111,  147 => 108,  140 => 95,  51 => 4,  42 => 3,  11 => 1,);
+        return array (  610 => 368,  599 => 367,  583 => 162,  579 => 160,  575 => 157,  571 => 156,  565 => 153,  560 => 150,  551 => 149,  532 => 357,  530 => 356,  502 => 329,  499 => 327,  495 => 325,  490 => 322,  476 => 314,  470 => 312,  468 => 311,  466 => 310,  461 => 308,  455 => 302,  449 => 301,  445 => 300,  441 => 299,  435 => 298,  429 => 297,  423 => 296,  419 => 295,  415 => 294,  409 => 293,  406 => 292,  402 => 291,  383 => 274,  381 => 273,  375 => 272,  372 => 271,  365 => 266,  360 => 264,  356 => 263,  349 => 258,  343 => 256,  341 => 255,  335 => 251,  329 => 249,  327 => 248,  318 => 242,  312 => 239,  305 => 235,  298 => 231,  292 => 228,  286 => 224,  280 => 222,  278 => 221,  274 => 219,  268 => 217,  266 => 216,  260 => 212,  254 => 210,  252 => 209,  248 => 207,  242 => 205,  240 => 204,  236 => 202,  234 => 197,  228 => 194,  225 => 193,  223 => 192,  219 => 191,  198 => 172,  193 => 169,  190 => 168,  188 => 149,  155 => 118,  153 => 115,  151 => 112,  144 => 99,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -576,9 +695,13 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
 {% block content %}
 
     <style>
+        * {
+            /*font-family: Georgia, Times, 'Times New Roman', serif;*/
+            font-family: 'Times New Roman';
+        }
             body
             {
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             .sidebar
             {
@@ -588,32 +711,32 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
                 left: 0;
                 padding:1%;
                 position:relative;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             a
             {
-                color: white;
+               
                 text-decoration: none;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             a:hover
             {
                 color:white;
                 text-decoration:none;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             .accueil
             {
                 color:white;
                 text-decoration:none;
                 font-size:1.7rem;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             .accueil:hover
             {
                 color:white;
                 text-decoration:none;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             .formulaire 
             {
@@ -622,44 +745,44 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
                 margin-left:11%;
                 width:80%;
                 border:solid white 1px;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             #ouvrir
             {
                 color:white;
                 text-decoration:none;
-                margin-left:80%;
+                margin-left:75%;
                 font-size:1.2rem;
                 color:white;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             #ouvrir:hover
                 {
                     color:white;
                     text-decoration:none;
-                    font-family: Georgia, Times, 'Times New Roman', serif;
+                    
                 }
             #index
             {
                 color: white;
                 margin-top:2%;
-                margin-left:94%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                margin-left:74%;
+                
             }
             h2
             {
                 margin-left:10%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             .piece
             {
                 margin-top:5%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             .foot
             {
                
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             {# .valider
             {
@@ -667,8 +790,8 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
             } #}
             #supprimer
             {
-                margin-left:1%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                margin-left:2%;
+               
             }
             {# #physiquebundle_physique_tuteur
             {
@@ -687,11 +810,11 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
             #ajout
             {
                 margin-left:97%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             #information
             {
-                font-family:  Georgia, Times, 'Times New Roman', serif;
+                
             }
             tr
             {
@@ -705,17 +828,56 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
             {
                 margin-left:3%;
             }
+            #ajout:hover
+            {
+                color:white;
+            }
+            #notification
+            {
+               margin-left:10%;
+            }
     </style>
 
     {% block sidebar %}
         <div class=\"sidebar\">
+        <div class=\"row cl\">
+        <div class=\"col-md-2\">
             <a href=\"{{path('path_home')}}\" class=\"accueil\">Accueil</a>
+        </div>
+        <div class=\"col-md-4\">
+    <a data-target=\"{{ path('physique_showMessage', { 'id': physique.id }) }}\" data-tooltip=\"voir\" class=\"tooltipped modal-trigger btn btn-outline-light my-6 my-sm-6\" href=\"#modalNotif\" id=\"notification\" data-toggle=\"modal\"><i class=\"fa fa-bell\"></i><span class=\"badge\" style=\"position: absolute;
+top: -10px;padding: 5px 10px;border-radius: 50%;background:red;color: white;\" id=\"notific\">{{ comptesNotifs }}</span></a>
+            {# <button type=\"button\" class=\"btn btn-outline-light my-6 my-sm-6\" id=\"notification\" data-toggle=\"modal\"><i class=\"fa fa-bell\"></i><span class=\"badge\" style=\"position: absolute;
+            top: -10px;padding: 5px 10px;border-radius: 50%;background:red;color: white;\" ></span></button> #}
+        </div>
+        <div class=\"col-md-6\">
             <a href=\"{{ path('path_choix')}}\" id=\"ouvrir\">Ouvrir un compte</a>
+        </div>
+    </div>
+        </div>
         </div>
     {% endblock %}
 
             <a href=\"{{ path('physique_index') }}\"class=\"btn btn-primary\" id=\"index\">Liste</a>
 <div class=\"container\">
+            {# modal notification#}
+            <div class=\"modal1 fade\" id=\"modalNotif\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\" aria-hidden=\"true\">
+            <div class=\"modal-dialog modal-sm\" role=\"document\">
+                <div class=\"modal-content\">
+                    <div class=\"modal-header\">
+                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+                        <span aria-hidden=\"true\">&times;</span>
+                        </button>
+                    </div>
+                    <div class=\"modal-body\" id=\"body_notif\">
+                    </div>
+                    <div class=\"modal-footer\">
+                        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
+                    </div>
+                </div>
+             </div>
+        </div>
+
     <h2 id=\"information\">Informations personnelles</h2>
     <div class=\"formulaire\">
         {{ form_start(edit_form) }}
@@ -790,16 +952,17 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
             </div>
             <div class=\"row foot\">
                 <input type=\"submit\" class=\"btn btn-primary\" id=\"valider\" value=\"Valider\" />
-            </div>
         {{ form_end(edit_form) }}
         {{ form_start(delete_form,{'attr':{'onSubmit':\"return confirm('Voulez vous vraiment supprimer?');\"}}) }}
                 <input type=\"submit\" class=\"btn btn-danger\" id=\"supprimer\" value=\"Supprimer\">
         {{ form_end(delete_form) }} 
+            </div>
     </div>
     <div class=\"piece\">
     {# data-toggle=\"modal\" #}
     <h2>Pièces jointes</h2>
-        {% if pieces is not null %}
+    <a data-target=\"{{ path('piece_new') }}\" data-tooltip=\"voir\" id=\"ajout\" {#data-toggle=\"modal\"#} class=\"tooltipped modal-trigger\" href=\"#myModal\">{# <i class=\"fa fa-plus\" style=\"font-size:26px\" aria-hidden=\"true\"></i>#} <i class=\"fa fa-plus-square\" style=\"font-size:36px\"></i> </a>
+    {% if pieces is not null %}
                 <table class=\"table table-striped table-hover table-sm table-responsive-lg thead-light\" id=\"table\">
                 <thead>
                 <tr>
@@ -834,7 +997,16 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
                             {# <li>
                                 <a href=\"{{ path('piece_show', { 'id': piece.id }) }}\">show</a>
                             </li> #}
-                                <a href=\"{{ path('piece_edit', { 'id': piece.id }) }}\" class=\"btn btn-info\">Modifier</a>
+                                <a data-target=\"{{ piece.id}}\" class=\"btn btn-info tooltipped modal-trigger1 ajout1\" id=\"\" data-toggle=\"modal\" href=\"#myModal1\">Modifier</a>
+                            {# <a data-key=\"{{piece.id}}\" class=\"btn btn-info modification\" style=\"color:white;\">Modifier</a> #}
+                            {# href=\"{{ path('piece_edit', { 'id': piece.id }) }}\" #}
+                                {# {% include 'physique/delete.html.twig' %} #}
+                                <form method=\"post\" action=\"{{ path('piece_delete', {'id': piece.id}) }}\" onsubmit=\"return confirm('Voulez vous vraiment supprimer?');\">
+                                    <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
+                                    <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ piece.id) }}\">
+                                  
+                                    <button class=\"btn btn-info\" style=\"padding-left:9%; width:99.9%;margin-top:3%\">Supprimer</button>
+                                </form>
                         </ul>
                     </td>
                 </tr>
@@ -844,9 +1016,26 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
         {% else %}
             <p>Aucune pièce trouvé!</p>
         {% endif %}
-    <a href=\"{{ path('piece_new') }}\" id=\"ajout\" data-toggle=\"modal\" class=\"btn btn-primary\">Ajouter</a>
+    
      {# modal #}
-            <div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+     <div class=\"modal fade modal1\" id=\"myModal1\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+     <div class=\"modal-dialog\" role=\"document\">
+         <div class=\"modal-content\">
+              <div class=\"modal-header\">
+                 <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+                 <span aria-hidden=\"true\">&times;</span>
+                 </button>
+             </div>
+             <div class=\"modal-body\" id=\"body-edit1\">
+             </div>
+             <div class=\"modal-footer\">
+                 <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
+             </div>
+         </div>
+      </div>
+ </div>
+
+            <div class=\"modal fade modal2\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
                 <div class=\"modal-dialog\" role=\"document\">
                     <div class=\"modal-content\">
                          <div class=\"modal-header\">
@@ -854,9 +1043,9 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
                             <span aria-hidden=\"true\">&times;</span>
                             </button>
                         </div>
-                        <div class=\"modal-body\" id=\"body-edit\">
+                        <div class=\"modal-body\" id=\"body-new\">
                             {# {{render(controller('PieceBundle:Controller:PieceController::newAction'))}} #}
-                             {% include 'piece/new.html.twig' %}
+                             {# {% include 'piece/new.html.twig' %} #}
                         </div>
                         <div class=\"modal-footer\">
                             <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
@@ -865,7 +1054,8 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
                  </div>
             </div>
         </div>
-    </div>       
+    </div>
+{% endblock %}    
 {% block javascripts %} 
 {{parent() }}
 
@@ -873,16 +1063,51 @@ class __TwigTemplate_7ab1a95031fc07c441bc273d94efe3dcdc798a71f3c78b1ecd0fd679437
      
 \$(document).ready(function(){
 
-    \$(\"#ajout\").click(function(ev){
-        ev.preventDefault();
-        \$('#type').val(\"\")
-        \$('#myModal').modal('show')
+    \$(\".ajout1\").click(function(){
+        //ev.preventDefault();
+        //On initialise les modales materialize
+        //\$('.modal1').modal();
+        //On récupère l'url depuis la propriété \"Data-target\" de la balise html a
+        const url = \$(this).attr('data-target');
+        const absUrl = \"http://localhost/ouverture/web/app_dev.php/piece/\"+url+\"/edit\"
+        console.log(absUrl);
+        
+         \$.ajax(
+        {
+            type: 'get', 
+            url: absUrl,
+            success: function (data) { 
+               //console.log(data)
+               \$('#body-edit1').html(data)
+               \$('#myModal1').modal('show')
+
+            },
+            error: function (errorMessage) { 
+            }
+        }); 
+
+        })
+        })
+
+        \$(document).ready(function(){
+    \$(\".modal-trigger\").click(function(){
+        
+        \$('.modal2').modal();
+        
+        url = \$(this).attr('data-target');
+        \$.get(url, function (data) {
+           
+            \$('#body-new').html(data);
+
+            \$('#myModal').modal('open');
+        });
 
         })
     });
 </script>   
 {% endblock %}
-{% endblock %}
+
+
 
 ", "physique/edit.html.twig", "C:\\laragon\\www\\ouverture\\app\\Resources\\views\\physique\\edit.html.twig");
     }

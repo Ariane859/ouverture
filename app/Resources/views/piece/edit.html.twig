@@ -1,21 +1,62 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+<style>
+    #physique
+    {
+        display:none;
+    }
+</style>
     <h1>Piece edit</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+    {{ form_start(edit_form,{'action': path('piece_edit', {'id': piece.id}) } ) }}
+        {# {{ form_widget(edit_form) }} #}
+        {# <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }} #}
+    </div>
+    <div class="form-group">
+        {{ form_row(edit_form.typePiece, { 'label': 'Type Piece'})}}
+    </div>
+    <div class="form-group">
+        <div id="refPiece">
+            {{ form_row(edit_form.refPiece, { 'label': 'N° Pièce'})}}
+        </div>
+    </div>                
+    <div class="form-group">
+        <div id="datexpiration">
+            {{ form_row(edit_form.datexpiration, { 'label': 'Date d\'expiration'})}}
+       </div>
+    </div>
+    <div class="form-group">
+        <div id="datdeclaration">
+            {{ form_row(edit_form.datdeclaration, { 'label': 'Date de déclaration'})}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div id="datedelivrance">
+            {{ form_row(edit_form.datedelivrance, { 'label': 'Date de délivrance'})}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div id="emetteur">
+            {{ form_row(edit_form.emetteur, { 'label': 'Emetteur'})}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div id="paysEmission">
+            {{ form_row(edit_form.paysEmission, { 'label': 'Pays d\'émission'})}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div id="physique">
+            {{ form_row(edit_form.physique, { 'label': 'Nom', 'attr': {'class': 'form-control'} } )}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div id="fichier">
+            {{ form_row(edit_form.fichier, { 'label': ''} )}}
+        </div>
+    </div>
+        <input type="submit" class=" btn btn-info" style="margin-top:3%;" value="Modifier" />
     {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('piece_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}

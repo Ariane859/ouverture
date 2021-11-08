@@ -34,7 +34,7 @@ class PieceType extends AbstractType
                 'Attestation de résidence'=>'Attestation de résidence',
                 'Acte de naissance'=>'Acte de naissance',
                 'Photo'=>'Photo'
-            ],'attr'=>['class'=>'form-control']
+            ],'attr'=>['class'=>'form-control'],
         ])
         ->add('refPiece',TextType::class,['attr'=>['class'=>'form-control'],'required'=> false])
         ->add('datexpiration',DateType::class,['widget' => 'single_text','attr'=>['class'=>'form-control'],'required'=> false])
@@ -43,7 +43,7 @@ class PieceType extends AbstractType
         ->add('emetteur',TextType::class,['attr'=>['class'=>'form-control'],'required'=> false])
         ->add('paysEmission',CountryType::class,['attr'=>['class'=>'form-control'],'required'=> false])
         ->add('physique')
-        ->add('fichier',FileType::class,['attr'=>['class'=>'form-control'],'mapped'=> false,'required'=> false,
+        ->add('fichier',FileType::class,['attr'=>['label'=>''],'mapped'=> false,'required'=> false,
             'constraints' => [
             new File([
             'maxSize' => '2048k',

@@ -18,6 +18,9 @@
                 <div class="col">
                     {{ form_start(form,{'action': path('piece_new')}) }}
                         {# {{ form_widget(form) }} #}
+                        <div class="my-custom-class-for-errors">
+                            {{ form_errors(form) }}
+                        </div>
                         <div class="form-group">
                             {{ form_row(form.typePiece, { 'label': 'Type Piece'})}}
                         </div>
@@ -57,6 +60,7 @@
                             </div>
                         </div>
                             <div id="fichier">
+                        
                                 {{ form_row(form.fichier, { 'label': 'Fichier', 'attr': {'class': 'form-control'} } )}}
                             </div>
                         <input type="submit" class="btn btn-outline-info" value="Enregister" />
@@ -65,56 +69,3 @@
     </div>
 {% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        $(document).ready(function(){
-            $('#piecebundle_piece_typePiece').on('change',function(e)
-            {
-                e.preventDefault();
-                var typePiece = $(this).val();
-                console.log(typePiece);
-                if (typePiece =='Photo')
-                {
-                    document.getElementById('datexpiration').style.display= "none";
-                    document.getElementById('datedelivrance').style.display= "none";
-                    document.getElementById('datdeclaration').style.display= "none";
-                    document.getElementById('refPiece').style.display= "none";
-                    document.getElementById('emetteur').style.display= "none";
-                    document.getElementById('paysEmission').style.display= "none";
-                    document.getElementById('physique').style.display= "none";
-                }
-                else if(typePiece =='Carte d\'identité' || typePiece=='Passeport')
-                {
-                    document.getElementById('refPiece').style.display= "block";
-                    document.getElementById('emetteur').style.display= "block";
-                     document.getElementById('paysEmission').style.display= "block";
-                    document.getElementById('physique').style.display= "block";
-                    document.getElementById('datedelivrance').style.display= "none";
-                    document.getElementById('datdeclaration').style.display= "none";
-                    document.getElementById('datexpiration').style.display= "block";
-                }
-                else if(typePiece=='Attestation de résidence') {
-                     document.getElementById('refPiece').style.display= "block";
-                    document.getElementById('emetteur').style.display= "block";
-                     document.getElementById('paysEmission').style.display= "block";
-                    document.getElementById('physique').style.display= "block";
-                    document.getElementById('datedelivrance').style.display= "block";
-                    document.getElementById('datdeclaration').style.display= "none";
-                    document.getElementById('datexpiration').style.display= "none";
-
-                }
-                else
-                {
-                     document.getElementById('refPiece').style.display= "block";
-                    document.getElementById('emetteur').style.display= "block";
-                     document.getElementById('paysEmission').style.display= "block";
-                    document.getElementById('physique').style.display= "block";
-                    document.getElementById('datedelivrance').style.display= "none";
-                    document.getElementById('datdeclaration').style.display= "block";
-                    document.getElementById('datexpiration').style.display= "none";
-                }
-            })
-        })
-    </script>
-{% endblock %}

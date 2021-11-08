@@ -28,10 +28,31 @@ class PhysiqueController extends Controller
 
         $physiques = $em->getRepository('PhysiqueBundle:Physique')->findAll();
 
+        $comptes = $em->getRepository('PieceBundle:Piece')->totalNotification();
+       // dump($comptes);die();
         return $this->render('physique/index.html.twig', array(
             'physiques' => $physiques,
+            'comptes'=> $comptes[0]['nombre']
         ));
     }
+    /**
+     * Lists all physique entities.
+     *
+     * @Route("/recuperation", name="physique_recuperation")
+     * @Method("GET")
+     */
+    public function Recuperation()
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $dates = $em->getRepository('PieceBundle:Piece')->findExample1();
+
+        return $this->render('physique/recuperer.html.twig', array(
+            'dates' => $dates,
+        ));
+    }
+
+
 
     /**
      * Creates a new physique entity.
@@ -105,7 +126,8 @@ class PhysiqueController extends Controller
                         $physique->setPrenomTuteur($physiquebundle_physique_prenomTuteur);
                         $em->persist($physique);
                         $em->flush();
-                        $response= array("message" =>"enregistré" ,"code"=>100 );
+                        $notifications= $physique->getId();
+                        $response= array("message" =>"enregistré" ,"notificationId"=>$notifications,"code"=>100 );
                     }
                 }
             }
@@ -132,7 +154,8 @@ class PhysiqueController extends Controller
                     $physique->setPrenomTuteur($physiquebundle_physique_prenomTuteur);
                     $em->persist($physique);
                     $em->flush();
-                    $response= array("message" =>"enregistré" ,"code"=>100 );
+                    $notifications= $physique->getId();
+                    $response= array("message" =>"enregistré" ,"notificationId"=>$notifications,"code"=>100 );
                 }
             }
             // if($physiques)
@@ -165,6 +188,7 @@ class PhysiqueController extends Controller
         return $this->render('physique/new.html.twig', array(
             'physique' => $physique,
             'form' => $form->createView(),
+
         ));
     }
 
@@ -178,12 +202,36 @@ class PhysiqueController extends Controller
     {
         $deleteForm = $this->createDeleteForm($physique);
         $em = $this->getDoctrine()->getManager();
+        $idperson=$physique->getId();
         $pieces = $em->getRepository('PieceBundle:Piece')->findBy(array('physique' => $physique->getId()));
+        $comptesNotifs = $em->getRepository('PieceBundle:Piece')->totalNotificationper($idperson);
         return $this->render('physique/show.html.twig', array(
             // 'piece' => $piece,
             'pieces' => $pieces,
             'physique' => $physique,
+            'comptesNotifs'=>$comptesNotifs[0]['nombre'],
             'delete_form' => $deleteForm->createView(),
+        ));
+    }
+    /**
+     * Finds and displays a physique entity.
+     *
+     * @Route("notifications/{id}", name="physique_showMessage")
+     * @Method("GET")
+     */
+    public function showMessage(Physique $physique)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $idperson=$physique->getId();
+
+        $notifs=$em->getRepository('PieceBundle:Piece')->NotificationPersonelle($idperson);
+
+        return $this->render('physique/shownotification.html.twig', array(
+            // 'piece' => $piece,
+            'notifs' => $notifs,
+            'physique' => $physique,
+
         ));
     }
     /**
@@ -198,6 +246,8 @@ class PhysiqueController extends Controller
         $deleteForm = $this->createDeleteForm($physique,array('slug' => $slug));
         $em = $this->getDoctrine()->getManager();
         $pieces = $em->getRepository('PieceBundle:Piece')->findBy(array('physique' => $physique->getId()));
+        $idperson=$physique->getId();
+        $comptesNotifs = $em->getRepository('PieceBundle:Piece')->totalNotificationper($idperson);
         $form = $this->createForm('PieceBundle\Form\PieceType', $piece,[
         'action' => $this->generateUrl('piece_new'),
         'method' => 'POST',]);
@@ -206,8 +256,9 @@ class PhysiqueController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            dump(1);die();
+            //dump(1);die();
             $this->getDoctrine()->getManager()->flush();
+            $idperson=$physique->getId();
             //return $this->redirectToRoute('physique_edit', array('id' => $physique->getId(),'type'=>$type));
             return $this->redirectToRoute('physique_index');
         }
@@ -215,6 +266,7 @@ class PhysiqueController extends Controller
         return $this->render('physique/edit.html.twig', array(
             'pieces'=>$pieces,
             'physique' => $physique,
+            'comptesNotifs'=>$comptesNotifs[0]['nombre'],
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
             'form' => $form->createView(),
@@ -231,13 +283,12 @@ class PhysiqueController extends Controller
     {
         $form = $this->createDeleteForm($physique);
         $form->handleRequest($request);
-        // $em = $this->getDoctrine()->getManager();
-        // $pieces = $em->getRepository('PieceBundle:Piece')->findBy(array('physique' => $physique->getId()));
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($physique);
             $em->flush();
-            $this->addFlash('notice',"Supprimé avec succès!");
+            // $this->addFlash('notice',"Supprimé avec succès!");
             return $this->redirectToRoute('physique_index');  
         }
 

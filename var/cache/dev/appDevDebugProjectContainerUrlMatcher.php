@@ -174,8 +174,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // piece_delete
             if (preg_match('#^/piece/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
                 $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'piece_delete')), array (  '_controller' => 'PieceBundle\\Controller\\PieceController::deleteAction',));
-                if (!in_array($requestMethod, array('DELETE'))) {
-                    $allow = array_merge($allow, array('DELETE'));
+                if (!in_array($canonicalMethod, array('GET', 'POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'DELETE'));
                     goto not_piece_delete;
                 }
 
@@ -203,6 +203,18 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
             not_physique_index:
 
+            // physique_recuperation
+            if ('/physique/recuperation' === $pathinfo) {
+                $ret = array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::Recuperation',  '_route' => 'physique_recuperation',);
+                if (!in_array($canonicalMethod, array('GET'))) {
+                    $allow = array_merge($allow, array('GET'));
+                    goto not_physique_recuperation;
+                }
+
+                return $ret;
+            }
+            not_physique_recuperation:
+
             // physique_new
             if (0 === strpos($pathinfo, '/physique/new') && preg_match('#^/physique/new/(?P<slug>[^/]++)$#sD', $pathinfo, $matches)) {
                 $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'physique_new')), array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::newAction',));
@@ -226,6 +238,18 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $ret;
             }
             not_physique_show:
+
+            // physique_showMessage
+            if (0 === strpos($pathinfo, '/physiquenotifications') && preg_match('#^/physiquenotifications/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'physique_showMessage')), array (  '_controller' => 'PhysiqueBundle\\Controller\\PhysiqueController::showMessage',));
+                if (!in_array($canonicalMethod, array('GET'))) {
+                    $allow = array_merge($allow, array('GET'));
+                    goto not_physique_showMessage;
+                }
+
+                return $ret;
+            }
+            not_physique_showMessage:
 
             // physique_edit
             if (preg_match('#^/physique/(?P<slug>[^/]++)/(?P<id>[^/]++)/edit/?$#sD', $pathinfo, $matches)) {

@@ -33,7 +33,7 @@ class Physique extends PieceType
     private $id;
 
      /**
-     * @ORM\OneToMany(targetEntity="\PieceBundle\Entity\Piece", mappedBy="physique")
+     * @ORM\OneToMany(targetEntity="\PieceBundle\Entity\Piece", mappedBy="physique",orphanRemoval=true)
      */
     private $pieces;
 
@@ -131,7 +131,8 @@ class Physique extends PieceType
 
     public function __toString()
     {
-        return (string)$this->nom;
+        //return (string)$this->nom ;
+        return sprintf('%s %s', $this->sigle,$this->nom);
     }
 
     /**

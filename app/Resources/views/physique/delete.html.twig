@@ -1,5 +1,9 @@
-<form method="post" action="{{ path('physique_delete', {'id': physique.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer?');">
-         <input type="hidden" name="_method" value="DELETE">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ physique.id) }}">
-    <button class="btn btn-danger">Supprimer</button>
+{# {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
+    <input type="submit" class="btn btn-danger" id="supprimer" value="Supprimer">
+{{ form_end(delete_form) }}  #}
+
+<form method="post" action="{{ path('piece_delete', {'id': piece.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ piece.id) }}">
+    <button class="btn btn-info" style="padding-left:9%; width:99.9%;margin-top:3%">Supprimer</button>
 </form>

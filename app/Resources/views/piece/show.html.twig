@@ -4,25 +4,26 @@
     <style>
         body
         {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            /*margin-top:30px;*/
+            font-family: 'Times New Roman';
+
         }
-     {# .formulaire 
-    {
-        color: black;
-        margin-top:5%;
-        margin-left:11%;
-        width:80%;
-        border:solid white 1px;
-    } #}
-    h1
-    {
-        color:teal;
-        font-weight:bold;
+
+        .pieces
+        {
+            color:teal;
+            font-weight:lighter;
+
+        }
+        #mon_tableau
+        {
+            font-size:1.2rem;
         }
     </style>
-    <h1>Piece n° : {{ piece.id }}</h1>
-    <table class="table">
+
+    <div id="mon_tableau">
+    <center><div class="pieces"><h1>Piece n° : {{ piece.id }}</h1></div></center>
+
+    <div class="ma_table"><table class="table">
         <tbody>
             <tr>
                 <th>Type Pièce:</th>
@@ -63,10 +64,6 @@
             </tr>
         </tbody>
     </table>
-        {# <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li> #}
+</div></div>
 
 {% endblock %}

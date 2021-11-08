@@ -77,19 +77,21 @@
         }
         #notification
         {
-            margin-left:150%;
+            margin-left:10%;
         }
 </style>
 
     {% block sidebar %}
     <div class="sidebar">
-        <div class="form-row">
+        <div class="row">
             <div class="col-md-2">
                 <a href="{{path('path_home')}}" class="accueil">Accueil</a>
             </div>
             <div class="col-md-4">
-                <button type="button" class="btn btn-outline-light my-6 my-sm-6" id="notification" data-toggle="modal"><i class="fa fa-bell"></i><span class="badge" style="position: absolute;
-                top: -10px;padding: 5px 10px;border-radius: 50%;background:red;color: white;" id="notific"></span></button>
+                <a data-target="{{ path('physique_recuperation') }}" data-tooltip="voir" class="tooltipped modal-trigger btn btn-outline-light my-6 my-sm-6" href="#myModal" id="notification" data-toggle="modal"><i class="fa fa-bell"></i><span class="badge" style="position: absolute;
+                top: -10px;padding: 5px 10px;border-radius: 50%;background:red;color: white;" id="notific">{{ comptes }}</span></a>
+                {# <button type="button" class="btn btn-outline-light my-6 my-sm-6" id="notification" data-toggle="modal"><i class="fa fa-bell"></i><span class="badge" style="position: absolute;
+                top: -10px;padding: 5px 10px;border-radius: 50%;background:red;color: white;" id="noific"></span></button> #}
             </div>
             <div class="col-md-4">
                 <a href="{{ path('path_choix')}}" id="ouvrir">Ouvrir un compte</a>
@@ -99,8 +101,11 @@
             </div>
         </div>
     </div>
-    
+
     {% endblock %}
+    {# modal notification#}
+    
+    
     <div class="container">
             {# modal recherche #}
             <div class="modal fade" id="modalResult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -124,8 +129,10 @@
                     </div>
                  </div>
             </div>
-            {# modal notification#}
-             <div class="modal fade" id="modalNotif" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="row">
+      
+            <h1>Listes</h1>
+                {# <div class="modal1 fade" id="modalNotif" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-sm" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -140,15 +147,31 @@
                         </div>
                     </div>
                  </div>
-            </div>
-        <div class="row">
-            <h1>Listes</h1>
+            </div> #}
+              {# modal notification#}
+              <div class="modal1 fade" id="modalNotif" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-sm" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body" id="body_notif">
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+               </div>
+          </div>
             <div class="col-lg-12">
             {# <a href="{{ path('physique_new', {'slug':1}) }}" class="btn btn-primary" id="ajouter">Ajouter</a></div> #}
                 <table class="table table-hover  table-responsive-lg" id="tab">
                     <thead class="thead-light">
                         <tr>
                             <th>Id</th>
+                                
                             <th>Nom</th>
                             <th>Prénom</th>
                             <th>Sigle</th>
@@ -188,6 +211,12 @@
                                     <a href="{{ path('physique_edit', { 'id': physique.id, 'slug':1 }) }}" class="btn btn-primary" style="margin-top:1%;color:white">Edit</a>
                                     {# <i class="fa fa-edit" style="font-size:24px;color:blue"></i> #}
                                 {% endif %}
+                                {# <form method="post" action="{{ path('piece_delete', {'id': physique.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer?');">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ physique.id) }}">
+                                  
+                                    <button class="btn btn-danger" style="padding-left:9%; width:99.9%;margin-top:3%">Supprimer</button>
+                                </form> #}
                             </td>
                         </tr>
                     {% endfor %}
@@ -205,6 +234,7 @@
     <script> 
         
     $(document).ready(function(){
+
         $('#tab').DataTable({searching:false}); 
         $("#bouton_search").click(function(ev){
             ev.preventDefault();
@@ -226,7 +256,9 @@
             })
             .then(response => response.text())
             .then(data => {
-                $('#body').html(data)
+                $("#tab").dataTable().fnDestroy()
+                $('#body').html(data);
+                $('#tab').DataTable({searching:false}); 
                 //$('#modal_body').html(data)
                 //$('#modalResult').modal('show')
                 //console.log('Success:', data);  
@@ -240,23 +272,23 @@
         });
     })
 
+     
     $(document).ready(function(){
-    var notifications= new Array()
-    notifications.push('Votre pièce est expirée', 'Veuillez changer vos pièces', 'Votre numéro de pièce est invalide', 'Votre passeport expire bientot','tadam!!!!')
-    var count=notifications.length;
-        $('#notific').html(count)
-        $("#notification").click(function(ev){
-            ev.preventDefault();
-            document.getElementById('body_notif').innerHTML ="";
-            for(let i of notifications)
-            {
-                //$('#body_notif').html(i)
-    document.getElementById('body_notif').innerHTML += i + '<br><hr></hr>';
-            }
+        $("#notification").click(function(){
+
+            $('.modal1').modal();
+            url = $(this).attr('data-target');
             
-            $('#modalNotif').modal('show')
-        });
-    })
+            $.get(url, function (data) {
+
+            //on injecte le html dans la modale
+            $('#body_notif').html(data);
+            //on ouvre la modale
+            $('#modalNotif').modal('show');
+            });
+        })
+    });
+
 
     </script>   
 {% endblock %}

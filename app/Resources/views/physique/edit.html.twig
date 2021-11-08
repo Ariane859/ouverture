@@ -3,9 +3,13 @@
 {% block content %}
 
     <style>
+        * {
+            /*font-family: Georgia, Times, 'Times New Roman', serif;*/
+            font-family: 'Times New Roman';
+        }
             body
             {
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             .sidebar
             {
@@ -15,32 +19,32 @@
                 left: 0;
                 padding:1%;
                 position:relative;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             a
             {
-                color: white;
+               
                 text-decoration: none;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             a:hover
             {
                 color:white;
                 text-decoration:none;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             .accueil
             {
                 color:white;
                 text-decoration:none;
                 font-size:1.7rem;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             .accueil:hover
             {
                 color:white;
                 text-decoration:none;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             .formulaire 
             {
@@ -49,44 +53,44 @@
                 margin-left:11%;
                 width:80%;
                 border:solid white 1px;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             #ouvrir
             {
                 color:white;
                 text-decoration:none;
-                margin-left:80%;
+                margin-left:75%;
                 font-size:1.2rem;
                 color:white;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             #ouvrir:hover
                 {
                     color:white;
                     text-decoration:none;
-                    font-family: Georgia, Times, 'Times New Roman', serif;
+                    
                 }
             #index
             {
                 color: white;
                 margin-top:2%;
-                margin-left:94%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                margin-left:74%;
+                
             }
             h2
             {
                 margin-left:10%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             .piece
             {
                 margin-top:5%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                
             }
             .foot
             {
                
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             {# .valider
             {
@@ -94,8 +98,8 @@
             } #}
             #supprimer
             {
-                margin-left:1%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+                margin-left:2%;
+               
             }
             {# #physiquebundle_physique_tuteur
             {
@@ -114,11 +118,11 @@
             #ajout
             {
                 margin-left:97%;
-                font-family: Georgia, Times, 'Times New Roman', serif;
+               
             }
             #information
             {
-                font-family:  Georgia, Times, 'Times New Roman', serif;
+                
             }
             tr
             {
@@ -132,17 +136,56 @@
             {
                 margin-left:3%;
             }
+            #ajout:hover
+            {
+                color:white;
+            }
+            #notification
+            {
+               margin-left:10%;
+            }
     </style>
 
     {% block sidebar %}
         <div class="sidebar">
+        <div class="row cl">
+        <div class="col-md-2">
             <a href="{{path('path_home')}}" class="accueil">Accueil</a>
+        </div>
+        <div class="col-md-4">
+    <a data-target="{{ path('physique_showMessage', { 'id': physique.id }) }}" data-tooltip="voir" class="tooltipped modal-trigger btn btn-outline-light my-6 my-sm-6" href="#modalNotif" id="notification" data-toggle="modal"><i class="fa fa-bell"></i><span class="badge" style="position: absolute;
+top: -10px;padding: 5px 10px;border-radius: 50%;background:red;color: white;" id="notific">{{ comptesNotifs }}</span></a>
+            {# <button type="button" class="btn btn-outline-light my-6 my-sm-6" id="notification" data-toggle="modal"><i class="fa fa-bell"></i><span class="badge" style="position: absolute;
+            top: -10px;padding: 5px 10px;border-radius: 50%;background:red;color: white;" ></span></button> #}
+        </div>
+        <div class="col-md-6">
             <a href="{{ path('path_choix')}}" id="ouvrir">Ouvrir un compte</a>
+        </div>
+    </div>
+        </div>
         </div>
     {% endblock %}
 
             <a href="{{ path('physique_index') }}"class="btn btn-primary" id="index">Liste</a>
 <div class="container">
+            {# modal notification#}
+            <div class="modal1 fade" id="modalNotif" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="body_notif">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+             </div>
+        </div>
+
     <h2 id="information">Informations personnelles</h2>
     <div class="formulaire">
         {{ form_start(edit_form) }}
@@ -217,16 +260,17 @@
             </div>
             <div class="row foot">
                 <input type="submit" class="btn btn-primary" id="valider" value="Valider" />
-            </div>
         {{ form_end(edit_form) }}
         {{ form_start(delete_form,{'attr':{'onSubmit':"return confirm('Voulez vous vraiment supprimer?');"}}) }}
                 <input type="submit" class="btn btn-danger" id="supprimer" value="Supprimer">
         {{ form_end(delete_form) }} 
+            </div>
     </div>
     <div class="piece">
     {# data-toggle="modal" #}
     <h2>Pièces jointes</h2>
-        {% if pieces is not null %}
+    <a data-target="{{ path('piece_new') }}" data-tooltip="voir" id="ajout" {#data-toggle="modal"#} class="tooltipped modal-trigger" href="#myModal">{# <i class="fa fa-plus" style="font-size:26px" aria-hidden="true"></i>#} <i class="fa fa-plus-square" style="font-size:36px"></i> </a>
+    {% if pieces is not null %}
                 <table class="table table-striped table-hover table-sm table-responsive-lg thead-light" id="table">
                 <thead>
                 <tr>
@@ -261,7 +305,16 @@
                             {# <li>
                                 <a href="{{ path('piece_show', { 'id': piece.id }) }}">show</a>
                             </li> #}
-                                <a href="{{ path('piece_edit', { 'id': piece.id }) }}" class="btn btn-info">Modifier</a>
+                                <a data-target="{{ piece.id}}" class="btn btn-info tooltipped modal-trigger1 ajout1" id="" data-toggle="modal" href="#myModal1">Modifier</a>
+                            {# <a data-key="{{piece.id}}" class="btn btn-info modification" style="color:white;">Modifier</a> #}
+                            {# href="{{ path('piece_edit', { 'id': piece.id }) }}" #}
+                                {# {% include 'physique/delete.html.twig' %} #}
+                                <form method="post" action="{{ path('piece_delete', {'id': piece.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer?');">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ piece.id) }}">
+                                  
+                                    <button class="btn btn-info" style="padding-left:9%; width:99.9%;margin-top:3%">Supprimer</button>
+                                </form>
                         </ul>
                     </td>
                 </tr>
@@ -271,9 +324,26 @@
         {% else %}
             <p>Aucune pièce trouvé!</p>
         {% endif %}
-    <a href="{{ path('piece_new') }}" id="ajout" data-toggle="modal" class="btn btn-primary">Ajouter</a>
+    
      {# modal #}
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal fade modal1" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <div class="modal-body" id="body-edit1">
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+         </div>
+      </div>
+ </div>
+
+            <div class="modal fade modal2" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                          <div class="modal-header">
@@ -281,9 +351,9 @@
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body" id="body-edit">
+                        <div class="modal-body" id="body-new">
                             {# {{render(controller('PieceBundle:Controller:PieceController::newAction'))}} #}
-                             {% include 'piece/new.html.twig' %}
+                             {# {% include 'piece/new.html.twig' %} #}
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -292,7 +362,8 @@
                  </div>
             </div>
         </div>
-    </div>       
+    </div>
+{% endblock %}    
 {% block javascripts %} 
 {{parent() }}
 
@@ -300,14 +371,49 @@
      
 $(document).ready(function(){
 
-    $("#ajout").click(function(ev){
-        ev.preventDefault();
-        $('#type').val("")
-        $('#myModal').modal('show')
+    $(".ajout1").click(function(){
+        //ev.preventDefault();
+        //On initialise les modales materialize
+        //$('.modal1').modal();
+        //On récupère l'url depuis la propriété "Data-target" de la balise html a
+        const url = $(this).attr('data-target');
+        const absUrl = "http://localhost/ouverture/web/app_dev.php/piece/"+url+"/edit"
+        console.log(absUrl);
+        
+         $.ajax(
+        {
+            type: 'get', 
+            url: absUrl,
+            success: function (data) { 
+               //console.log(data)
+               $('#body-edit1').html(data)
+               $('#myModal1').modal('show')
+
+            },
+            error: function (errorMessage) { 
+            }
+        }); 
+
+        })
+        })
+
+        $(document).ready(function(){
+    $(".modal-trigger").click(function(){
+        
+        $('.modal2').modal();
+        
+        url = $(this).attr('data-target');
+        $.get(url, function (data) {
+           
+            $('#body-new').html(data);
+
+            $('#myModal').modal('open');
+        });
 
         })
     });
 </script>   
 {% endblock %}
-{% endblock %}
+
+
 

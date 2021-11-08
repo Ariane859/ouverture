@@ -68,23 +68,23 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
     ";
         // line 25
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 32
+        // line 34
         echo "</head>
 <body >
 
 <!-- End Page Loading -->
 ";
-        // line 36
-        $this->displayBlock('topheader', $context, $blocks);
-        // line 37
-        $this->displayBlock('leftmenu', $context, $blocks);
         // line 38
-        $this->displayBlock('content', $context, $blocks);
+        $this->displayBlock('topheader', $context, $blocks);
         // line 39
-        $this->displayBlock('footer', $context, $blocks);
+        $this->displayBlock('leftmenu', $context, $blocks);
         // line 40
+        $this->displayBlock('content', $context, $blocks);
+        // line 41
+        $this->displayBlock('footer', $context, $blocks);
+        // line 42
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 58
+        // line 63
         echo "</body>
 </html>
 ";
@@ -126,8 +126,16 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
         // line 26
         echo "       <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" id=\"bootstrap-css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">
        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">
-       ";
+       <link rel=\"stylesheet\" href=\"";
+        // line 28
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("css/alertify.min.css"), "html", null, true);
+        echo "\"/>
+       <link rel=\"stylesheet\" href=\"";
         // line 29
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("css/themes/default.min.css"), "html", null, true);
+        echo "\" />
+       ";
+        // line 31
         echo "
 </head>
     ";
@@ -139,7 +147,7 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
 
     }
 
-    // line 36
+    // line 38
     public function block_topheader($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -156,7 +164,7 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
 
     }
 
-    // line 37
+    // line 39
     public function block_leftmenu($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -173,7 +181,7 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
 
     }
 
-    // line 38
+    // line 40
     public function block_content($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -190,7 +198,7 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
 
     }
 
-    // line 39
+    // line 41
     public function block_footer($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -207,7 +215,7 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
 
     }
 
-    // line 40
+    // line 42
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -216,38 +224,50 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 41
+        // line 43
         echo "    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>
     ";
-        // line 43
+        // line 45
         echo "    ";
-        // line 44
+        // line 46
         echo "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>
     <script src=\"https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js\"></script>
     ";
-        // line 47
+        // line 49
         echo "    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script> 
     <script src=\"https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js\"></script>
      <script src=\"https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js\"></script>
      <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js\"></script> 
     <script src=\"";
-        // line 51
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("bundles/fosjsrouting/js/router.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 52
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_js_routing_js", array("callback" => "fos.Router.setData"));
-        echo "\"></script>
-    <script src=\"";
         // line 53
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/age.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("alertify.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
         // line 54
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("bundles/fosjsrouting/js/router.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 55
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_js_routing_js", array("callback" => "fos.Router.setData"));
+        echo "\"></script>
+    <script src=\"";
+        // line 56
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/age.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 57
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/expiration.js"), "html", null, true);
         echo "\"></script>
+    <script src=\"";
+        // line 58
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/changement.js"), "html", null, true);
+        echo "\"></script>
+<script src=\"";
+        // line 59
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/notification.js"), "html", null, true);
+        echo "\"></script>
     ";
-        // line 56
+        // line 61
         echo "    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -269,7 +289,7 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
 
     public function getDebugInfo()
     {
-        return array (  251 => 56,  247 => 54,  243 => 53,  239 => 52,  235 => 51,  229 => 47,  225 => 44,  223 => 43,  220 => 41,  211 => 40,  194 => 39,  177 => 38,  160 => 37,  143 => 36,  131 => 29,  127 => 26,  118 => 25,  100 => 12,  88 => 58,  86 => 40,  84 => 39,  82 => 38,  80 => 37,  78 => 36,  72 => 32,  70 => 25,  62 => 20,  56 => 17,  51 => 15,  45 => 12,  32 => 1,);
+        return array (  271 => 61,  267 => 59,  263 => 58,  259 => 57,  255 => 56,  251 => 55,  247 => 54,  243 => 53,  237 => 49,  233 => 46,  231 => 45,  228 => 43,  219 => 42,  202 => 41,  185 => 40,  168 => 39,  151 => 38,  139 => 31,  135 => 29,  131 => 28,  127 => 26,  118 => 25,  100 => 12,  88 => 63,  86 => 42,  84 => 41,  82 => 40,  80 => 39,  78 => 38,  72 => 34,  70 => 25,  62 => 20,  56 => 17,  51 => 15,  45 => 12,  32 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -309,6 +329,8 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
     {% block stylesheets %}
        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" id=\"bootstrap-css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">
        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">
+       <link rel=\"stylesheet\" href=\"{{ asset('css/alertify.min.css')}}\"/>
+       <link rel=\"stylesheet\" href=\"{{ asset('css/themes/default.min.css')}}\" />
        {# <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css\"> #}
 
 </head>
@@ -332,10 +354,13 @@ class __TwigTemplate_a6df7227fc391c253dc173eae2f1fba13fca448f962296e3f1b578bf195
     <script src=\"https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js\"></script>
      <script src=\"https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js\"></script>
      <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js\"></script> 
+    <script src=\"{{ asset('alertify.min.js')}}\"></script>
     <script src=\"{{ asset('bundles/fosjsrouting/js/router.js') }}\"></script>
     <script src=\"{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}\"></script>
     <script src=\"{{ asset('js/age.js')}}\"></script>
     <script src=\"{{ asset('js/expiration.js')}}\"></script>
+    <script src=\"{{ asset('js/changement.js')}}\"></script>
+<script src=\"{{ asset('js/notification.js')}}\"></script>
     {# <script src=\"{{ asset('js/pays.js')}}\"></script> #}
     {# <script src=\"{{ asset('js/message.js')}}\"></script> #}
 {% endblock %}

@@ -10,4 +10,57 @@ namespace PieceBundle\Repository;
  */
 class PieceRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findExample1()
+    {
+    //     return $this->createQueryBuilder('a')
+    //         ->Where('a.datexpiration < sysdate()')
+    //         ->orderBy('a.physique', 'ASC')
+    //         ->setMaxResults(10)
+    //         ->getQuery()
+    //         ->getResult()
+    //     ;
+
+        $Sql = "SELECT a.datexpiration,p.nom,p.prenom, DATEDIFF(a.datexpiration,CURDATE()) AS dates FROM piece as a INNER JOIN physique as p
+         ON p.id = a.physique_id  WHERE DATEDIFF(datexpiration,CURDATE()) <1 ";
+        $stmt = $this->getEntityManager()->getConnection()->prepare($Sql);
+        $stmt->execute([]);
+        return $stmt->fetchAll();
+    }
+    public function totalNotification()
+    {
+    
+        $Sql = "SELECT count(a.id) as nombre FROM piece as a INNER JOIN physique as p
+         ON p.id = a.physique_id  WHERE DATEDIFF(datexpiration,CURDATE()) <1 ";
+        $stmt = $this->getEntityManager()->getConnection()->prepare($Sql);
+        $stmt->execute([]);
+        return $stmt->fetchAll();
+    }
+
+    public function NotificationPersonelle($value)
+    {
+        $Sql = "SELECT a.datexpiration,p.nom,p.prenom, DATEDIFF(a.datexpiration,CURDATE()) AS dates FROM piece as a INNER JOIN physique as p
+        ON p.id = a.physique_id  WHERE DATEDIFF(datexpiration,CURDATE()) <1 and a.physique_id=$value";
+       $stmt = $this->getEntityManager()->getConnection()->prepare($Sql);
+       $stmt->execute([]);
+       return $stmt->fetchAll();
+    }
+    public function totalNotificationper($value)
+    {
+    
+        $Sql = "SELECT count(m.id) as nombre FROM piece as m INNER JOIN physique as p
+         ON p.id = m.physique_id  WHERE DATEDIFF(datexpiration,CURDATE()) <1 and m.physique_id=$value";
+        $stmt = $this->getEntityManager()->getConnection()->prepare($Sql);
+        $stmt->execute([]);
+        return $stmt->fetchAll();
+    }
+    // public function findExample2()
+    // {
+    //     return $this->createQueryBuilder('a')
+    //         ->Where('a.datexpiration < sysdate()')
+    //         ->orderBy('a.datexpiration', 'ASC')
+    //         ->setMaxResults(10)
+    //         ->getQuery()
+    //         ->getResult()
+    //     ;
+    // }
 }

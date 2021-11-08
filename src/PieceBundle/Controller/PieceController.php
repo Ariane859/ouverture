@@ -47,10 +47,14 @@ class PieceController extends Controller
     {
         //$physique=new Physique();
         $piece = new Piece();
+        $physique=new Physique();
         $form = $this->createForm('PieceBundle\Form\PieceType', $piece);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $idPersonnePhysique = $piece->getPhysique()->getId();
+            $nomPersonnePhysique = $piece->getPhysique()->getNom();
+            $siglePersonnePhysique = $piece->getPhysique()->getSigle();
             $fichier = $form->get('fichier')->getData();
             if ($fichier) {
                 $originalFilename = pathinfo($fichier->getClientOriginalName(), PATHINFO_FILENAME);
@@ -76,7 +80,14 @@ class PieceController extends Controller
             $em->persist($piece);
             $em->flush();
 
-        //return $this->redirectToRoute('physique_new');
+            if(!is_null($nomPersonnePhysique))
+            {
+                return $this->redirectToRoute('physique_edit',array('id'=>$idPersonnePhysique,'slug'=>1));
+            }
+            else {
+                return $this->redirectToRoute('physique_edit',array('id'=>$idPersonnePhysique,'slug'=>2));
+            }
+        //return $this->redirectToRoute('physique_show');
         }
 
         return $this->render('piece/new.html.twig', array(
@@ -99,6 +110,7 @@ class PieceController extends Controller
         $id=$request->get('id');
         $em = $this->getDoctrine()->getManager();
         $pieces = $em->getRepository('PieceBundle:Piece')->findBy(array('id' =>$id));
+
         //dump($pieces[0]);die();
         //return new JsonResponse($pieces);
         return $this->render('piece/show.html.twig', array(
@@ -121,9 +133,43 @@ class PieceController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+             //dump($piece);die();
+            $idPersonnePhysique = $piece->getPhysique()->getId();
+            $nomPersonnePhysique = $piece->getPhysique()->getNom();
+            $datexpiration=$piece->getDatexpiration();
+            $siglePersonnePhysique = $piece->getPhysique()->getSigle();
+            $fichier = $editForm->get('fichier')->getData();
+            if ($fichier) {
+                $originalFilename = pathinfo($fichier->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$fichier->guessExtension();
 
-            return $this->redirectToRoute('piece_edit', array('id' => $piece->getId()));
+                // Move the file to the directory where brochures are stored
+                try {
+                    $fichier->move(
+                        $this->getParameter('brochures_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'brochureFilename' property to store the PDF file name
+                // instead of its contents
+                $piece->setFichier($newFilename);
+            }
+            $em= $this->getDoctrine()->getManager();
+            $date = $em->getRepository('PieceBundle:Piece')->findOneBy(array('datexpiration'=>$datexpiration));
+            $em->flush();
+            if(!is_null($nomPersonnePhysique))
+            {
+                return $this->redirectToRoute('physique_edit',array('id'=>$idPersonnePhysique,'slug'=>1));
+            }
+            else {
+                return $this->redirectToRoute('physique_edit',array('id'=>$idPersonnePhysique,'slug'=>2));
+            }
+            
         }
 
         return $this->render('piece/edit.html.twig', array(
@@ -137,20 +183,30 @@ class PieceController extends Controller
      * Deletes a piece entity.
      *
      * @Route("/{id}", name="piece_delete")
-     * @Method("DELETE")
+     * @Method({"GET", "POST","DELETE"})
      */
     public function deleteAction(Request $request, Piece $piece)
     {
+      
         $form = $this->createDeleteForm($piece);
         $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
+        //dump($piece);die();
+       // if ($form->isSubmitted() && $form->isValid()) { }
+       $idPersonnePhysique = $piece->getPhysique()->getId();
+       $nomPersonnePhysique = $piece->getPhysique()->getNom();
+       $siglePersonnePhysique = $piece->getPhysique()->getSigle();
             $em = $this->getDoctrine()->getManager();
             $em->remove($piece);
+           // dump($piece);die();
             $em->flush();
-        }
-
-        return $this->redirectToRoute('piece_index');
+            
+            if(!is_null($nomPersonnePhysique))
+            {
+                return $this->redirectToRoute('physique_edit',array('id'=>$idPersonnePhysique,'slug'=>1));
+            }
+            else {
+                return $this->redirectToRoute('physique_edit',array('id'=>$idPersonnePhysique,'slug'=>2));
+            }
     }
 
     /**

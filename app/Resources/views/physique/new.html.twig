@@ -205,7 +205,8 @@
                             <div class="row justify-content-center">
                                 <div class="col-7 text-center">
                                     <h5>Compte enregistré avec succès!</h5><br>
-                                    <center>Merci !</center>                            
+                                    <center>Merci !</center>   
+                                    {# <a href=""class="btn btn-info" id="show-info" style="color:white">Voir</a>                          #}
                                 </div>
                             </div>
                     </div>
@@ -277,20 +278,30 @@
                                 else
                                 {
                                     console.log(data)
+                                    //document.getElementById("show-info").href="http://localhost/ouverture/web/app_dev.php/physique/"+data.notificationId; 
                                     next_fs.show();
+
                                     current_fs.animate({opacity: 0}, {
                                     step: function(now) {
-                                    
-                                    opacity = 1 - now;
 
-                                    current_fs.css({
-                                        'display': 'none',
-                                        'position': 'relative'
-                                    });
-                                    next_fs.css({'opacity': opacity});
+                                        opacity = 1 - now;
+
+                                        current_fs.css({
+                                            'display': 'none',
+                                            'position': 'relative'
+                                        });
+
+                                        next_fs.css({
+                                            'opacity': opacity
+                                        });
                                     },
                                     duration: 600
                                 });
+
+                                setTimeout(function()
+                                    {
+                                        window.location.assign("http://localhost/ouverture/web/app_dev.php/physique/"+data.notificationId)
+                                    },2000);
                                 }
                             }
                         })
